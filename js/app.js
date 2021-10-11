@@ -3,9 +3,9 @@ let total;
 const IVA = 1.21;
 
 //FUNCION PARA CREAR EL PROMPT Y LLAMARLO EN LOS IF ANIDADOS
-function monto() {
+const monto = () => {
 
-    let compra = parseInt(prompt('Ingresa el monto de tu compra para calcular el envío por favor')).toFixed(2);
+    let compra = parseInt(prompt('Ingresa el monto de tu compra para calcular el envío por favor'));
     return compra;
 
 };
@@ -16,6 +16,8 @@ const preguntar = () => {
 
         //PREGUNTAMOS AL USUARIO A QUE PROVINCIA PERTENECE
         provincia = prompt('¿Cuál es tu provincia?').toLowerCase().trim();
+
+        //VARIABLE PARA EL CALCULO DEl MONTO INGRESADO POR EL CLIENTE
         let totalCompra;
 
         //ESTE SWITCH CONTIENE TODAS LAS PROVINCIAS DE ARGENTINA Y SUS RESPECTIVOS RECARGOS PARA EL ENVIO DEL PRODUCTO
@@ -113,22 +115,19 @@ const preguntar = () => {
                 total = (totalCompra * IVA) * 1.5;
                 break;
             default:
-                alert('La provincia ingresada no existe. Intente nuevamente por favor');
+                alert('La provincia ingresada no existe.');
                 preguntar();
         }
 
     } else {
 
         //SI EL USUARIO INGRESA UN VALOR NUMERICO, LO RECHAZAMOS Y VOLVEMOS A PREGUNTAR.
-        alert('No se permiten valores numericos para este campo, intente nuevamente por favor.');
+        alert('Tampoco se permiten valores numericos para este campo, intente nuevamente por favor.');
         preguntar();
-
     };
 
     //MOSTRAMOS RESULTADO AL USUARIO (SALIDA)
-    alert(`Tu provincia es ${provincia} y con el envío tiene un precio final de $${total} pesos`);
-
-    return;
+    alert(`Tu provincia es ${provincia} y con el envío tiene un precio final de $${total.toFixed(2)} pesos`);
 
 };
 
