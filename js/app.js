@@ -11,11 +11,11 @@ const monto = () => {
 };
 
 const preguntar = () => {
+    
+    //PREGUNTAMOS AL USUARIO A QUE PROVINCIA PERTENECE
+    provincia = prompt('¿Cuál es tu provincia?').toLowerCase().trim();
 
     if (isNaN(provincia)) {
-
-        //PREGUNTAMOS AL USUARIO A QUE PROVINCIA PERTENECE
-        provincia = prompt('¿Cuál es tu provincia?').toLowerCase().trim();
 
         //VARIABLE PARA EL CALCULO DEl MONTO INGRESADO POR EL CLIENTE
         let totalCompra;
@@ -122,7 +122,7 @@ const preguntar = () => {
     } else {
 
         //SI EL USUARIO INGRESA UN VALOR NUMERICO, LO RECHAZAMOS Y VOLVEMOS A PREGUNTAR.
-        alert('Tampoco se permiten valores numericos para este campo, intente nuevamente por favor.');
+        alert('No se permiten valores numericos para este campo, intente nuevamente por favor.');
         preguntar();
     };
 
