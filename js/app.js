@@ -3,7 +3,7 @@ let total;
 const IVA = 1.21;
 
 //FUNCION PARA CREAR EL PROMPT
-const puchaseAmount = () => {
+const purchaseAmount = () => {
 
     let purchase = parseInt(prompt('Ingresa el monto de tu compra para calcular el envío por favor'));
 
@@ -32,95 +32,95 @@ const askProvince = () => {
         //ESTE SWITCH CONTIENE TODAS LAS PROVINCIAS DE ARGENTINA Y SUS RESPECTIVOS RECARGOS PARA EL ENVIO DEL PRODUCTO
         switch (province) {
             case 'buenos aires':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.2;
                 break;
             case 'misiones':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.3;
                 break;
             case 'entre rios':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.3;
                 break;
             case 'santa cruz':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.6;
                 break;
             case 'chaco':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.3;
                 break;
             case 'cordoba':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.4;
                 break;
             case 'tierra del fuego':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.6;
                 break;
             case 'la pampa':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.2;
                 break;
             case 'caba':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.2;
                 break;
             case 'santa fe':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.3;
                 break;
             case 'mendoza':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.5;
                 break;
             case 'salta':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.4;
                 break;
             case 'tucuman':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.4;
                 break;
             case 'corrientes':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.3;
                 break;
             case 'jujuy':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.4;
                 break;
             case 'rio negro':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.6;
                 break;
             case 'san luis':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.4;
                 break;
             case 'neuquen':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.6;
                 break;
             case 'chubut':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.6;
                 break;
             case 'san juan':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.4;
                 break;
             case 'la rioja':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.3;
                 break;
             case 'catamarca':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.3;
                 break;
             case 'santiago del estero':
-                totalPurchase = puchaseAmount();
+                totalPurchase = purchaseAmount();
                 total = (totalPurchase * IVA) * 1.5;
                 break;
             default:
