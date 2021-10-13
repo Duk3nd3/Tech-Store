@@ -2,7 +2,7 @@ let province;
 let total;
 const IVA = 1.21;
 
-//FUNCION PARA CREAR EL PROMPT
+//*!FUNCION PARA CREAR EL PROMPT
 const purchaseAmount = () => {
 
     let purchase = parseInt(prompt('Ingresa el monto de tu compra para calcular el envío por favor'));
@@ -10,21 +10,24 @@ const purchaseAmount = () => {
     return purchase;
 };
 
-//FUNCION QUE CALCULA EL COSTO DE ENVIO
+//*!FUNCION QUE CALCULA EL COSTO DE ENVIO
 const shippingCost = (envio, totalPurchase, IVA, province, total) => {
 
+        //*EVITAMOS EL INGRESO DE CARACTERES ALFABETICOS CON !isNaN
     if ((!isNaN(totalPurchase)) && (totalPurchase <= 5000)) {
 
         total = (totalPurchase * IVA) * envio;
         alert(`Tu provincia es ${province} y con el envío tiene un precio final de $${total.toFixed(2)} pesos`);
         alert('Compra finalizada con éxito, ¡muchas gracias!');
 
+        //*SI EL PRECIO ES MAYOR A 5K EL ENVIO ES GRATIS
     } else if ((!isNaN(totalPurchase)) && (totalPurchase > 5000)) {
 
         total = (totalPurchase * IVA);
         alert(`Tu provincia es ${province} y el precio final con envio gratuito es de $${total.toFixed(2)} pesos`);
         alert('Compra finalizada con éxito, ¡muchas gracias!');
 
+        //!*DAMOS AVISO AL USUARIO SOBRE EL NO USO DE CARACTERES ALFABETICOS PARA ESTE CAMPO
     } else {
 
         alert('Solo se permiten valores numericos para este campo, intente nuevamente por favor.');
@@ -34,17 +37,18 @@ const shippingCost = (envio, totalPurchase, IVA, province, total) => {
 
 }
 
-//FUNCION SOBRE LA CUAL PREGUNTAMOS AL USUARIO A QUE PROVINCIA PERTENECE
+//!FUNCION SOBRE LA CUAL PREGUNTAMOS AL USUARIO A QUE PROVINCIA PERTENECE
 const askProvince = () => {
 
     province = prompt('¿Cuál es tu provincia?').toLowerCase().trim();
 
+    //*SINO ES UN VALOR ALFABETICO AVISAMOS AL USUARIO POR MEDIO DEL 'ELSE'
     if (isNaN(province)) {
 
-        //VARIABLE PARA EL CALCULO DEl MONTO INGRESADO POR EL CLIENTE
+        //*VARIABLE PARA EL CALCULO DEl MONTO INGRESADO POR EL CLIENTE
         let totalPurchase;
 
-        //ESTE SWITCH CONTIENE TODAS LAS PROVINCIAS DE ARGENTINA Y SUS RESPECTIVOS RECARGOS PARA EL ENVIO DEL PRODUCTO
+        //?ESTE SWITCH CONTIENE TODAS LAS PROVINCIAS DE ARGENTINA Y SUS RESPECTIVOS RECARGOS PARA EL ENVIO DEL PRODUCTO
         switch (province) {
 
             case 'buenos aires':
@@ -193,12 +197,12 @@ const askProvince = () => {
 
     } else {
 
-        //SI EL USUARIO INGRESA UN VALOR NUMERICO, LO RECHAZAMOS Y VOLVEMOS A PREGUNTAR.
+        //*SI EL USUARIO INGRESA UN VALOR NUMERICO, LO RECHAZAMOS Y VOLVEMOS A PREGUNTAR.
         alert('No se permiten valores numericos para este campo, intente nuevamente por favor.');
         askProvince();
     };
 
 };
 
-//CON ESTA CONSTANTE GENERAMOS EVENTO EN BOTON CALCULAR ENVIO
+//!CON ESTA CONSTANTE GENERAMOS EVENTO EN BOTON CALCULAR ENVIO
 const accionBoton = document.querySelector('#botonCalculoEnvio').addEventListener('click', askProvince);
