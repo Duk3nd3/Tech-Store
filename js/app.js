@@ -7,21 +7,31 @@ const purchaseAmount = () => {
 
     let purchase = parseInt(prompt('Ingresa el monto de tu compra para calcular el envío por favor'));
 
-    //ACA VERIFICAMOS, SI LA COMPRA ES MAYOR A 5000 EL ENVIO ES GRATIS
-    if (purchase <= 5000) {
+    return purchase;
+};
 
-        return purchase;
+//FUNCION QUE CALCULA EL COSTO DE ENVIO
+const shippingCost = (envio, totalPurchase, IVA, province, total) => {
+
+    if (totalPurchase <= 5000) {
+
+        total = (totalPurchase * IVA) * envio;
+        alert(`Tu provincia es ${province} y con el envío tiene un precio final de $${total.toFixed(2)} pesos`);
+        alert('Compra finalizada con éxito, ¡muchas gracias!');
 
     } else {
 
-        alert(`Por la compra sobre un monto de $${purchase} el envío es gratis`);
+        total = (totalPurchase * IVA);
+        alert(`Tu provincia es ${province} y el precio final con envio gratuito es de $${total.toFixed(2)} pesos`);
+        alert('Compra finalizada con éxito, ¡muchas gracias!');
+
     }
 
-};
+}
 
+//FUNCION SOBRE LA CUAL PREGUNTAMOS AL USUARIO A QUE PROVINCIA PERTENECE
 const askProvince = () => {
 
-    //PREGUNTAMOS AL USUARIO A QUE PROVINCIA PERTENECE
     province = prompt('¿Cuál es tu provincia?').toLowerCase().trim();
 
     if (isNaN(province)) {
@@ -31,101 +41,149 @@ const askProvince = () => {
 
         //ESTE SWITCH CONTIENE TODAS LAS PROVINCIAS DE ARGENTINA Y SUS RESPECTIVOS RECARGOS PARA EL ENVIO DEL PRODUCTO
         switch (province) {
+
             case 'buenos aires':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.2;
+                shippingCost(1.2, totalPurchase, IVA, province, total);
                 break;
+
             case 'misiones':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.3;
+                shippingCost(1.3, totalPurchase, IVA, province, total);
                 break;
+
             case 'entre rios':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.3;
+                shippingCost(1.3, totalPurchase, IVA, province, total);
                 break;
+
             case 'santa cruz':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.6;
+                shippingCost(1.6, totalPurchase, IVA, province, total);
                 break;
+
             case 'chaco':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.3;
+                shippingCost(1.3, totalPurchase, IVA, province, total);
                 break;
+
             case 'cordoba':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.4;
+                shippingCost(1.4, totalPurchase, IVA, province, total);
                 break;
+
             case 'tierra del fuego':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.6;
+                shippingCost(1.6, totalPurchase, IVA, province, total);
                 break;
+
             case 'la pampa':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.2;
+                shippingCost(1.2, totalPurchase, IVA, province, total);
                 break;
+
             case 'caba':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.2;
+                shippingCost(1.2, totalPurchase, IVA, province, total);
                 break;
+
             case 'santa fe':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.3;
+                shippingCost(1.3, totalPurchase, IVA, province, total);
                 break;
+
             case 'mendoza':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.5;
+                shippingCost(1.5, totalPurchase, IVA, province, total);
                 break;
+
             case 'salta':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.4;
+                shippingCost(1.4, totalPurchase, IVA, province, total);
                 break;
+
             case 'tucuman':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.4;
+                shippingCost(1.4, totalPurchase, IVA, province, total);
                 break;
+
             case 'corrientes':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.3;
+                shippingCost(1.3, totalPurchase, IVA, province, total);
                 break;
+
             case 'jujuy':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.4;
+                shippingCost(1.4, totalPurchase, IVA, province, total);
                 break;
+
             case 'rio negro':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.6;
+                shippingCost(1.6, totalPurchase, IVA, province, total);
                 break;
+
             case 'san luis':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.4;
+                shippingCost(1.4, totalPurchase, IVA, province, total);
                 break;
+
             case 'neuquen':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.6;
+                shippingCost(1.6, totalPurchase, IVA, province, total);
                 break;
+
             case 'chubut':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.6;
+                shippingCost(1.6, totalPurchase, IVA, province, total);
                 break;
+
             case 'san juan':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.4;
+                shippingCost(1.4, totalPurchase, IVA, province, total);
                 break;
+
             case 'la rioja':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.3;
+                costoEnvio(1.3, totalPurchase, IVA, province, total);
                 break;
+
             case 'catamarca':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.3;
+                costoEnvio(1.3, totalPurchase, IVA, province, total);
                 break;
+
             case 'santiago del estero':
+
                 totalPurchase = purchaseAmount();
-                total = (totalPurchase * IVA) * 1.5;
+                costoEnvio(1.5, totalPurchase, IVA, province, total);
                 break;
+
             default:
                 alert('La provincia ingresada no existe.');
                 askProvince();
+
         }
 
     } else {
@@ -134,9 +192,6 @@ const askProvince = () => {
         alert('No se permiten valores numericos para este campo, intente nuevamente por favor.');
         askProvince();
     };
-
-    //MOSTRAMOS RESULTADO AL USUARIO (SALIDA)
-    alert(`Tu provincia es ${province} y con el envío tiene un precio final de $${total.toFixed(2)} pesos`);
 
 };
 
