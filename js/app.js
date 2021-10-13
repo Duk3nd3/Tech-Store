@@ -13,18 +13,23 @@ const purchaseAmount = () => {
 //FUNCION QUE CALCULA EL COSTO DE ENVIO
 const shippingCost = (envio, totalPurchase, IVA, province, total) => {
 
-    if (totalPurchase <= 5000) {
+    if ((!isNaN(totalPurchase)) && (totalPurchase <= 5000)) {
 
         total = (totalPurchase * IVA) * envio;
         alert(`Tu provincia es ${province} y con el envío tiene un precio final de $${total.toFixed(2)} pesos`);
         alert('Compra finalizada con éxito, ¡muchas gracias!');
 
-    } else {
+    } else if ((!isNaN(totalPurchase)) && (totalPurchase > 5000)) {
 
         total = (totalPurchase * IVA);
         alert(`Tu provincia es ${province} y el precio final con envio gratuito es de $${total.toFixed(2)} pesos`);
         alert('Compra finalizada con éxito, ¡muchas gracias!');
 
+    } else {
+
+        alert('Solo se permiten valores numericos para este campo, intente nuevamente por favor.');
+        askProvince();
+        
     }
 
 }
@@ -181,7 +186,7 @@ const askProvince = () => {
                 break;
 
             default:
-                alert('La provincia ingresada no existe.');
+                alert('La provincia ingresada no existe, intente nuevamente por favor.');
                 askProvince();
 
         }
