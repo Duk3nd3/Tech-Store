@@ -46,7 +46,7 @@ const controlar = () => {
             control = false;
 
         } else {
-            
+
             control = true;
 
         }
@@ -68,7 +68,9 @@ const saludar = (nombre) => {
 function ordenarAsc() {
 
     const menor = [combo2.valor, combo1.valor, combo3.valor];
-    menor.sort(function(a, b) {return a-b});
+    menor.sort(function (a, b) {
+        return a - b
+    });
     console.log(menor);
 
 }
@@ -77,7 +79,9 @@ function ordenarAsc() {
 function ordenarDesc() {
 
     const mayor = [combo1.valor, combo3.valor, combo2.valor];
-    mayor.sort(function(a, b) {return b - a});
+    mayor.sort(function (a, b) {
+        return b - a
+    });
     console.log(mayor);
 
 }
@@ -130,4 +134,3 @@ window.onload = function () {
     const accionBotonDesc = document.querySelector('#botonOrdenarDesc').addEventListener('click', ordenarDesc);
 
 };
-

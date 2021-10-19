@@ -13,7 +13,7 @@ const purchaseAmount = () => {
 //*!FUNCION QUE CALCULA EL COSTO DE ENVIO
 const shippingCost = (envio, totalPurchase, IVA, province, total) => {
 
-        //*EVITAMOS EL INGRESO DE CARACTERES ALFABETICOS CON !isNaN
+    //*EVITAMOS EL INGRESO DE CARACTERES ALFABETICOS CON !isNaN
     if ((!isNaN(totalPurchase)) && (totalPurchase <= 5000)) {
 
         total = (totalPurchase * IVA) * envio;
@@ -32,7 +32,7 @@ const shippingCost = (envio, totalPurchase, IVA, province, total) => {
 
         alert('Solo se permiten valores numericos para este campo, intente nuevamente por favor.');
         askProvince();
-        
+
     }
 
 }
