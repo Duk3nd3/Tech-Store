@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
     <link rel="stylesheet" href="./css/bootstrap.css">
-    <title>DESAFIO 5</title>
+    <link rel="stylesheet" href="./css/stylesheet.css">
+    <title>TECH-STORE</title>
 </head>
 
 <body class="bg-secondary bg-gradient">
@@ -14,8 +17,8 @@
         <div class="pos-f-t">
             <div class="collapse" id="navbarToggleExternalContent">
                 <div class="bg-dark p-4">
-                    <h4 class="text-white">DESAFIO #5</h4>
-                    <span class="text-muted">Proyecto en progreso...</span>
+                    <h4 class="text-white">TECH-STORE</h4>
+                    <span class="text-muted">Caro, pero el mejor</span>
                 </div>
             </div>
             <nav class="navbar navbar-dark bg-dark">
@@ -28,77 +31,54 @@
         </div>
     </header>
     <main>
-        <div style="margin-bottom: 15%; margin-top: 15%; margin-left: 15%; margin-right: 15%;">
+        <div>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
                 <div class="card">
-                    <img src="" class="card-img-top" alt="...">
+                    <img src="/images/placas_de_video/evga_3070_RTX-preview.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <a href="#"><button id="botonCalculoEnvio" class="btn btn-dark">Calcular Envío</button></a>
+                    <h5 class="card-title">Placa de video</h5>
+                    <p class="card-text">Evga 3070 RTX.</p>
+                    <a href="#"><button class="btn btn-dark calcularEnvioBotones">Comprar</button></a>
                     </div>
                 </div>
                 </div>
                 <div class="col">
                 <div class="card">
-                    <img src="" class="card-img-top" alt="...">
+                    <img src="/images/placas_de_video/gigabyte_590_RX-preview.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <a href="#"><button id="botonCalculoEnvio" class="btn btn-dark">Calcular Envío</button></a>
+                    <h5 class="card-title">Placa de video</h5>
+                    <p class="card-text">Gigabyte RX 590.</p>
+                    <a href="#"><button class="btn btn-dark calcularEnvioBotones">Comprar</button></a>
                     </div>
                 </div>
                 </div>
                 <div class="col">
                 <div class="card">
-                    <img src="" class="card-img-top" alt="...">
+                    <img src="/images/placas_de_video/msi_2080ti_RTX-preview.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title">Placa de video</h5>
+                    <p class="card-text">Msi 2080ti RTX.</p>
+                    <a href="#"><button class="btn btn-dark calcularEnvioBotones">Comprar</button></a>
                     </div>
-                    <a href="#"><button id="botonCalculoEnvio" class="btn btn-dark">Calcular Envío</button></a>
-                </div>
-                </div>
-                <div class="col">
-                <div class="card">
-                    <img src="" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <a href="#"><button id="botonCalculoEnvio" class="btn btn-dark">Calcular Envío</button></a>
                 </div>
                 </div>
             </div>
         </div>
-        <div style="margin-bottom: 15%; margin-top: 15%;">
-            <div class="card text-center">
-                <div class="card-header">
-                    Envíos a todo el País
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Calcula el envío a tu ciudad</h5>
-                    <p class="card-text">Solo deberás colocar tu provincia para saber cuanto te saldrá el precio final
-                        con envío incluído.</p>
-                    <a href="#"><button id="botonCalculoEnvio" class="btn btn-dark">Calcular Envío</button></a>
-                </div>
-                <div class="card-footer text-muted">
-                    Prototipo en curso S.A.
-                </div>
-            </div>
+        <div>
+            <button id="botonOrdenarAsc" type="button" class="btn btn-secondary btn-lg botonesOrganizarProductos">Ordenar producto de A-Z</button>
+            <button id="botonOrdenarDesc" type="button" class="btn btn-secondary btn-lg botonesOrganizarProductos">Ordenar producto de Z-A</button>
+            <button id="botonCalculoEnvio" type="button" class="btn btn-secondary btn-lg botonesOrganizarProductos">Calcular Envio</button>
         </div>
     </main>
     <!-- <footer>
         <div class="bg-dark p-4" style="padding: 0%;"></div>
     </footer> -->
-
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="js/productos.js"></script>
-    <!-- <script src="./js/carrito.js"></script> -->
+    <script src="./js/productos.js"></script>
+    <script src="./js/carrito.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
 
 </body>
-
 </html>
