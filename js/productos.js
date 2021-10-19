@@ -59,7 +59,7 @@ const controlar = () => {
 
 //!IMPRIMOS NOMBRE USUARIO INVOCANDO A LA FUNCION 'CONTROLAR'
 const saludar = (nombre) => {
-    alert(`Hola ${nombre} (L) :-)`)
+    alert(`Hola (L) ${nombre} (L) ¡Bienvenid@!`)
 };
 
 //!ORDENAMOS POR ID LOS PODUCTOS CON EL METODO 'SORT'
