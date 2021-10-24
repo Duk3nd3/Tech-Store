@@ -134,3 +134,30 @@ window.onload = function () {
     const accionBotonDesc = document.querySelector('#botonOrdenarDesc').addEventListener('click', ordenarDesc);
 
 };
+
+//!LLAMADO AL TEMPLATE STOCK.JS
+const cajaProductos = document.querySelector('#caja-productos'); 
+
+stockProductos.forEach((productos) => {
+
+const article = document.createElement('article');
+article.classList.add('row-cols-1', 'row-cols-md-3', 'g-4');
+article.id = `${productos.id}`;
+
+article.innerHTML = `
+        <div class="col">
+            <div class="card">
+                <img src=${productos.img} class="card-img-top"
+                alt="placa de video 590 RX">
+            <div class="card-body">
+                <h5 class="card-title">${productos.nombre}</h5>
+                <p class="card-text">${productos.desc}</p>
+                <p class="card-text">$${productos.precio}</p>
+                <p class="card-text">${productos.disponible}</p>
+                <a href="#"><button class="btn btn--4 btn-dark calcularEnvioBotones">Agregar al carrito</button></a>
+            </div>
+        </div>
+    `
+
+    cajaProductos.append(article);
+});
