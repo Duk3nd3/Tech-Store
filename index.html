@@ -2,60 +2,50 @@
 <html lang="en">
 
 <head>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/stylesheet.css">
     <title>-STORE</title>
 </head>
 
-<body class="bg-secondary bg-gradient">
-    <header>
-        <div class="pos-f-t">
-            <div class="collapse" id="navbarToggleExternalContent">
-                <div class="bg-dark p-4">
-                    <h4 class="text-white">TECH-STORE</h4>
-                    <span class="text-muted">Este sitio se encuentra en construccion</span>
-                </div>
-            </div>
-            <nav class="navbar navbar-dark bg-dark">
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </nav>
+<body>
+    <div class="sidenav">
+        <div class="login-main-text">
+            <h2>TECH-STORE<br>A la vanguardia del tech-hardware</h2>
+            <p>Ingresa con tu usuario o registrate</p>
         </div>
-    </header>
-    <main>
-        <!--SE LLAMA A LA CONST cajaProductos EN TEMPLATE productos.js-->
-        <section class="container">
-            <div class="row" id="caja-productos">
-
+    </div>
+    <div class="main">
+        <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+                <form>
+                    <div class="form-group">
+                        <label>Nombre de usuario</label>
+                        <input type="text" id="usuario" class="form-control" placeholder="Digita tu nombre de usuario">
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="password" id="contraseña" class="form-control" placeholder="Digita tu contraseña">
+                    </div>
+                    <button type="button" value="iniciar sesion" id="boton" onclick="login()" class="btn btn-black">Ingresar</button>
+                    <button type="button" value="registrarse" id="botonRegistro" onclick="registro()" class="btn btn-black">Registrate</button>
+                </form>
             </div>
-        </section>
-        <div class="content centered-elements">
-            <button id="botonOrdenarAsc" type="button"
-                class="btn btn--3 btn-secondary btn-lg botonesOrganizarProductos">Ordenar producto de A-Z</button>
-            <button id="botonOrdenarDesc" type="button"
-                class="btn btn--3 btn-secondary btn-lg botonesOrganizarProductos">Ordenar producto de Z-A</button>
-            <button id="botonCalculoEnvio" type="button"
-                class="btn btn--3 btn-secondary btn-lg botonesOrganizarProductos">Calcular Envio</button>
         </div>
-    </main>
-    <!-- <footer>
-        <div class="bg-dark p-4" style="padding: 0%;"></div>
-    </footer> -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="./js/stock.js"></script>
-    <script src="./js/productos.js"></script>
-    <script src="./js/envio.js"></script>
-    <script src="./js/bootstrap.bundle.min.js"></script>
-
+    </div>
+    <script src="js/login.js"></script>
+    <script src="js/registro.js"></script>
 </body>
 
 </html>

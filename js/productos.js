@@ -27,41 +27,6 @@ const combo1 = new Productos(1, "590 RX", "i3", "DDR3", 130000, "GIGABYTE");
 const combo2 = new Productos(2, "2080 RTX", "i5", "DDR4", 210000, "MSI");
 const combo3 = new Productos(3, "3070 RTX", "i7", "DDR5", 350000, "EVGA");
 
-//!FUNCION 'CONTROLAR' SOLICITAMOS NOMBRE AL USUARIO
-const controlar = () => {
-
-    let control = true;
-    let nombre = prompt("Por favor digita tu nombre: ");
-
-    do {
-
-        if (isNaN(nombre === null || nombre === undefined || nombre == "")) {
-
-            nombre = prompt("Digita un nombre de usuario correcto")
-            control = false;
-
-        } else if (!isNaN(nombre)) {
-
-            nombre = prompt("No se permiten valores numericos dentro de este campo, ingresa tu nombre")
-            control = false;
-
-        } else {
-
-            control = true;
-
-        }
-
-    } while (control == false)
-
-    return nombre;
-
-}
-
-//!IMPRIMOS NOMBRE USUARIO INVOCANDO A LA FUNCION 'CONTROLAR'
-const saludar = (nombre) => {
-    alert(`Hola (L) ${nombre} (L) ¡Bienvenid@!`)
-};
-
 //!ORDENAMOS POR ID LOS PODUCTOS CON EL METODO 'SORT'
 
 //*ASCENDENTE
@@ -135,29 +100,111 @@ window.onload = function () {
 
 };
 
-//!LLAMADO AL TEMPLATE STOCK.JS
-const cajaProductos = document.querySelector('#caja-productos'); 
+//!LLAMADO AL TEMPLATE VGA.JS
+const cajaProductosVga = document.querySelector('#caja-productos-vga');
 
-stockProductos.forEach((productos) => {
+stockProductos_vga.forEach((productosVga) => {
 
-const article = document.createElement('article');
-article.classList.add('row-cols-1', 'row-cols-md-3', 'g-4');
-article.id = `${productos.id}`;
+    const article = document.createElement('article');
+    article.classList.add('col-6', 'col-md-4');
+    article.id = `${productosVga.id}`;
 
-article.innerHTML = `
-        <div class="col">
-            <div class="card">
-                <img src=${productos.img} class="card-img-top"
-                alt="placa de video 590 RX">
+    article.innerHTML = `
+        <div class="card">
+            <img src=${productosVga.img} class="card-img-top"
+            alt="placa de video">
             <div class="card-body">
-                <h5 class="card-title">${productos.nombre}</h5>
-                <p class="card-text">${productos.desc}</p>
-                <p class="card-text">$${productos.precio}</p>
-                <p class="card-text">${productos.disponible}</p>
-                <a href="#"><button class="btn btn--4 btn-dark calcularEnvioBotones">Agregar al carrito</button></a>
+                <h5 class="card-title">${productosVga.marca}</h5>
+                <p class="card-text">${productosVga.modelo}</p>
+                <p class="card-text">${productosVga.desc}</p>
+                <p class="card-text">$${productosVga.precio}</p>
+                <p class="card-text">${productosVga.memoria}</p>
+                <a href="#"><button class="btn btn--4 btn-dark">Agregar al carrito</button></a>
             </div>
         </div>
     `
 
-    cajaProductos.append(article);
+    cajaProductosVga.append(article);
+});
+
+//!LLAMADO AL TEMPLATE PROCESADORES.JS
+const cajaProductosCore = document.querySelector('#caja-productos-core');
+
+stockProductos_procesadores.forEach((productosCore) => {
+
+    const article = document.createElement('article');
+    article.classList.add('col-6', 'col-md-4');
+    article.id = `${productosCore.id}`;
+
+    article.innerHTML = `
+        <div class="card">
+            <img src=${productosCore.img} class="card-img-top"
+            alt="procesador">
+            <div class="card-body">
+                <h5 class="card-title">${productosCore.marca}</h5>
+                <p class="card-text">${productosCore.modelo}</p>
+                <p class="card-text">${productosCore.desc}</p>
+                <p class="card-text">$${productosCore.precio}</p>
+                <p class="card-text">${productosCore.velocidad}</p>
+                <a href="#"><button class="btn btn--4 btn-dark">Agregar al carrito</button></a>
+            </div>
+        </div>
+    `
+
+    cajaProductosCore.append(article);
+});
+
+//!LLAMADO AL TEMPLATE MOTHERS.js
+const cajaProductosMother = document.querySelector('#caja-productos-mother');
+
+stockProductos_mothers.forEach((productosMother) => {
+
+    const article = document.createElement('article');
+    article.classList.add('col-6', 'col-md-4');
+    article.id = `${productosMother.id}`;
+
+    article.innerHTML = `
+            <div class="card">
+                <img src=${productosMother.img} class="card-img-top"
+                alt="procesador">
+                <div class="card-body">
+                    <h5 class="card-title">${productosMother.marca}</h5>
+                    <p class="card-text">${productosMother.modelo}</p>
+                    <p class="card-text">${productosMother.desc}</p>
+                    <p class="card-text">$${productosMother.precio}</p>
+                    <p class="card-text">${productosMother.ventaja}</p>
+                    <a href="#"><button class="btn btn--4 btn-dark">Agregar al carrito</button></a>
+                </div>
+            </div>
+        `
+
+    cajaProductosMother.append(article);
+});
+
+//!LLAMADO AL TEMPLATE RAMS.js
+const cajaProductosRam = document.querySelector('#caja-productos-ram');
+
+stockProductos_rams.forEach((productosRam) => {
+
+    const article = document.createElement('article');
+    article.classList.add('col-6', 'col-md-4');
+    article.id = `${productosRam.id}`;
+
+    article.innerHTML = `
+            <div class="card">
+                <img src=${productosRam.img} class="card-img-top"
+                alt="procesador">
+                <div class="card-body">
+                    <h5 class="card-title">${productosRam.marca}</h5>
+                    <p class="card-text">${productosRam.modelo}</p>
+                    <p class="card-text">${productosRam.desc}</p>
+                    <p class="card-text">$${productosRam.precio}</p>
+                    <p class="card-text">${productosRam.especificaciones}</p>
+                    <a href="#"><button class="btn btn--4 btn-dark">Agregar al carrito</button></a>
+                </div>
+            </div>
+        `
+
+    cajaProductosRam.append(article);
+
 });

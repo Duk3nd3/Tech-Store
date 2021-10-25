@@ -1,6 +1,86 @@
-/*
+/*ESTILOS TEMPLATE LOGIN*/
+body {
+  font-family: "Lato", sans-serif;
+}
+
+
+
+.main-head{
+  height: 150px;
+  background: #FFF;
+ 
+}
+
+.sidenav {
+  height: 100%;
+  background-color: #000;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+
+.main {
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+}
+
+@media screen and (max-width: 450px) {
+  .login-form{
+      margin-top: 10%;
+  }
+
+  .register-form{
+      margin-top: 10%;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .main{
+      margin-left: 40%; 
+  }
+
+  .sidenav{
+      width: 40%;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+  }
+
+  .login-form{
+      margin-top: 80%;
+  }
+
+  .register-form{
+      margin-top: 20%;
+  }
+}
+
+
+.login-main-text{
+  margin-top: 20%;
+  padding: 60px;
+  color: #fff;
+}
+
+.login-main-text h2{
+  font-weight: 300;
+}
+
+.btn-black{
+  background-color: #000 !important;
+  color: #fff;
+}
+
+/*ESTILOS PARA BOTONES*/
+
+/* 
     ** All elements border-box
 */
+
 *,
 *:before,
 *::after {
@@ -51,23 +131,86 @@ body {
 .btn {
   position: relative;
   display: block;
-  height: 77px;
-  width: 300px;
+  height: auto;
+  width: 100%;
   border-radius: 4px;
   text-transform: uppercase;
   background-color: transparent;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 100%;
   overflow: hidden;
   transition: all 500ms ease;
   border: 2px solid #20e2d7;
   margin-bottom: 40px;
   z-index: 0;
-  font-weight: 700;
+  font-weight: 75%;
   cursor: pointer;
 }
 
 .btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+  background-color: #20e2d7;
+  transition: all 500ms ease;
+  z-index: -1;
+}
+
+.btn-titles {
+  position: relative;
+  display: block;
+  height: auto;
+  width: 10%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 100%;
+  overflow: hidden;
+  transition: all 500ms ease;
+  border: 2px solid #20e2d7;
+  z-index: 0;
+  cursor: pointer;
+  margin-left: 45%;
+  margin-top: 5%;
+  padding: 1%;
+}
+
+.btn-titles::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+  background-color: #20e2d7;
+  transition: all 500ms ease;
+  z-index: -1;
+}
+
+.btn-footer {
+  position: relative;
+  display: block;
+  height: auto;
+  width: 25%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 100%;
+  overflow: hidden;
+  transition: all 500ms ease;
+  border: 2px solid #20e2d7;
+  z-index: 0;
+  cursor: pointer;
+  padding: 1%;
+  margin: 1%;
+}
+
+.btn-footer::before {
   content: "";
   position: absolute;
   left: 0;
@@ -130,7 +273,7 @@ body {
 
 /*
 
-some styles to cards
+PEQUEÑOS ESTILOS PARA LAS TARJETAS
 
 */
 
@@ -150,5 +293,45 @@ some styles to cards
 .card-text {
 
   color: #ffff;
+
+}
+
+h2 {
+
+  color: #ffffff;
+
+}
+
+/* ESTILOS PARA EL FORMULARIO */
+
+.background {
+
+  background-color: #434343;
+
+}
+
+.formStyle {
+
+  width: 50%;
+  height: auto;
+  margin: 1%;
+  padding: 1%;
+  margin-left: 25%;
+
+}
+
+.buttonStyle {
+
+  width: 25%;
+  height: auto;
+  margin: 1%;
+  padding: 1%;
+  margin-left: 40%;
+
+}
+
+.colorText {
+
+  color: #ffffff;
 
 }
