@@ -13,13 +13,17 @@ const login = () => {
 
     } else if (!isNaN(user)) {
 
-        user = alert("No se permiten valores numericos dentro del campo usuario") 
+        user = alert("No se permite este tipo de valor dentro del campo usuario") 
         control = false;
 
     } else if (isNaN(nombre === null || nombre === undefined || nombre == "")) {
 
         user = alert("Digita un nombre de usuario correcto")
         control = false;
+
+    } else {
+
+        alert('Usuario o contraseña incorrectos.')
 
     }
 
