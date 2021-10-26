@@ -3,8 +3,6 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-
-
 .main-head{
   height: 150px;
   background: #FFF;
@@ -222,6 +220,120 @@ body {
   z-index: -1;
 }
 
+.btn-success-1 {
+  position: relative;
+  display: block;
+  height: auto;
+  width: 25%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #000000;
+  font-size: 100%;
+  overflow: hidden;
+  transition: all 500ms ease;
+  border: 2px solid #11bd11;
+  margin-left: 39%;
+  z-index: 0;
+  font-weight: 75%;
+  cursor: pointer;
+}
+
+.btn-success-1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+  background-color: #68bf85;
+  transition: all 500ms ease;
+  z-index: -1;
+}
+
+.btn--1-ok:hover {
+  background-color: #20e287;
+  box-shadow: 0 0 10px #20e267, 0 0 20px #20e281, 0 0 20px #20e261;
+  color: #434343;
+}
+
+.btn-success-msg {
+  position: relative;
+  display: block;
+  height: auto;
+  width: 50%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 100%;
+  transition: all 500ms;
+  border: 2px solid #000000;
+  margin-top: 40%;
+  margin-left: 27%;
+  z-index: 0;
+  font-weight: 75%;
+}
+
+.btn-error-1 {
+  position: relative;
+  display: block;
+  height: auto;
+  width: 25%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #000000;
+  font-size: 100%;
+  overflow: hidden;
+  transition: all 500ms ease;
+  border: 2px solid #bd1128;
+  margin-left: 37%;
+  z-index: 0;
+  font-weight: 75%;
+  cursor: pointer;
+}
+
+.btn-error-msg {
+  position: relative;
+  display: block;
+  height: auto;
+  width: 50%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 100%;
+  transition: all 500ms;
+  border: 1px solid #d60b26;
+  margin-top: 40%;
+  margin-left: 25%;
+  z-index: 0;
+  font-weight: 75%;
+}
+
+.btn-logOut {
+  position: relative;
+  display: block;
+  height: auto;
+  width: 5%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 100%;
+  overflow: hidden;
+  transition: all 500ms ease;
+  border: 2px solid #20e2d7;
+  z-index: 0;
+  font-weight: 75%;
+  cursor: pointer;
+}
+
+.btn--2-error:hover {
+  background-color: #e2203a;
+  box-shadow: 0 0 10px #e22044, 0 0 20px #e2204a, 0 0 20px #e22064;
+  color: #434343;
+}
+
 .btn--1::before {
   width: 0;
   height: 100%;
@@ -333,5 +445,14 @@ h2 {
 .colorText {
 
   color: #ffffff;
+
+}
+
+.bienvenida {
+
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
 
 }

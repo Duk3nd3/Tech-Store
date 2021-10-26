@@ -22,30 +22,36 @@
 <body>
     <div class="sidenav">
         <div class="login-main-text">
-            <h2>TECH-STORE<br>A la vanguardia del tech-hardware</h2>
+            <h1>TECH-STORE</h1>
+            <h2>Vanguardistas del tech-hardware</h2>
             <p>Ingresa con tu usuario o registrate</p>
         </div>
     </div>
-    <div class="main">
+    <div id="vanish" class="main">
         <div class="col-md-6 col-sm-12">
             <div class="login-form">
                 <form>
+
                     <div class="form-group">
                         <label>Nombre de usuario</label>
                         <input type="text" id="usuario" class="form-control" placeholder="Digita tu nombre de usuario">
                     </div>
+
                     <div class="form-group">
                         <label>Contraseña</label>
                         <input type="password" id="contraseña" class="form-control" placeholder="Digita tu contraseña">
                     </div>
+
                     <button type="button" value="iniciar sesion" id="boton" onclick="login()" class="btn btn-black">Ingresar</button>
+
                     <button type="button" value="registrarse" id="botonRegistro" onclick="registro()" class="btn btn-black">Registrate</button>
+
                 </form>
             </div>
         </div>
     </div>
     <script src="js/login.js"></script>
-    <script src="js/registro.js"></script>
+    <script src="js/eventos.js"></script>
 </body>
 
 </html>

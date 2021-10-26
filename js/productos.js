@@ -51,48 +51,10 @@ function ordenarDesc() {
 
 }
 
-//!ARRAY BUNDLE 'COMBOS'CONTIENE LOS PRODUCTOS
-const bundle = [combo1, combo2, combo3];
-
-//*SOLICITAMOS AL USUARIO EL INGRESO DEL PRODUCTO ADQUIRIDO (BUNDLE EN BASE A SU MARCA)
-const comunicado = () => {
-
-    let combos = parseInt(prompt("Ingrese el producto tech escogido (1, 2 o 3: "))
-
-    let respuestaCombo = bundle.find(combo => combo.id === combos)
-
-    alert(`Usted eligio la marca ${respuestaCombo.nombre}`)
-
-    //*EN ESTE IF VERIFICAMOS EL COMBO SELECCIONADO Y MOSTRAMOS EL BUNDLE POR PANTALLA
-    if (combos === 1) {
-
-        combo1.mensaje();
-
-    } else if (combos === 2) {
-
-        combo2.mensaje();
-
-    } else {
-
-        combo3.mensaje();
-
-    }
-
-    alert('Recuerde calcular el envío con el botón "Calcular Envio"')
-    alert('¡Muchas gracias por comprar en TECH-STORE!')
-
-};
-
 //!AQUI COMENZAMOS CON LA EJECUCION DEL CODIGO LLAMANDO A LAS FUNCIONES
 
 /* OBJETO GLOBAL WINDOWS ESPERA A QUE CARGUE EL HTML Y ESTILOS PARA LUEGO EJECUTAR LO QUE ESTA DENTRO, EN ESTE CASO EL LLAMADO A TODAS LAS FUNCIONES */
 window.onload = function () {
-
-    let nombreUsuario = controlar();
-
-    saludar(nombreUsuario);
-
-    comunicado();
 
     const accionBotonAsc = document.querySelector('#botonOrdenarAsc').addEventListener('click', ordenarAsc);
 

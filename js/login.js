@@ -6,25 +6,30 @@ const login = () => {
     user = document.getElementById('usuario').value;
     pass = document.getElementById('contraseña').value;
 
-
     if (user == 'test' && pass == '12345') {
 
-        window.location = "./pages/intro.html";
+        const welcome = document.getElementsByTagName('p')[0];
 
-    } else if (!isNaN(user)) {
+        welcome.innerHTML = `
+        <br><br>
+        <p class="bienvenida">Bienvenido :-)</p>
+        <p class="bienvenida"><strong>¡${user}!</strong></p>
+        `;
 
-        user = alert("No se permite este tipo de valor dentro del campo usuario") 
-        control = false;
-
-    } else if (isNaN(nombre === null || nombre === undefined || nombre == "")) {
-
-        user = alert("Digita un nombre de usuario correcto")
-        control = false;
+        //!MENSAJE LOGIN SUCCESS
+        const vanish = document.getElementById('vanish');
+        vanish.innerHTML = `<button class="btn-success-msg btn-dark">Login Success</button><br><br>
+        <span><button type="button" value="acceder" id="loginAccess" onclick="acceder()" class="btn-success-1 btn--1-ok">Acceder</button></span>
+        `
 
     } else {
 
-        alert('Usuario o contraseña incorrectos.')
-
+        //!MENSAJE DE ERROR
+        const vanish = document.getElementById('vanish');
+        vanish.innerHTML = `<button class="btn-error-msg btn-danger">Login Error</button><br><br>
+        <span><button type="button" value="error" id="loginError" 
+        onclick="error()" class="btn-error-1 btn--2-error">Volver</button>
+        `
     }
 
 };
