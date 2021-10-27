@@ -44,6 +44,10 @@ const registrarse = () => {
 
         alert("Por favor, complete todos los campos");
 
+    } else if (document.getElementById("floatingUser").value == "test" || document.getElementById("floatingEmail").value == "test@test.com") {
+
+        alert("Usted ya se encuentra registrado");
+
     } else {
 
         //!LUEGO DE REGISTRARSE LIMPIAMOS LA PANTALLA Y MOSTRAMOS EL REGISTRO EXITOSO
@@ -59,6 +63,7 @@ const registrarse = () => {
             <span><button type="button" value="acceder" id="loginAccess" onclick="accesoRegistrado()" class="btn-success-1 btn--1-ok">Acceder</button></span>
         
         `
+
     }
 
 }
