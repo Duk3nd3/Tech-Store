@@ -1,18 +1,23 @@
 const login = () => {
 
-    let user;
+    //!CON LOCALSTORAGE GETITEM GUARDAMOS EL VALOR DEL ULTIMO LOGIN
+    let user = localStorage.getItem('usuario');
     let pass;
 
     user = document.getElementById('usuario').value;
+
+    //!GUARDAMOS EL USUARIO EN EL STORAGE DEL BROWSER
+    localStorage.setItem('usuario', user);
+
     pass = document.getElementById('contraseña').value;
 
     if (user == 'test' && pass == '12345') {
 
         const welcome = document.getElementsByTagName('p')[0];
-
+        
         welcome.innerHTML = `
         <br><br>
-        <p class="bienvenida">Bienvenido :-)</p>
+        <p class="bienvenida">Bienvenido</p>
         <p class="bienvenida"><strong>¡${user}!</strong></p>
         `;
 

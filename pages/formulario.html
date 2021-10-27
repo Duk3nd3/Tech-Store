@@ -12,8 +12,8 @@
 </head>
 
 <body class="background">
-    <form>
-
+    <form id="formulario">
+        
         <div class="form-floating mb-3 formStyle">
             <input type="user" class="form-control" id="floatingUser" placeholder="Coloca tu usuario">
             <label for="floatingUser" class="colorText">Usuario</label>
@@ -27,12 +27,12 @@
             <label for="floatingEmail" class="colorText">Correo</label>
         </div>
 
-        <button type="submit" class="btn btn--4 botonForm">Enviar</button>
-        <button type="reset" class="btn btn--4 botonForm">Limpiar</button>
+        <button type="button" value="registrar usuario" id="registrar" class="btn btn--4 botonForm" onclick="registrarse()">Registrar</button>
+        <button type="reset" value="limpia campos" id="limpiar" class="btn btn--4 botonForm">Limpiar</button>
 
     </form>
 
-    <div>
+    <div id="backHome">
         <a type="button" class="btn btn--4 botonForm" href="../index.html">Volver a Home</a>
     </div>
 
