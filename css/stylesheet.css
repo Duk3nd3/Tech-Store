@@ -261,7 +261,7 @@ body {
   position: relative;
   display: block;
   height: auto;
-  width: 50%;
+  width: 25%;
   border-radius: 4px;
   text-transform: uppercase;
   color: #ffffff;
@@ -269,7 +269,7 @@ body {
   transition: all 500ms;
   border: 2px solid #000000;
   margin-top: 40%;
-  margin-left: 27%;
+  margin-left: 39%;
   z-index: 0;
   font-weight: 75%;
 }
@@ -297,7 +297,7 @@ body {
   position: relative;
   display: block;
   height: auto;
-  width: 50%;
+  width: 25%;
   border-radius: 4px;
   text-transform: uppercase;
   color: #ffffff;
@@ -305,7 +305,7 @@ body {
   transition: all 500ms;
   border: 1px solid #d60b26;
   margin-top: 40%;
-  margin-left: 25%;
+  margin-left: 37%;
   z-index: 0;
   font-weight: 75%;
 }
@@ -432,16 +432,6 @@ h2 {
 
 }
 
-.buttonStyle {
-
-  width: 25%;
-  height: auto;
-  margin: 1%;
-  padding: 1%;
-  margin-left: 40%;
-
-}
-
 .colorText {
 
   color: #ffffff;
@@ -454,5 +444,15 @@ h2 {
   color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
+
+}
+
+.botonForm {
+
+  width: 15%;
+  height: auto;
+  margin: 1%;
+  padding: 1%;
+  margin-left: 43%;
 
 }
