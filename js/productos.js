@@ -81,12 +81,23 @@ stockProductos_vga.forEach((productosVga) => {
                 <p class="card-text">${productosVga.desc}</p>
                 <p class="card-text">$${productosVga.precio}</p>
                 <p class="card-text">${productosVga.memoria}</p>
-                <a href="#"><button class="btn btn--4 btn-dark">Agregar al carrito</button></a>
+                <button id="${productosVga.id}" class="btn btn--4 btn-dark">Agregar</button>
             </div>
         </div>
     `
 
     cajaProductosVga.append(article);
+
+    //!CREAMOS LA CONSTANTE BOTON PARA EL PRODUCTO
+    const boton = document.getElementById(`${productosVga.id}`);
+
+    //!MEDIANTE LA CONSTANTE boton CREAMOS UNA FUNCION CON UN EVENTO
+    boton.addEventListener('click', () => {
+        
+        agregarAlCarrito(productosVga.id);
+
+    });
+
 });
 
 //!LLAMADO AL TEMPLATE PROCESADORES.JS
