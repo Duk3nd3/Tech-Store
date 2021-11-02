@@ -89,12 +89,12 @@ stockProductos_vga.forEach((productosVga) => {
     cajaProductosVga.append(article);
 
     //!CREAMOS LA CONSTANTE BOTON PARA EL PRODUCTO
-    const boton = document.getElementById(`${productosVga.id}`);
+    const botonVGA = document.getElementById(`${productosVga.id}`);
 
     //!MEDIANTE LA CONSTANTE boton CREAMOS UNA FUNCION CON UN EVENTO
-    boton.addEventListener('click', () => {
+    botonVGA.addEventListener('click', () => {
         
-        agregarAlCarrito(productosVga.id);
+        agregarAlCarritoVGA(productosVga.id);
 
     });
 
@@ -119,12 +119,24 @@ stockProductos_procesadores.forEach((productosCore) => {
                 <p class="card-text">${productosCore.desc}</p>
                 <p class="card-text">$${productosCore.precio}</p>
                 <p class="card-text">${productosCore.velocidad}</p>
-                <a href="#"><button class="btn btn--4 btn-dark">Agregar al carrito</button></a>
+                <button id="${productosCore.id}" class="btn btn--4 btn-dark">Agregar</button>
             </div>
         </div>
     `
 
     cajaProductosCore.append(article);
+
+
+    //!CREAMOS LA CONSTANTE BOTON PARA EL PRODUCTO
+    const botonCORE = document.getElementById(`${productosCore.id}`);
+
+    //!MEDIANTE LA CONSTANTE boton CREAMOS UNA FUNCION CON UN EVENTO
+    botonCORE.addEventListener('click', () => {
+        
+        agregarAlCarritoCORE(productosCore.id);
+
+    });
+
 });
 
 //!LLAMADO AL TEMPLATE MOTHERS.js
@@ -146,12 +158,23 @@ stockProductos_mothers.forEach((productosMother) => {
                     <p class="card-text">${productosMother.desc}</p>
                     <p class="card-text">$${productosMother.precio}</p>
                     <p class="card-text">${productosMother.ventaja}</p>
-                    <a href="#"><button class="btn btn--4 btn-dark">Agregar al carrito</button></a>
+                    <button id="${productosMother.id}" class="btn btn--4 btn-dark">Agregar</button>
                 </div>
             </div>
         `
 
     cajaProductosMother.append(article);
+
+    //!CREAMOS LA CONSTANTE BOTON PARA EL PRODUCTO
+    const botonMOTHER = document.getElementById(`${productosMother.id}`);
+
+    //!MEDIANTE LA CONSTANTE boton CREAMOS UNA FUNCION CON UN EVENTO
+    botonMOTHER.addEventListener('click', () => {
+        
+        agregarAlCarritoMOTHER(productosMother.id);
+
+    });
+
 });
 
 //!LLAMADO AL TEMPLATE RAMS.js
@@ -173,11 +196,21 @@ stockProductos_rams.forEach((productosRam) => {
                     <p class="card-text">${productosRam.desc}</p>
                     <p class="card-text">$${productosRam.precio}</p>
                     <p class="card-text">${productosRam.especificaciones}</p>
-                    <a href="#"><button class="btn btn--4 btn-dark">Agregar al carrito</button></a>
+                    <button id="${productosRam.id}" class="btn btn--4 btn-dark">Agregar</button>
                 </div>
             </div>
         `
 
     cajaProductosRam.append(article);
+
+    //!CREAMOS LA CONSTANTE BOTON PARA EL PRODUCTO
+    const botonRAM = document.getElementById(`${productosRam.id}`);
+
+    //!MEDIANTE LA CONSTANTE boton CREAMOS UNA FUNCION CON UN EVENTO
+    botonRAM.addEventListener('click', () => {
+        
+        agregarAlCarritoRAM(productosRam.id);
+
+    });
 
 });
