@@ -70,29 +70,36 @@ const registrarse = () => {
 
 }
 
-//!SEND SUBSCRIPTION MAIL
+//!SEND SUBSCRIPTION MAIL (VALIDACION)
 
-const subscription = () => {
+let regSuccess = document.getElementById("vanish");
 
-    const emailSub = document.getElementById("email").value;
+regSuccess.addEventListener('submit', validarFormulario);
 
-    if (emailSub == "") {
-
-        alert("Por favor, complete todos los campos");
-
-    } else {
-
-        //*LUEGO DE REGISTRARSE LIMPIAMOS LA PANTALLA Y MOSTRAMOS EL REGISTRO EXITOSO
-
-        homeButton.innerHTML = `
+function validarFormulario(e) {
+    e.preventDefault()
     
-        <button class="btn-success-register btn-dark">Subscripción exitosa!</button><br><br>
+    vanish.innerHTML = `
         
-        `
+    <div class="pop-up">
+        <div class="pop-up-wrap">
+            <div class="pop-up-submit">
+            </div>
+            <div class="subcription">
+                <div class="line"></div>
+                <i class="far fa-times-circle" id="close"></i>
+                <div class="sub-content">
+                    <h2>Suscripcion realizada con éxito!</h2>
+                    <p>Solo recibiras correos una vez a la semana con las mejores ofertas e información del mundo tech.</p>
+                </div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+    
+    `;
 
-    }
-
-};
+}
 
 //!FUNCION PARA CARRITO
 
@@ -107,17 +114,23 @@ const precioTotal = document.getElementById('precioTotal');
 //*ARRAY CARRITO
 const carrito = [];
 
-//*VACIAMOS CARRITO POR COMPLETO
-botonVaciar.addEventListener('click', () => {
+//!VACIAMOS CARRITO POR COMPLETO
+
+//*EVITAMOS ERROR AL INICIAR LA APLICACION YA QUE LA VARIABLE ES NULL
+document.onload = () => {
+
+    botonVaciar.addEventListener('click', () => {
+        
+        //*VACIAMOS EL ARRAY CARRITO DENTRO DEL MODAL Y MOSTRAMOS EL MENSAJE
+        document.getElementById('vaciado').innerHTML = 'Carrito vaciado con exito!';
+        
+        carrito.length = 0;   
+                
+        actualizarCarritoVGA();  
     
-    //*VACIAMOS EL ARRAY CARRITO DENTRO DEL MODAL Y MOSTRAMOS EL MENSAJE
-    document.getElementById('vaciado').innerHTML = 'Carrito vaciado con exito!';
-    
-    carrito.length = 0;   
-           
-    actualizarCarritoVGA();
-  
-});
+    });
+
+}
 
 
 //!VGA carrito
@@ -423,7 +436,12 @@ const scrollUp = () => {
     
 }; 
 
-document.getElementById('button-up').addEventListener('click', scrollUp);
+//*EVITAMOS ERROR AL INICIAR LA APLICACION YA QUE LA VARIABLE ES NULL
+document.onload = () => {
+
+    document.getElementById('button-up').addEventListener('click', scrollUp);
+
+};
 
 //*CODIGO DEL SCROLL
 buttonUp = document.getElementById('button-up');

@@ -603,6 +603,21 @@ h2 {
   background-repeat: no-repeat;
 }
 
+.pop-up-submit{
+  flex-basis: 0;
+  flex-grow:1.5;
+  height: 460px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-image: url(../images/modal/validacion-ok-removebg-preview.png);
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .pop-up-title-error{
   flex-basis: 0;
   flex-grow:1.5;

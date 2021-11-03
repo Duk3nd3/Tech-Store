@@ -23,6 +23,7 @@ const login = () => {
         `;
 
         const vanish = document.getElementById('vanish');
+
         vanish.innerHTML = `
         
         <div class="pop-up">
@@ -37,7 +38,7 @@ const login = () => {
                         <p>Recibiras las mejores ofertas Tech del mercado.</p>
                         <form>
                             <input type="email" class="subs-email" placeholder="Escribe tu correo electronico">
-                            <button class="subs-send" type="submit" onclick="subscription()">Enviar Suscripcion</button>
+                            <button class="subs-send" type="submit">Enviar Suscripcion</button>
                         </form>
                     </div>
                     <div class="line"></div>
