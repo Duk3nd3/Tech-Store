@@ -74,11 +74,15 @@ const registrarse = () => {
 
 let regSuccess = document.getElementById("vanish");
 
-regSuccess.addEventListener('submit', validarFormulario);
+//*CON ESTE IF VERIFICAMOS QUE 'REGSUCCESS' NO SEA NULL ANTES DE AGREGAR UN EVENT LISTENER.
+if (regSuccess) {
+
+    regSuccess.addEventListener('submit', validarFormulario);
+};
 
 function validarFormulario(e) {
     e.preventDefault()
-    
+
     vanish.innerHTML = `
         
     <div class="pop-up">
@@ -116,22 +120,20 @@ const carrito = [];
 
 //!VACIAMOS CARRITO POR COMPLETO
 
-//*EVITAMOS ERROR AL INICIAR LA APLICACION YA QUE LA VARIABLE ES NULL
-document.onload = () => {
+//*CON ESTE IF VERIFICAMOS QUE 'BOTONVACIAR' NO SEA NULL ANTES DE AGREGAR UN EVENT LISTENER.
+if (botonVaciar) {
 
     botonVaciar.addEventListener('click', () => {
-        
+
         //*VACIAMOS EL ARRAY CARRITO DENTRO DEL MODAL Y MOSTRAMOS EL MENSAJE
         document.getElementById('vaciado').innerHTML = 'Carrito vaciado con exito!';
-        
-        carrito.length = 0;   
-                
-        actualizarCarritoVGA();  
-    
+
+        carrito.length = 0;
+
+        actualizarCarritoVGA();
+
     });
-
-}
-
+};
 
 //!VGA carrito
 
@@ -168,7 +170,7 @@ const actualizarCarritoVGA = () => {
     contenedorCarrito.innerHTML = "";
 
     //*RECORREMOS NUESTRO CARRITO CON FOREACH
-    carrito.forEach( (productosVga) => {
+    carrito.forEach((productosVga) => {
 
         const div = document.createElement('div');
         div.className = "productoEnCarrito";
@@ -239,7 +241,7 @@ const actualizarCarritoCORE = () => {
 
     contenedorCarrito.innerHTML = "";
 
-    carrito.forEach( (productosCore) => {
+    carrito.forEach((productosCore) => {
 
         const div = document.createElement('div');
         div.className = "productoEnCarrito";
@@ -310,7 +312,7 @@ const actualizarCarritoMOTHER = () => {
 
     contenedorCarrito.innerHTML = "";
 
-    carrito.forEach( (productosMother) => {
+    carrito.forEach((productosMother) => {
 
         const div = document.createElement('div');
         div.className = "productoEnCarrito";
@@ -381,7 +383,7 @@ const actualizarCarritoRAM = () => {
 
     contenedorCarrito.innerHTML = "";
 
-    carrito.forEach( (productosRam) => {
+    carrito.forEach((productosRam) => {
 
         const div = document.createElement('div');
         div.className = "productoEnCarrito";
@@ -420,26 +422,19 @@ const actualizarCarritoRAM = () => {
 
 //!BTN VOLVER ARRIBA
 const scrollUp = () => {
-    
+
     const currentScroll = document.documentElement.scrollTop;
-    
+
     if (currentScroll > 0) {
-        
+
         //*requestAnimationFrame NOS PREPARA LA FUNCIONA COMO UNA ANIMACIÓN
         window.requestAnimationFrame(scrollUp);
         window.scrollTo(0, currentScroll - (currentScroll / 10));
-        
+
         //*CON ESTE COMANDO EL BOTON DESAPARECE SIN LA NECESIDAD DE LLEGAR A LA ALTURA DE 500 (BARRA DE DESPLAZAMIENTO)
         buttonUp.style.transform = 'scale(0)';
 
     };
-    
-}; 
-
-//*EVITAMOS ERROR AL INICIAR LA APLICACION YA QUE LA VARIABLE ES NULL
-document.onload = () => {
-
-    document.getElementById('button-up').addEventListener('click', scrollUp);
 
 };
 
@@ -448,34 +443,36 @@ buttonUp = document.getElementById('button-up');
 
 window.onscroll = () => {
 
-    //*ACA GUARDAREMOS EN QUE POSICION ESTA EL SCROLL
-    const scroll = document.documentElement.scrollTop;
+//*ACA GUARDAREMOS EN QUE POSICION ESTA EL SCROLL
+const scroll = document.documentElement.scrollTop;
 
-    //*SI EL SCROLL ES MAYOR A 100 PONEMOS EL BOTON ARRIBA VISIBLE
-    if (scroll > 1000) {
+//*SI EL SCROLL ES MAYOR A 1000 PONEMOS EL BOTON ARRIBA VISIBLE
+if (scroll > 1000) {
+    
+    buttonUp.style.transform = 'scale(1)';
+    
+    //*SI EL SCROLL ES MENOR A 1000 PONEMOS EL BOTON ARRIBA OCULTO
+} else if (scroll < 1000) {
+    
+    buttonUp.style.transform = 'scale(0)';
+    
+};
 
-        buttonUp.style.transform = 'scale(1)';
-
-    //*SI EL SCROLL ES MENOR A 100 PONEMOS EL BOTON ARRIBA OCULTO
-    } else if (scroll < 1000) {
-
-        buttonUp.style.transform = 'scale(0)';
-
-    };
+document.getElementById('button-up').addEventListener('click', scrollUp);
 
 };
 
 //!EVENTO AL PRESIONAR UNA TECLA OCULTAMOS CARRITO
-presionar_tecla = () => {
-    
+presionar_tecla = (e) => {
+
     //*EJECUCION DEL CODIGO AL PRESIONAR UNA TECLA
-    tecla_esc = event.keyCode;
+    tecla_esc = e.keyCode;
 
     if (tecla_esc == 27) {
 
         //*LLAMAMOS A LA VARIABLE DEL EVENTO botonCerrar 
         return botonCerrar.click();
-        
+
     };
 
 };

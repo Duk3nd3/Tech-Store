@@ -30,8 +30,10 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <button type="button" value="shopping" id="boton-carrito" class="btn-cart btn-secondary fas fa-shopping-cart"><span id="contador-carrito">0</span></button>
-                <button type="button" value="logout" id="botonLogout" onclick="logout()" class="btn-logOut btn-secondary">Logout</button>
+                <button type="button" value="shopping" id="boton-carrito"
+                    class="btn-cart btn-secondary fas fa-shopping-cart"><span id="contador-carrito">0</span></button>
+                <button type="button" value="logout" id="botonLogout" onclick="logout()"
+                    class="btn-logOut btn-secondary">Logout</button>
             </nav>
         </div>
     </header>
@@ -95,14 +97,14 @@
         </section>
 
     </main>
-    
+
     <!--MODAL CARRITO-->
     <div class="modal-contenedor">
         <div class="modal-carrito">
             <h3>Carrito</h3>
             <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
             <div id="carrito-contenedor">
-                
+
             </div>
             <p id="vaciado" class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
             <button id="vaciar-carrito" class="btn-vaciar btn--1">Vaciar carrito</button>
@@ -121,16 +123,15 @@
             <button id="botonOrdenarAsc" type="button"
                 class="btn-footer btn--3 btn-secondary btn-lg botonesOrganizarProductos">Ordenar producto de
                 A-Z</button>
-                <!--ORDENAMOS PRODUCTOS DE LA Z to A-->
+            <!--ORDENAMOS PRODUCTOS DE LA Z to A-->
             <button id="botonOrdenarDesc" type="button"
                 class="btn-footer btn--3 btn-secondary btn-lg botonesOrganizarProductos">Ordenar producto de
                 Z-A</button>
-                <!--CALCULAMOS EL ENVIO DEL PRODUCTO-->
+            <!--CALCULAMOS EL ENVIO DEL PRODUCTO-->
             <button id="botonCalculoEnvio" type="button"
                 class="btn-footer btn--3 btn-secondary btn-lg botonesOrganizarProductos">Calcular Envio</button>
         </div>
     </footer>
-
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="/js/rams.js"></script>
@@ -142,7 +143,6 @@
     <script src="/js/modal.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/eventos.js"></script>
-
 </body>
 
 </html>

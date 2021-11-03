@@ -93,7 +93,7 @@ stockProductos_vga.forEach((productosVga) => {
 
     //!MEDIANTE LA CONSTANTE boton CREAMOS UNA FUNCION CON UN EVENTO
     botonVGA.addEventListener('click', () => {
-        
+
         agregarAlCarritoVGA(productosVga.id);
 
     });
@@ -132,7 +132,7 @@ stockProductos_procesadores.forEach((productosCore) => {
 
     //!MEDIANTE LA CONSTANTE boton CREAMOS UNA FUNCION CON UN EVENTO
     botonCORE.addEventListener('click', () => {
-        
+
         agregarAlCarritoCORE(productosCore.id);
 
     });
@@ -170,7 +170,7 @@ stockProductos_mothers.forEach((productosMother) => {
 
     //!MEDIANTE LA CONSTANTE boton CREAMOS UNA FUNCION CON UN EVENTO
     botonMOTHER.addEventListener('click', () => {
-        
+
         agregarAlCarritoMOTHER(productosMother.id);
 
     });
@@ -208,7 +208,7 @@ stockProductos_rams.forEach((productosRam) => {
 
     //!MEDIANTE LA CONSTANTE boton CREAMOS UNA FUNCION CON UN EVENTO
     botonRAM.addEventListener('click', () => {
-        
+
         agregarAlCarritoRAM(productosRam.id);
 
     });

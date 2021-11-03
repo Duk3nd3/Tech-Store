@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"></script>
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,6 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/stylesheet.css">
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <title>-STORE</title>
 </head>
 
@@ -26,33 +25,35 @@
             <p>Ingresa con tu usuario o registrate</p>
         </div>
     </div>
-        <div id="vanish" class="main">
-            <div class="col-md-6 col-sm-12">
-                <div class="login-form">
-                    <form>
-                        
-                        <!--INGRESA NOMBRE DE USUARIO PARA ACCCEDER-->
-                        <div class="form-group">
-                            <label>Nombre de usuario</label>
-                            <input type="text" id="usuario" class="form-control" placeholder="Digita tu nombre de usuario">
-                        </div>
-                        
-                        <!--INGRESA CONTRASEÑA PARA ACCEDER-->
-                        <div class="form-group">
-                            <label>Contraseña</label>
-                            <input type="password" id="contraseña" class="form-control" placeholder="Digita tu contraseña">
-                        </div>
-                        
-                        <!--SI LAS CREDENCIALES ESTAN BIEN ACCEDER AL HTML INTRO-->
-                        <button type="button" value="iniciar sesion" id="boton" onclick="login()" class="btn btn-black">Ingresar</button>
-                        
-                        <!--ACCEDE AL HTML DE REGISTRO-->
-                        <button type="button" value="registrarse" id="botonRegistro" onclick="registro()" class="btn btn-black">Registrate</button>
+    <div id="vanish" class="main">
+        <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+                <form>
 
-                    </form>
-                </div>
+                    <!--INGRESA NOMBRE DE USUARIO PARA ACCCEDER-->
+                    <div class="form-group">
+                        <label>Nombre de usuario</label>
+                        <input type="text" id="usuario" class="form-control" placeholder="Digita tu nombre de usuario">
+                    </div>
+
+                    <!--INGRESA CONTRASEÑA PARA ACCEDER-->
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="password" id="contraseña" class="form-control" placeholder="Digita tu contraseña">
+                    </div>
+
+                    <!--SI LAS CREDENCIALES ESTAN BIEN ACCEDER AL HTML INTRO-->
+                    <button type="button" value="iniciar sesion" id="boton" onclick="login()"
+                        class="btn btn-black">Ingresar</button>
+
+                    <!--ACCEDE AL HTML DE REGISTRO-->
+                    <button type="button" value="registrarse" id="botonRegistro" onclick="registro()"
+                        class="btn btn-black">Registrate</button>
+
+                </form>
             </div>
         </div>
+    </div>
     <script src="js/login.js"></script>
     <script src="js/eventos.js"></script>
 </body>
