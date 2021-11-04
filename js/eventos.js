@@ -42,11 +42,36 @@ const registrarse = () => {
 
     if (document.getElementById("floatingUser").value == "" || document.getElementById("floatingEmail").value == "" || document.getElementById("floatingPassword").value == "") {
 
-        alert("Por favor, complete todos los campos");
+        //*ALERTA ERROR AL REGISTRARSE SIN COMPLETAR LOS CAMPOS
+        Swal.fire({
+
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Por favor completar todos los campos para finalizar con el registro',
+            confirmButtonText: 'Entendido',
+            background: '#000',
+            allowEscapeKey: true,
+            allowOutsideClick: true
+            
+        });
 
     } else if (document.getElementById("floatingUser").value == "test" || document.getElementById("floatingEmail").value == "test@test.com") {
 
-        alert("Usted ya se encuentra registrado");
+        //*ALERTA ERROR AL REGISTRARSE CON USUARIO Y/O EMAIL REPETIDOS
+        Swal.fire({
+
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Usuario o correo preexistente!',
+            confirmButtonText: 'Entendido',
+            background: '#000',
+            allowEscapeKey: true,
+            allowOutsideClick: true
+
+        });
+
+
+        // alert("Usuario o correo registrado con anterioridad");
 
     } else {
 
