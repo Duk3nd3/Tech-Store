@@ -24,17 +24,57 @@ const acceder = () => {
 //!FUNCION PARA ACCEDER AL TEMPLATE INTRO
 const accesoRegistrado = () => {
 
-    window.location = "./intro.html";
-
-};
-
-//!FUNCION PARA DESLOGUEARTE
-const logout = () => {
-
-    localStorage.clear();
     window.location = "/index.html";
 
 };
+
+//!JQUERY PARA DESLOGUEARTE (ELIMINAR CUENTA)
+
+    $('#botonLogout').click(function () {
+
+        //*MOSTRAMOS CARTEL DE ADVERTENCIA AL UTILIZAR LOGOUT
+        Swal.fire ({
+    
+            title: '¿Estas seguro?',
+            text: "Tu cuenta sera eliminada luego de esta accion",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, lo sé',
+
+        }).then((result) => {
+
+            //*ACA SIMPLEMENTE MOSTRAMOS LA FINALIZACION DEL PROCESO
+            if (result.value) {
+
+                Swal.fire({
+
+                    title: '¡Proceso finalizado!',
+                    text: 'Tu cuenta ha sido eliminada',
+                    icon: 'success',
+                    timer: 5000,
+                    timerProgressBar: true,
+                    footer: '<span class="redFooterLogout">Redireccionando al Inicio</span>'
+
+                })
+
+            }
+            
+            //*VACIAMOS lOCALSTORAGE CON LOGOUT
+            localStorage.clear();
+            
+        })
+        
+        //*EVITAMOS QUE NOS ENVIE A LA PAGINA DE INICIO ENSEGUIDA LUEGO DE ELIMINAR LA CUENTA
+        function redireccionar() {
+
+            setTimeout("window.location = '/index.html'", 8000);
+
+          }
+        
+          redireccionar();
+    })
 
 //!FUNCION PARA EL REGISTRO DEL USUARIO
 const registrarse = () => {
@@ -52,6 +92,7 @@ const registrarse = () => {
             allowEscapeKey: true,
             allowOutsideClick: true,
             width: '20%',
+            backdrop: true, 
 
         });
 
@@ -60,14 +101,15 @@ const registrarse = () => {
         //*ALERTA ERROR AL REGISTRARSE CON USUARIO Y/O EMAIL REPETIDOS
         Swal.fire({
 
-            icon: 'error',
+            icon: 'warning',
             title: 'Oops...',
             text: 'Usuario o correo preexistente',
             confirmButtonText: 'Entendido',
             background: '#000000',
             allowEscapeKey: true,
             allowOutsideClick: true,
-            width: '20%'
+            width: '20%',
+            backdrop: true,
 
         });
 
@@ -75,12 +117,23 @@ const registrarse = () => {
 
         //*ALMACENAMOS EN LOCALSTORAGE LOS VALORES DE LOS INPUTS EN VARIABLES
         localStorage.setItem("user", document.getElementById("floatingUser").value);
-        
+
         localStorage.setItem("password", document.getElementById("floatingPassword").value);
 
         localStorage.setItem("email", document.getElementById("floatingEmail").value);
 
         //*LUEGO DE REGISTRARSE LIMPIAMOS LA PANTALLA Y MOSTRAMOS EL REGISTRO EXITOSO
+
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Registro exitoso',
+            showConfirmButton: false,
+            timer: 2500,
+            backdrop: true,
+
+        });
+
         const limpiarForm = document.getElementById("formulario")
         limpiarForm.innerText = ""
 
@@ -90,9 +143,10 @@ const registrarse = () => {
         homeButton.innerHTML = `
     
             <div class="register-success">
-            <img src="/images/register/registro-exitoso-preview.png" alt="registro exitoso">
+            <img src="/images/register/hello-world-removebg-preview.png" alt=" hello world">
+            <img src="/images/register/Tech-Store-removebg-preview.png" alt="registro exitoso">
             </div>
-            <span><button type="button" value="acceder" id="loginAccess" onclick="accesoRegistrado()" class="btn-success-1-reg btn--1-ok-reg">Acceder</button></span>
+            <span><button type="button" value="acceder" id="loginAccess" onclick="accesoRegistrado()" class="btn-success-1-reg btn--1-ok-reg">Acceder a login</button></span>
         
         `
 

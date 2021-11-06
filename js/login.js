@@ -3,7 +3,7 @@ const login = () => {
     //!CON LOCALSTORAGE GETITEM GUARDAMOS EL VALOR DEL ULTIMO LOGIN
     let user = localStorage.getItem("user", document.getElementById("usuario").value);
     
-    let pass = parseInt(localStorage.getItem("password", document.getElementById("contraseña").value));
+    let pass = localStorage.getItem("password", document.getElementById("contraseña").value);
 
     //*VERIFICAMOS SI HAY DATOS EXISTENTES DENTRO DE LOCALSTORAGE, SINO EL USUARIO DEBERA REGISTRARSE ANTES DE INGRESAR
     if (document.getElementById("usuario").value=='' || document.getElementById("usuario").value==null || document.getElementById("usuario").value==undefined) {
@@ -62,7 +62,7 @@ const login = () => {
         //*MENSAJE DE ERROR SI SE INTENTA ACCEDER CON USUARIO O CONTRASEÑA INCORRECTOS
     } else {
 
-
+        console.log(typeof pass);
         const tryAgain = document.getElementsByTagName('p')[0];
 
         //!MENSAJE DE ERROR        

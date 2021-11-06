@@ -284,7 +284,8 @@ body {
   overflow: hidden;
   transition: all 500ms ease;
   border: 2px solid #11bd11;
-  margin-left: 47%;
+  margin-left: 45%;
+  margin-top: -5%;
   z-index: 0;
   font-weight: 75%;
   cursor: pointer;
@@ -537,8 +538,8 @@ h2 {
 
 .register-success {
 
-  margin-left: 36%;
-  margin-top:15%;
+  margin-left: 24%;
+  margin-top:10%;
 
 }
 
@@ -937,3 +938,12 @@ p {
   border-color: rgba(0, 0, 0, 0.1);
  
 }
+
+/*PEQUEÑO ESTILO AL FOOTER EN LA ELIMINACION DE CUENTA*/
+
+.redFooterLogout {
+
+  color: #E43F5A;
+  font-size: 20px;
+
+};
