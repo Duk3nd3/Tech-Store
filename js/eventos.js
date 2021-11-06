@@ -39,41 +39,46 @@ const logout = () => {
 //!FUNCION PARA EL REGISTRO DEL USUARIO
 const registrarse = () => {
 
-
     if (document.getElementById("floatingUser").value == "" || document.getElementById("floatingEmail").value == "" || document.getElementById("floatingPassword").value == "") {
 
         //*ALERTA ERROR AL REGISTRARSE SIN COMPLETAR LOS CAMPOS
         Swal.fire({
 
             icon: 'error',
-            title: 'Oops...',
-            text: 'Por favor completar todos los campos para finalizar con el registro',
+            title: 'Campos vacios',
+            text: 'Complete todos los campos para finalizar con la validacion del registro',
             confirmButtonText: 'Entendido',
-            background: '#000',
+            background: '#000000',
             allowEscapeKey: true,
-            allowOutsideClick: true
-            
+            allowOutsideClick: true,
+            width: '20%',
+
         });
 
-    } else if (document.getElementById("floatingUser").value == "test" || document.getElementById("floatingEmail").value == "test@test.com") {
+    } else if (document.getElementById("floatingUser").value == localStorage.getItem('user') || document.getElementById("floatingEmail").value == localStorage.getItem('email')) {
 
         //*ALERTA ERROR AL REGISTRARSE CON USUARIO Y/O EMAIL REPETIDOS
         Swal.fire({
 
             icon: 'error',
             title: 'Oops...',
-            text: 'Usuario o correo preexistente!',
+            text: 'Usuario o correo preexistente',
             confirmButtonText: 'Entendido',
-            background: '#000',
+            background: '#000000',
             allowEscapeKey: true,
-            allowOutsideClick: true
+            allowOutsideClick: true,
+            width: '20%'
 
         });
 
-
-        // alert("Usuario o correo registrado con anterioridad");
-
     } else {
+
+        //*ALMACENAMOS EN LOCALSTORAGE LOS VALORES DE LOS INPUTS EN VARIABLES
+        localStorage.setItem("user", document.getElementById("floatingUser").value);
+        
+        localStorage.setItem("password", document.getElementById("floatingPassword").value);
+
+        localStorage.setItem("email", document.getElementById("floatingEmail").value);
 
         //*LUEGO DE REGISTRARSE LIMPIAMOS LA PANTALLA Y MOSTRAMOS EL REGISTRO EXITOSO
         const limpiarForm = document.getElementById("formulario")
@@ -468,22 +473,22 @@ buttonUp = document.getElementById('button-up');
 
 window.onscroll = () => {
 
-//*ACA GUARDAREMOS EN QUE POSICION ESTA EL SCROLL
-const scroll = document.documentElement.scrollTop;
+    //*ACA GUARDAREMOS EN QUE POSICION ESTA EL SCROLL
+    const scroll = document.documentElement.scrollTop;
 
-//*SI EL SCROLL ES MAYOR A 1000 PONEMOS EL BOTON ARRIBA VISIBLE
-if (scroll > 1000) {
-    
-    buttonUp.style.transform = 'scale(1)';
-    
-    //*SI EL SCROLL ES MENOR A 1000 PONEMOS EL BOTON ARRIBA OCULTO
-} else if (scroll < 1000) {
-    
-    buttonUp.style.transform = 'scale(0)';
-    
-};
+    //*SI EL SCROLL ES MAYOR A 1000 PONEMOS EL BOTON ARRIBA VISIBLE
+    if (scroll > 1000) {
 
-document.getElementById('button-up').addEventListener('click', scrollUp);
+        buttonUp.style.transform = 'scale(1)';
+
+        //*SI EL SCROLL ES MENOR A 1000 PONEMOS EL BOTON ARRIBA OCULTO
+    } else if (scroll < 1000) {
+
+        buttonUp.style.transform = 'scale(0)';
+
+    };
+
+    document.getElementById('button-up').addEventListener('click', scrollUp);
 
 };
 

@@ -1,18 +1,29 @@
 const login = () => {
 
     //!CON LOCALSTORAGE GETITEM GUARDAMOS EL VALOR DEL ULTIMO LOGIN
-    let user = localStorage.getItem('usuario');
-    let pass;
+    let user = localStorage.getItem("user", document.getElementById("usuario").value);
+    
+    let pass = parseInt(localStorage.getItem("password", document.getElementById("contraseña").value));
 
-    user = document.getElementById('usuario').value;
+    //*VERIFICAMOS SI HAY DATOS EXISTENTES DENTRO DE LOCALSTORAGE, SINO EL USUARIO DEBERA REGISTRARSE ANTES DE INGRESAR
+    if (document.getElementById("usuario").value=='' || document.getElementById("usuario").value==null || document.getElementById("usuario").value==undefined) {
 
-    //!GUARDAMOS EL USUARIO EN EL STORAGE DEL BROWSER
-    localStorage.setItem('usuario', user);
+        //*ALERTA ERROR AL REGISTRARSE SIN COMPLETAR LOS CAMPOS
+        Swal.fire({
 
-    pass = document.getElementById('contraseña').value;
+            icon: 'error',
+            title: 'Usuario inexistente',
+            text: 'Registrese por favor',
+            confirmButtonText: 'Entendido',
+            background: '#ffff',
+            allowEscapeKey: true,
+            allowOutsideClick: true,
+            width: '20%',
 
+        });
 
-    if (user == 'test' && pass == '12345') {
+        //*SI HAY DATOS ALMACENADOS DENTRO DE LOCALSTORAGE (USUARIO Y CONTRASEÑA) LOS USAREMOS PARA INGRESAR
+    } else if (document.getElementById("usuario").value == user && document.getElementById("contraseña").value == pass) {
 
         const welcome = document.getElementsByTagName('p')[0];
         
@@ -47,8 +58,10 @@ const login = () => {
         </div>
         
         `;
-
+    
+        //*MENSAJE DE ERROR SI SE INTENTA ACCEDER CON USUARIO O CONTRASEÑA INCORRECTOS
     } else {
+
 
         const tryAgain = document.getElementsByTagName('p')[0];
 

@@ -275,7 +275,7 @@ body {
   position: relative;
   display: block;
   height: auto;
-  width: 25%;
+  width: 10%;
   border-radius: 4px;
   text-transform: uppercase;
   background-color: transparent;
@@ -284,7 +284,7 @@ body {
   overflow: hidden;
   transition: all 500ms ease;
   border: 2px solid #11bd11;
-  margin-left: 39%;
+  margin-left: 47%;
   z-index: 0;
   font-weight: 75%;
   cursor: pointer;
@@ -613,7 +613,7 @@ h2 {
   align-items: center;
   position: relative;
   background-image: url(../images/modal/validacion-ok-removebg-preview.png);
-  background-size: 100%;
+  background-size: 75%;
   background-position: center;
   background-repeat: no-repeat;
 }
