@@ -221,6 +221,102 @@ body {
   z-index: -1;
 }
 
+.btn-suscripcion {
+  position: relative;
+  display: block;
+  height: auto;
+  width: 50%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #000000;
+  font-size: 100%;
+  overflow: hidden;
+  transition: all 500ms ease;
+  border: 2px solid #20e2d7;
+  z-index: 0;
+  cursor: pointer;
+  margin-left: 27%;
+  margin-top: 5%;
+  padding: 3%;
+}
+
+.btn-suscripcion::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+  background-color: #20e2d7;
+  transition: all 500ms ease;
+  z-index: -1;
+}
+
+.btn-out {
+  position: relative;
+  display: block;
+  height: auto;
+  width: 30%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #000000;
+  font-size: 100%;
+  overflow: hidden;
+  transition: all 500ms ease;
+  border: 2px solid #20e2d7;
+  z-index: 0;
+  margin: 1%;
+  cursor: pointer;
+  margin-top: 5%;
+  padding: 2%;
+}
+
+.btn-out::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+  background-color: #20e2d7;
+  transition: all 500ms ease;
+  z-index: -1;
+}
+
+.btn-cancel {
+  position: relative;
+  display: block;
+  height: auto;
+  width: 30%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #000000;
+  font-size: 100%;
+  overflow: hidden;
+  transition: all 500ms ease;
+  border: 2px solid #e22020;
+  z-index: 0;
+  margin: 1%;
+  cursor: pointer;
+  margin-top: 5%;
+  padding: 2%;
+}
+
+.btn-cancel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+  background-color: #e22023;
+  transition: all 500ms ease;
+  z-index: -1;
+}
+
 .btn-footer {
   position: relative;
   display: block;
@@ -252,6 +348,37 @@ body {
   z-index: -1;
 }
 
+.btn-index {
+  position: relative;
+  display: block;
+  height: auto;
+  width: 50%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #000000;
+  font-size: 100%;
+  overflow: hidden;
+  transition: all 500ms ease;
+  border: 2px solid #20e2d7;
+  z-index: 0;
+  cursor: pointer;
+  padding: 1%;
+  margin: 1%;
+}
+
+.btn-index::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+  background-color: #20e2d7;
+  transition: all 500ms ease;
+  z-index: -1;
+}
+
 .btn-success-1 {
   position: relative;
   display: block;
@@ -264,7 +391,7 @@ body {
   font-size: 100%;
   overflow: hidden;
   transition: all 500ms ease;
-  border: 2px solid #11bd11;
+  border: 2px solid #20e2d7;
   margin-left: 25%;
   z-index: 0;
   font-weight: 75%;
@@ -275,7 +402,7 @@ body {
   position: relative;
   display: block;
   height: auto;
-  width: 10%;
+  width: 20%;
   border-radius: 4px;
   text-transform: uppercase;
   background-color: transparent;
@@ -283,9 +410,10 @@ body {
   font-size: 100%;
   overflow: hidden;
   transition: all 500ms ease;
-  border: 2px solid #11bd11;
-  margin-left: 45%;
+  border: 2px solid #20e2d7;
+  margin-left: 40%;
   margin-top: -5%;
+  padding: 1%;
   z-index: 0;
   font-weight: 75%;
   cursor: pointer;
@@ -592,13 +720,13 @@ h2 {
 .pop-up-title{
   flex-basis: 0;
   flex-grow:1.5;
-  height: 460px;
+  height: 260px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  background-image: url(../images/modal/tech-background-min.jpg);
+  background-image: url(../images/register/newsletter.gif);
   background-size: 150%;
   background-position: center;
   background-repeat: no-repeat;
@@ -607,14 +735,14 @@ h2 {
 .pop-up-submit{
   flex-basis: 0;
   flex-grow:1.5;
-  height: 460px;
+  height: 260px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  background-image: url(../images/modal/validacion-ok-removebg-preview.png);
-  background-size: 75%;
+  background-image: url(../images/register/newsletter-send.gif);
+  background-size: 150%;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -622,14 +750,14 @@ h2 {
 .pop-up-title-error{
   flex-basis: 0;
   flex-grow:1.5;
-  height: 460px;
+  height: 360px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  background-image: url(../images/modal/errors-1.jpg);
-  background-size: 195%;
+  background-image: url(../images/register/error-cat-hungry.gif);
+  background-size: 150%;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -637,7 +765,6 @@ h2 {
 .pop-up-title::after{
   content: '';
   position: absolute;
-  background: rgba(51, 51, 51, 0.75);
   top: 0;
   bottom: 0;
   left: 0;
@@ -647,7 +774,6 @@ h2 {
 .pop-up-title-error::after{
   content: '';
   position: absolute;
-  background: rgba(51, 51, 51, 0.75);
   top: 0;
   bottom: 0;
   left: 0;
@@ -743,7 +869,7 @@ h2 {
 
 .sub-content p{
   font-weight: 500;
-  color: #1bc59b;
+  color: #ddfff7;
   margin-bottom: 30px;
 }
 

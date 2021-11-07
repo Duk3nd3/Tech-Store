@@ -49,7 +49,7 @@ const login = () => {
                         <p>Recibiras las mejores ofertas Tech del mercado.</p>
                         <form>
                             <input type="email" class="subs-email" placeholder="Escribe tu correo electronico">
-                            <button class="subs-send" type="submit">Enviar Suscripcion</button>
+                            <button class="btn-suscripcion btn--4" type="submit">Enviar Suscripcion</button>
                         </form>
                     </div>
                     <div class="line"></div>
@@ -84,7 +84,7 @@ const login = () => {
                     <i class="far fa-times-circle" id="close"></i>
                     <div class="sub-content">
                         <h2>VERIFICA TUS DATOS</h2>
-                        <p>Es posible que tu contraseña o usuario sean incorrectos.</p>
+                        <h6>Es posible que tu usuario o contraseña sean incorrectos. ¿Sos nuevo/a?, ¡registrate!</h6>
                     </div>
                     <div class="line"></div>
                 </div>

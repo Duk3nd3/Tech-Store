@@ -32,23 +32,34 @@ const accesoRegistrado = () => {
 
 $('#botonLogout').click(function () {
 
-    //*MOSTRAMOS CARTEL DE ADVERTENCIA AL UTILIZAR LOGOUT
-    Swal.fire({
+    const swalWithBootstrapButtons = Swal.mixin({
 
-        title: 'Procesando pedido',
-        text: "Tu cuenta sera eliminada luego de esta accion",
+        customClass: {
+
+            confirmButton: 'btn-out btn--2',
+            cancelButton: 'btn-cancel btn--2-error'
+
+        },
+
+        buttonsStyling: false
+
+    })
+
+    swalWithBootstrapButtons.fire({
+
+        title: '¿Estás seguro?',
+        text: "¡Esta acción no podrá ser revertida!",
         icon: 'warning',
-        showCancelButton: false,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, lo sé',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, borrala!',
+        cancelButtonText: 'No, cancelo!',
+        reverseButtons: false
 
     }).then((result) => {
 
-        //*ACA SIMPLEMENTE MOSTRAMOS LA FINALIZACION DEL PROCESO
-        if (result.value) {
+        if (result.isConfirmed) {
 
-            Swal.fire({
+            swalWithBootstrapButtons.fire({
 
                 title: '¡Proceso finalizado!',
                 text: 'Tu cuenta ha sido eliminada',
@@ -62,24 +73,42 @@ $('#botonLogout').click(function () {
 
             })
 
-        }
+            //*VACIAMOS CREDENCIALES ACCESO EN lOCALSTORAGE CON LOGOUT
+            localStorage.removeItem('user');
+            localStorage.removeItem('password');
+            localStorage.removeItem('email');
 
-        //*VACIAMOS CREDENCIALES ACCESO EN lOCALSTORAGE CON LOGOUT
-        localStorage.removeItem('user');
-        localStorage.removeItem('password');
-        localStorage.removeItem('email');
+            //!TEMPORAL LIMPIAMOS LOCALSTORE
+            localStorage.clear();
+
+            //*EVITAMOS QUE NOS ENVIE A LA PAGINA DE INICIO ENSEGUIDA LUEGO DE ELIMINAR LA CUENTA
+            function redireccionar() {
+
+                setTimeout("window.location = '/index.html'", 6000);
+
+            }
+
+            redireccionar();
+
+
+        } else if (
+
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+
+        ) {
+
+            swalWithBootstrapButtons.fire(
+                'Cancelación exitosa',
+                'Nos alegra tenerte de vuelta :)',
+                'error'
+            )
+
+        }
 
     })
 
-    //*EVITAMOS QUE NOS ENVIE A LA PAGINA DE INICIO ENSEGUIDA LUEGO DE ELIMINAR LA CUENTA
-    function redireccionar() {
-
-        setTimeout("window.location = '/index.html'", 6000);
-
-    }
-
-    redireccionar();
-})
+});
 
 //!FUNCION PARA EL REGISTRO DEL USUARIO
 const registrarse = () => {
@@ -152,7 +181,7 @@ const registrarse = () => {
             <img src="/images/register/Tech-Store-removebg-preview.png" alt="registro exitoso">
             </div>
             <span><button type="button" value="acceder" id="loginAccess" onclick="accesoRegistrado()" class="btn-success-1-reg btn--1-ok-reg">Acceder a login</button></span>
-        
+
         `
 
     }
@@ -170,6 +199,7 @@ if (regSuccess) {
 };
 
 function validarFormulario(e) {
+
     e.preventDefault()
 
     vanish.innerHTML = `
@@ -182,8 +212,8 @@ function validarFormulario(e) {
                 <div class="line"></div>
                 <i class="far fa-times-circle" id="close"></i>
                 <div class="sub-content">
-                    <h2>Suscripcion realizada con éxito!</h2>
-                    <p>Solo recibiras correos una vez a la semana con las mejores ofertas e información del mundo tech.</p>
+                    <h2>¡Suscripcion realizada con éxito!</h2>
+                    <h6>Solo recibiras correos una vez a la semana con las mejores ofertas e información del mundo tech.</h6>
                 </div>
                 <div class="line"></div>
             </div>
@@ -191,6 +221,23 @@ function validarFormulario(e) {
     </div>
     
     `;
+
+    
+    Swal.fire({
+
+        title: 'Procesando suscripción.',
+        text: '¡Muchas gracias!.',
+        imageUrl: '/images/register/email-api.gif',
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+        timer: 4000,
+        showConfirmButton: false,
+        allowEnterKey: false,
+        allowEscapeKey: false,
+        allowOutsideClick: false,
+
+      })
 
 }
 
