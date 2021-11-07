@@ -30,51 +30,56 @@ const accesoRegistrado = () => {
 
 //!JQUERY PARA DESLOGUEARTE (ELIMINAR CUENTA)
 
-    $('#botonLogout').click(function () {
+$('#botonLogout').click(function () {
 
-        //*MOSTRAMOS CARTEL DE ADVERTENCIA AL UTILIZAR LOGOUT
-        Swal.fire ({
-    
-            title: '¿Estas seguro?',
-            text: "Tu cuenta sera eliminada luego de esta accion",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, lo sé',
+    //*MOSTRAMOS CARTEL DE ADVERTENCIA AL UTILIZAR LOGOUT
+    Swal.fire({
 
-        }).then((result) => {
+        title: 'Procesando pedido',
+        text: "Tu cuenta sera eliminada luego de esta accion",
+        icon: 'warning',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, lo sé',
 
-            //*ACA SIMPLEMENTE MOSTRAMOS LA FINALIZACION DEL PROCESO
-            if (result.value) {
+    }).then((result) => {
 
-                Swal.fire({
+        //*ACA SIMPLEMENTE MOSTRAMOS LA FINALIZACION DEL PROCESO
+        if (result.value) {
 
-                    title: '¡Proceso finalizado!',
-                    text: 'Tu cuenta ha sido eliminada',
-                    icon: 'success',
-                    timer: 5000,
-                    timerProgressBar: true,
-                    footer: '<span class="redFooterLogout">Redireccionando al Inicio</span>'
+            Swal.fire({
 
-                })
+                title: '¡Proceso finalizado!',
+                text: 'Tu cuenta ha sido eliminada',
+                icon: 'success',
+                timer: 4000,
+                timerProgressBar: true,
+                allowEscapeKey: false,
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                footer: '<span class="redFooterLogout">Redireccionando al Inicio</span>'
 
-            }
-            
-            //*VACIAMOS lOCALSTORAGE CON LOGOUT
-            localStorage.clear();
-            
-        })
-        
-        //*EVITAMOS QUE NOS ENVIE A LA PAGINA DE INICIO ENSEGUIDA LUEGO DE ELIMINAR LA CUENTA
-        function redireccionar() {
+            })
 
-            setTimeout("window.location = '/index.html'", 8000);
+        }
 
-          }
-        
-          redireccionar();
+        //*VACIAMOS CREDENCIALES ACCESO EN lOCALSTORAGE CON LOGOUT
+        localStorage.removeItem('user');
+        localStorage.removeItem('password');
+        localStorage.removeItem('email');
+
     })
+
+    //*EVITAMOS QUE NOS ENVIE A LA PAGINA DE INICIO ENSEGUIDA LUEGO DE ELIMINAR LA CUENTA
+    function redireccionar() {
+
+        setTimeout("window.location = '/index.html'", 6000);
+
+    }
+
+    redireccionar();
+})
 
 //!FUNCION PARA EL REGISTRO DEL USUARIO
 const registrarse = () => {
@@ -92,7 +97,7 @@ const registrarse = () => {
             allowEscapeKey: true,
             allowOutsideClick: true,
             width: '20%',
-            backdrop: true, 
+            backdrop: true,
 
         });
 
@@ -214,6 +219,9 @@ if (botonVaciar) {
 
         carrito.length = 0;
 
+        //*VACIAMOS EL CARRITO ALMACENADO EN LOCALSTORAGE
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+
         actualizarCarritoVGA();
 
     });
@@ -229,6 +237,9 @@ const agregarAlCarritoVGA = (prodId) => {
     //*CON PUSH CREAMOS EL ITEM DENTRO DEL CARRITO
     carrito.push(item);
 
+    //*ALMACENAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+
     actualizarCarritoVGA();
 
 }
@@ -243,6 +254,9 @@ const eliminarDelCarritoVGA = (prodId) => {
 
     //*CON SPLICE QUITAMOS EL ELEMENTO DEL CARRITO MEDIANTE EL IDENTIFICADOR INDICE
     carrito.splice(indice, 1);
+
+    //*ELIMINAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
+    localStorage.setItem('carrito', JSON.stringify(carrito));
 
     actualizarCarritoVGA();
 
@@ -260,7 +274,8 @@ const actualizarCarritoVGA = () => {
         div.className = "productoEnCarrito";
 
         div.innerHTML = `
-        
+
+            <td><img src="${productosVga.img}" width=100></td>
             <p>${productosVga.marca}</p>
             <p>Precio: $${productosVga.precio}</p>
             <button id="${productosVga.id}" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
@@ -301,6 +316,9 @@ const agregarAlCarritoCORE = (prodId) => {
     //*CON PUSH CREAMOS EL ITEM DENTRO DEL CARRITO
     carrito.push(item);
 
+    //*AGREGAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+
     actualizarCarritoCORE();
 
 }
@@ -315,6 +333,9 @@ const eliminarDelCarritoCORE = (prodId) => {
 
     //*CON SPLICE QUITAMOS EL ELEMENTO DEL CARRITO MEDIANTE EL IDENTIFICADOR INDICE
     carrito.splice(indice, 1);
+
+    //*ELIMINAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
+    localStorage.setItem('carrito', JSON.stringify(carrito));
 
     actualizarCarritoCORE();
 
@@ -331,7 +352,8 @@ const actualizarCarritoCORE = () => {
         div.className = "productoEnCarrito";
 
         div.innerHTML = `
-        
+
+            <td><img src="${productosCore.img}" width=100></td>
             <p>${productosCore.marca}</p>
             <p>Precio: $${productosCore.precio}</p>
             <button id="${productosCore.id}" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
@@ -372,6 +394,9 @@ const agregarAlCarritoMOTHER = (prodId) => {
     //*CON PUSH CREAMOS EL ITEM DENTRO DEL CARRITO
     carrito.push(item);
 
+    //*AGREGAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+
     actualizarCarritoMOTHER();
 
 }
@@ -386,6 +411,9 @@ const eliminarDelCarritoMOTHER = (prodId) => {
 
     //*CON SPLICE QUITAMOS EL ELEMENTO DEL CARRITO MEDIANTE EL IDENTIFICADOR INDICE
     carrito.splice(indice, 1);
+
+    //*ELIMINAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
+    localStorage.setItem('carrito', JSON.stringify(carrito));
 
     actualizarCarritoMOTHER();
 
@@ -402,7 +430,8 @@ const actualizarCarritoMOTHER = () => {
         div.className = "productoEnCarrito";
 
         div.innerHTML = `
-        
+
+            <td><img src="${productosMother.img}" width=100></td>
             <p>${productosMother.marca}</p>
             <p>Precio: $${productosMother.precio}</p>
             <button id="${productosMother.id}" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
@@ -443,6 +472,9 @@ const agregarAlCarritoRAM = (prodId) => {
     //*CON PUSH CREAMOS EL ITEM DENTRO DEL CARRITO
     carrito.push(item);
 
+    //*AGREGAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+
     actualizarCarritoRAM();
 
 }
@@ -457,6 +489,9 @@ const eliminarDelCarritoRAM = (prodId) => {
 
     //*CON SPLICE QUITAMOS EL ELEMENTO DEL CARRITO MEDIANTE EL IDENTIFICADOR INDICE
     carrito.splice(indice, 1);
+
+    //*ELIMINAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
+    localStorage.setItem('carrito', JSON.stringify(carrito));
 
     actualizarCarritoRAM();
 
@@ -473,7 +508,8 @@ const actualizarCarritoRAM = () => {
         div.className = "productoEnCarrito";
 
         div.innerHTML = `
-        
+
+            <td><img src="${productosRam.img}" width=100></td>
             <p>${productosRam.marca}</p>
             <p>Precio: $${productosRam.precio}</p>
             <button id="${productosRam.id}" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
@@ -501,48 +537,6 @@ const actualizarCarritoRAM = () => {
 
     //*SUMAMOS PRECIO TOTAL DE LOS PRODUCTOS
     precioTotal.innerText = carrito.reduce((acumulador, prod) => acumulador + prod.precio, 0);
-
-};
-
-//!BTN VOLVER ARRIBA
-const scrollUp = () => {
-
-    const currentScroll = document.documentElement.scrollTop;
-
-    if (currentScroll > 0) {
-
-        //*requestAnimationFrame NOS PREPARA LA FUNCIONA COMO UNA ANIMACIÓN
-        window.requestAnimationFrame(scrollUp);
-        window.scrollTo(0, currentScroll - (currentScroll / 10));
-
-        //*CON ESTE COMANDO EL BOTON DESAPARECE SIN LA NECESIDAD DE LLEGAR A LA ALTURA DE 500 (BARRA DE DESPLAZAMIENTO)
-        buttonUp.style.transform = 'scale(0)';
-
-    };
-
-};
-
-//*CODIGO DEL SCROLL
-buttonUp = document.getElementById('button-up');
-
-window.onscroll = () => {
-
-    //*ACA GUARDAREMOS EN QUE POSICION ESTA EL SCROLL
-    const scroll = document.documentElement.scrollTop;
-
-    //*SI EL SCROLL ES MAYOR A 1000 PONEMOS EL BOTON ARRIBA VISIBLE
-    if (scroll > 1000) {
-
-        buttonUp.style.transform = 'scale(1)';
-
-        //*SI EL SCROLL ES MENOR A 1000 PONEMOS EL BOTON ARRIBA OCULTO
-    } else if (scroll < 1000) {
-
-        buttonUp.style.transform = 'scale(0)';
-
-    };
-
-    document.getElementById('button-up').addEventListener('click', scrollUp);
 
 };
 
