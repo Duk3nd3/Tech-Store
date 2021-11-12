@@ -6,8 +6,9 @@ const IVA = 1.21;
 const purchaseAmount = () => {
 
     let purchase = parseInt(prompt('Ingresa el monto de tu compra para calcular el envío por favor'));
-
+    console.log(purchase);
     return purchase;
+    
 };
 
 //*!FUNCION QUE CALCULA EL COSTO DE ENVIO
@@ -38,6 +39,7 @@ const shippingCost = (envio, totalPurchase, IVA, province, total) => {
 }
 
 //!FUNCION SOBRE LA CUAL PREGUNTAMOS AL USUARIO A QUE PROVINCIA PERTENECE
+
 const askProvince = () => {
 
     province = prompt('¿Cuál es tu provincia?').toLowerCase().trim();
@@ -174,19 +176,19 @@ const askProvince = () => {
             case 'la rioja':
 
                 totalPurchase = purchaseAmount();
-                costoEnvio(1.3, totalPurchase, IVA, province, total);
+                shippingCost(1.3, totalPurchase, IVA, province, total);
                 break;
 
             case 'catamarca':
 
                 totalPurchase = purchaseAmount();
-                costoEnvio(1.3, totalPurchase, IVA, province, total);
+                shippingCost(1.3, totalPurchase, IVA, province, total);
                 break;
 
             case 'santiago del estero':
 
                 totalPurchase = purchaseAmount();
-                costoEnvio(1.5, totalPurchase, IVA, province, total);
+                shippingCost(1.5, totalPurchase, IVA, province, total);
                 break;
 
             default:

@@ -1,5 +1,19 @@
 //?ACCESOS A HTML DESDE ESTAS FUNCIONES
 
+//!COLOCAMOS EL CURSOR SOBRE EL INPUT #usuario 
+$(document).ready( () => {
+
+    $('#usuario').trigger('focus');
+
+} );
+
+//!PEQUEÑA EJECUCION AL CARGAR LA PAGINA INICIAL
+$(document).ready( () => {
+
+    $('.techStyle').css('opacity', '1');
+
+})
+
 //!FUNCION PARA ACCEDER AL REGISTRO DEL USUARIO
 const registro = () => {
 
@@ -93,7 +107,7 @@ $('#botonLogout').click(function () {
 
         } else if (
 
-            /* Read more about handling dismissals below */
+            //* Read more about handling dismissals below *//
             result.dismiss === Swal.DismissReason.cancel
 
         ) {
@@ -262,7 +276,7 @@ if (botonVaciar) {
     botonVaciar.addEventListener('click', () => {
 
         //*VACIAMOS EL ARRAY CARRITO DENTRO DEL MODAL Y MOSTRAMOS EL MENSAJE
-        document.getElementById('vaciado').innerHTML = 'Carrito vaciado con exito!';
+        document.getElementById('vaciado').innerHTML = '¡Carrito vaciado con exito!';
 
         carrito.length = 0;
 
@@ -270,6 +284,9 @@ if (botonVaciar) {
         localStorage.setItem('carrito', JSON.stringify(carrito));
 
         actualizarCarritoVGA();
+        actualizarCarritoMOTHER();
+        actualizarCarritoCORE();
+        actualizarCarritoRAM();
 
     });
 };
