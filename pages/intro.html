@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/stylesheet.css">
@@ -108,6 +109,7 @@
             </div>
             <p id="vaciado" class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
             <button id="vaciar-carrito" class="btn-vaciar btn--1">Vaciar carrito</button>
+            <div id="emptyCart"> </div>
         </div>
     </div>
 
@@ -133,20 +135,21 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.11/dist/sweetalert2.all.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script defer src="/js/rams.js"></script>
-    <script defer src="/js/mothers.js"></script>
-    <script defer src="/js/procesadores.js"></script>
-    <script defer src="/js/vga.js"></script>
-    <script defer src="/js/productos.js"></script>
+    <script src="/js/rams.js"></script>
+    <script src="/js/mothers.js"></script>
+    <script src="/js/procesadores.js"></script>
+    <script src="/js/vga.js"></script>
+    <script src="/js/productos.js"></script>
     <!-- <script src="/js/envio.js"></script> -->
     <script defer src="/js/envioTEST.js"></script>
     <script defer src="/js/modal.js"></script>
     <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
     <script defer src="/js/bootstrap.bundle.min.js"></script>
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script defer src="/js/scroll.js"></script>
     <script defer src="/js/eventos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </body>
 
 </html>

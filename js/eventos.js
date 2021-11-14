@@ -1,18 +1,47 @@
 //?ACCESOS A HTML DESDE ESTAS FUNCIONES
 
-//!COLOCAMOS EL CURSOR SOBRE EL INPUT #usuario 
+//!COLOCAMOS EL CURSOR SOBRE EL INPUT #usuario CON JQUERY
 $(document).ready( () => {
 
     $('#usuario').trigger('focus');
 
 } );
 
-//!PEQUEÑA EJECUCION AL CARGAR LA PAGINA INICIAL
+//!EJECUCION AL CARGAR LA PAGINA INICIAL CON JQUERY
 $(document).ready( () => {
 
     $('.techStyle').css('opacity', '1');
+    $('#tech-intro').append('<img src="/images/intro/tech-intro.gif">');
+    $('#tech-intro img').css('width', '50%', 'height', '50%');
 
-})
+    //*AL PASAR EL MOUSE POR LA IMAGEN 'PC' ESTA SE OCULTA Y EN SU LUGAR APARECE UNA ANIMACION DE EXPLOSION
+    $(function(){
+    
+        $('#tech-intro').on({
+
+            mouseenter: function(){
+
+                $(this).css('opacity', '0.5');
+                $('#tech-intro').hide();
+                $('#tech-intro-explotion').append('<img src="/images/intro/explosion-tech-intro.gif">');
+                $('#tech-intro-explotion img').css('width', '50%', 'height', '50%');
+
+            },
+
+            //*AL RETIRAR EL MOUSE VUELVE EL GIF 'PC' A SU POSICION ORIGINAL
+            mouseleave: function(){
+
+                $(this).css('opacity', '1');
+                $('#tech-intro').show();
+                $('#tech-intro-explotion img').remove();
+
+            }
+
+        });
+    
+    })
+
+});
 
 //!FUNCION PARA ACCEDER AL REGISTRO DEL USUARIO
 const registro = () => {
@@ -275,8 +304,45 @@ if (botonVaciar) {
 
     botonVaciar.addEventListener('click', () => {
 
-        //*VACIAMOS EL ARRAY CARRITO DENTRO DEL MODAL Y MOSTRAMOS EL MENSAJE
-        document.getElementById('vaciado').innerHTML = '¡Carrito vaciado con exito!';
+        if (carrito.length === 0) {
+
+            //*VACIAMOS EL ARRAY CARRITO DENTRO DEL MODAL Y MOSTRAMOS EL MENSAJE
+            $('#vaciado').html('<h3><strong>¡El carrito ya se encuentra vacio!</strong></h3>');
+
+            //*OCULTAMOS EL BOTON 'VACIAR CARRITO' LUEGO DEL PROCESO
+            $('#vaciar-carrito').hide();
+
+            //*MOSTRAMOS UNA IMAGEN QUE ACOMPAÑA AL PROCESO
+            $('#emptyCart').append("<img src='/images/modal_carrito/carrito_vacio-min.png'>");
+            $('#emptyCart img').css('width', '25%', 'height', '25%');
+
+            setTimeout(function(){
+
+                $('#emptyCart').hide();
+                $('#vaciar-carrito').show();
+
+            }, 3000);
+
+        } else {
+
+            //*VACIAMOS EL ARRAY CARRITO DENTRO DEL MODAL Y MOSTRAMOS EL MENSAJE
+            $('#vaciado').html('<h3><strong>¡El carrito se ha vaciado con éxito!</strong></h3>');
+
+            //*OCULTAMOS EL BOTON 'VACIAR CARRITO' LUEGO DEL PROCESO
+            $('#vaciar-carrito').hide();
+
+            //*MOSTRAMOS UNA IMAGEN QUE ACOMPAÑA AL PROCESO
+            $('#emptyCart').append("<img src='/images/modal_carrito/carrito_vaciado.png'>");
+            $('#emptyCart img').css('width', '20%', 'height', '20%');
+
+            setTimeout(function(){
+
+                $('#emptyCart').hide();
+                $('#vaciar-carrito').show();
+
+            }, 3000);
+
+        } 
 
         carrito.length = 0;
 
@@ -303,8 +369,20 @@ const agregarAlCarritoVGA = (prodId) => {
 
     //*ALMACENAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
     localStorage.setItem('carrito', JSON.stringify(carrito));
-
+    
     actualizarCarritoVGA();
+
+    Toastify({
+        
+        text: "Producto agregado al carrito",
+        className: "info",
+        position: "right",
+        avatar: "https://icon-library.com/images/success-icon-png/success-icon-png-11.jpg",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+
+      }).showToast();
 
 }
 
@@ -385,6 +463,18 @@ const agregarAlCarritoCORE = (prodId) => {
 
     actualizarCarritoCORE();
 
+    Toastify({
+
+        text: "Producto agregado al carrito",
+        className: "info",
+        position: "right",
+        avatar: "https://icon-library.com/images/success-icon-png/success-icon-png-11.jpg",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+
+      }).showToast();
+      
 }
 
 //*ELIMINAMOS PRODUCTOS DEL CARRITO
@@ -462,6 +552,18 @@ const agregarAlCarritoMOTHER = (prodId) => {
     localStorage.setItem('carrito', JSON.stringify(carrito));
 
     actualizarCarritoMOTHER();
+
+    Toastify({
+
+        text: "Producto agregado al carrito",
+        className: "info",
+        position: "right",
+        avatar: "https://icon-library.com/images/success-icon-png/success-icon-png-11.jpg",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+
+      }).showToast();
 
 }
 
@@ -541,6 +643,18 @@ const agregarAlCarritoRAM = (prodId) => {
 
     actualizarCarritoRAM();
 
+    Toastify({
+
+        text: "Producto agregado al carrito",
+        className: "info",
+        position: "right",
+        avatar: "https://icon-library.com/images/success-icon-png/success-icon-png-11.jpg",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+
+      }).showToast();
+
 }
 
 //*ELIMINAMOS PRODUCTOS DEL CARRITO
@@ -615,7 +729,7 @@ presionar_tecla = (e) => {
         //*LLAMAMOS A LA VARIABLE DEL EVENTO botonCerrar 
         return botonCerrar.click();
 
-    };
+    } 
 
 };
 

@@ -23,7 +23,7 @@ botonCerrar.addEventListener('click', () => {
 contenedorModal.addEventListener('click', () => {
 
     botonCerrar.click()
-
+    
 });
 
 //*CON ESTA FUNCION EVITAMOS LA 'PROPAGACION' DEL EVENTO

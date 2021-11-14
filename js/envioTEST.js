@@ -311,28 +311,29 @@ const shippingCost = (envio, totalPurchase, IVA, province, total) => {
 //*!FUNCION PARA CREAR EL PROMPT
 const purchaseAmount = () => {
 
-    let purchase = prompt('Ingresa el monto de tu compra para calcular el envío por favor');
-    // let purchase;
-    // console.log(typeof purchase)
+    // let purchase = prompt('Ingresa el monto de tu compra para calcular el envío por favor');
+    
 
-    // swal.fire({
+        return new Promise(resolve => {
+
+            swal.fire({
         
-    //         title: 'Precio compra',
-    //         title: 'Ingresa el monto de tu compra para calcular el envío por favor.',
-    //         input: 'number',
-    //         icon: 'warning',
-    //         showCancelButton: false,
-    //         confirmButtonText: 'Confirmo',
-    //         reverseButtons: false
-        
-    //     }).then(() => {
-            
-    //             purchase = parseInt(swal.getInputValue(purchase));
+                title: 'Precio compra',
+                inputPlaceholder: 'Ingresa el monto de tu compra',
+                title: 'Se calculará el envío en base al valor agregado.',
+                input: 'number',
+                icon: 'warning',
+                showCancelButton: false,
+                confirmButtonText: 'Confirmo',
+                reverseButtons: false
                 
-    //             return purchase;
-            
-    //         });
+            }).then((result) => {
+        
+                resolve(result);
+        
+            });
 
-    return purchase;
-
+            console.log(typeof result);
+        });
+    
 };
