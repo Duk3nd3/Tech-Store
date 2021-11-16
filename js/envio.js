@@ -2,14 +2,344 @@ let province;
 let total;
 const IVA = 1.21;
 
-//*!FUNCION PARA CREAR EL PROMPT
-const purchaseAmount = () => {
+//!CON ESTA CONSTANTE GENERAMOS EVENTO EN BOTON CALCULAR ENVIO
 
-    let purchase = parseInt(prompt('Ingresa el monto de tu compra para calcular el envío por favor'));
-    console.log(purchase);
-    return purchase;
+$('#botonCalculoEnvio').click(function () {
+
+    const swalWithBootstrapButtons = Swal.mixin({
+
+        customClass: {
+
+            confirmButton: 'btn-out btn--2',
+            cancelButton: 'btn-cancel btn--2-error'
+
+        },
+
+        buttonsStyling: false
+
+    })
+
+    swalWithBootstrapButtons.fire({
+
+        inputPlaceholder: 'Ingresa el nombre de tu provincia',
+        title: 'Digite su provincia',
+        input: 'text',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Ingresar!',
+        cancelButtonText: 'Cancelar!',
+        reverseButtons: false
+
+    }).then((province) => {
+
+        if (province.isConfirmed) {
+
+            if (isNaN(province.value)) {
+
+                //*VARIABLE PARA EL CALCULO DEl MONTO INGRESADO POR EL CLIENTE
+                let totalPurchase;
+
+                //?ESTE SWITCH CONTIENE TODAS LAS PROVINCIAS DE ARGENTINA Y SUS RESPECTIVOS RECARGOS PARA EL ENVIO DEL PRODUCTO
+                switch (province.value) {
+
+                    case 'buenos aires':
+                        
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                        shippingCost(1.2, result, IVA, province, total);
+
+                        });
+                        
+                        break;
+
+                    case 'misiones':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.3, result, IVA, province, total);
     
-};
+                            });
+
+                        break;
+
+                    case 'entre rios':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.3, result, IVA, province, total);
+    
+                            });
+
+                        break;
+
+                    case 'santa cruz':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                        shippingCost(1.6, result, IVA, province, total);
+
+                        });
+
+                        break;
+
+                    case 'chaco':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                        shippingCost(1.3, result, IVA, province, total);
+
+                        });
+                        
+                        break;
+
+                    case 'cordoba':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.4, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'tierra del fuego':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.6, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'la pampa':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.2, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'caba':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.2, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'santa fe':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.3, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'mendoza':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.5, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'salta':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.4, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'tucuman':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.4, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'corrientes':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.3, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'jujuy':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.4, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'rio negro':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.6, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'san luis':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.4, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'neuquen':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.6, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'chubut':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.6, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'san juan':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.4, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'la rioja':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.3, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'catamarca':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.3, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    case 'santiago del estero':
+
+                        totalPurchase = purchaseAmount().then((result) => {
+
+                            shippingCost(1.5, result, IVA, province, total);
+    
+                            });
+                            
+                            break;
+
+                    default:
+
+                        swal.fire({
+
+                            title: 'Error',
+                            title: 'La provincia no existe.',
+                            icon: 'error',
+                            showCancelButton: false,
+                            confirmButtonText: 'Entendido',
+                            reverseButtons: false,
+
+                        })
+
+                }
+
+            } else if (province.value == '') {
+
+                //*SI EL USUARIO INGRESA UN VALOR NUMERICO, LO RECHAZAMOS Y VOLVEMOS A PREGUNTAR.
+
+                swal.fire({
+
+                    title: 'Campo vacio.',
+                    icon: 'warning',
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    timerProgressBar: true,
+                    timer: 4000
+
+                })
+
+            } else {
+
+                //*SI EL USUARIO INGRESA UN VALOR NUMERICO, LO RECHAZAMOS Y VOLVEMOS A PREGUNTAR.
+                
+                swal.fire({
+
+                    title: 'Error',
+                    title: 'No se permiten valores numericos.',
+                    icon: 'error',
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    timerProgressBar: true,
+                    timer: 4000
+
+                })
+
+            };
+
+        } else if (
+
+            //* Read more about handling dismissals below *//
+            province.dismiss === Swal.DismissReason.cancel
+
+        ) {
+
+            swalWithBootstrapButtons.fire(
+
+                'Cancelación exitosa',
+                'No se realizo ningun cambio.',
+                'info'
+
+            )
+
+        }
+
+    })
+
+});
 
 //*!FUNCION QUE CALCULA EL COSTO DE ENVIO
 const shippingCost = (envio, totalPurchase, IVA, province, total) => {
@@ -18,193 +348,96 @@ const shippingCost = (envio, totalPurchase, IVA, province, total) => {
     if ((!isNaN(totalPurchase)) && (totalPurchase <= 5000)) {
 
         total = (totalPurchase * IVA) * envio;
-        alert(`Tu provincia es ${province} y con el envío tiene un precio final de $${total.toFixed(2)} pesos`);
-        alert('Compra finalizada con éxito, ¡muchas gracias!');
+
+        Swal.fire({
+
+            icon: 'success',
+            title: '¡Muy bien!',
+            html: `Tu provincia es <strong>${province.value}</strong> y con el envío tiene un precio final + IVA de $${total} pesos`,
+            text: 'Compra finalizada con éxito, ¡muchas gracias.',
+            footer: '<strong>Proceso finalizado</strong>',
+            showConfirmButton: false,
+            timerProgressBar: true,
+            timer: 5000
+
+        })
 
         //*SI EL PRECIO ES MAYOR A 5K EL ENVIO ES GRATIS
     } else if ((!isNaN(totalPurchase)) && (totalPurchase > 5000)) {
 
         total = (totalPurchase * IVA);
-        alert(`Tu provincia es ${province} y el precio final con envio gratuito es de $${total.toFixed(2)} pesos`);
-        alert('Compra finalizada con éxito, ¡muchas gracias!');
+
+        Swal.fire({
+
+            icon: 'success',
+            title: '¡Muy bien!',
+            html: `Tu provincia es <strong>${province.value}</strong> y el precio final + IVA con envio gratuito es de $${total} pesos`,
+            text: 'Compra finalizada con éxito, ¡muchas gracias.',
+            footer: '<strong>Proceso finalizado</strong>',
+            showConfirmButton: false,
+            timerProgressBar: true,
+            timer: 5000
+
+        })
 
         //!*DAMOS AVISO AL USUARIO SOBRE EL NO USO DE CARACTERES ALFABETICOS PARA ESTE CAMPO
     } else {
 
-        alert('Solo se permiten valores numericos para este campo, intente nuevamente por favor.');
-        askProvince();
+        console.log(totalPurchase);
+
+        if (isNaN(totalPurchase)) {
+
+            Swal.fire({
+
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'Solo se permiten valores numericos para este campo.',
+                footer: '<strong>Datos incorrectos</strong>',
+                showConfirmButton: false,
+                timerProgressBar: true,
+                timer: 4000
+
+            })
+        }
 
     }
 
 }
 
-//!FUNCION SOBRE LA CUAL PREGUNTAMOS AL USUARIO A QUE PROVINCIA PERTENECE
+//*!FUNCION PARA CREAR EL PROMPT
+const purchaseAmount = () => {
 
-const askProvince = () => {
+    return new Promise((resolve, reject) => {
 
-    province = prompt('¿Cuál es tu provincia?').toLowerCase().trim();
+        swal.fire({
 
-    //*SINO ES UN VALOR ALFABETICO AVISAMOS AL USUARIO POR MEDIO DEL 'ELSE'
-    if (isNaN(province)) {
+            customClass: {
 
-        //*VARIABLE PARA EL CALCULO DEl MONTO INGRESADO POR EL CLIENTE
-        let totalPurchase;
+                confirmButton: 'btn-out btn--2',
+                cancelButton: 'btn-cancel btn--2-error'
+    
+            },
+    
+            buttonsStyling: false,
 
-        //?ESTE SWITCH CONTIENE TODAS LAS PROVINCIAS DE ARGENTINA Y SUS RESPECTIVOS RECARGOS PARA EL ENVIO DEL PRODUCTO
-        switch (province) {
+            icon: 'question',
+            title: '¿Cuanto es el valor de la compra?',
+            inputPlaceholder: 'Ingrese el valor de la compra',
+            input: 'number',
+            confirmButtonText: 'Ingresar!',
+            // cancelButtonText: 'Cancelar!',
+            showCancelButton: false,
+            showConfirmButton: true,
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            footer: '<strong>Compra superior a $5000 envío gratis</strong>'
 
-            case 'buenos aires':
+        }).then((result) => {
 
-                totalPurchase = purchaseAmount();
-                shippingCost(1.2, totalPurchase, IVA, province, total);
-                break;
+            resolve(result.value);
 
-            case 'misiones':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.3, totalPurchase, IVA, province, total);
-                break;
-
-            case 'entre rios':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.3, totalPurchase, IVA, province, total);
-                break;
-
-            case 'santa cruz':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.6, totalPurchase, IVA, province, total);
-                break;
-
-            case 'chaco':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.3, totalPurchase, IVA, province, total);
-                break;
-
-            case 'cordoba':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.4, totalPurchase, IVA, province, total);
-                break;
-
-            case 'tierra del fuego':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.6, totalPurchase, IVA, province, total);
-                break;
-
-            case 'la pampa':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.2, totalPurchase, IVA, province, total);
-                break;
-
-            case 'caba':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.2, totalPurchase, IVA, province, total);
-                break;
-
-            case 'santa fe':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.3, totalPurchase, IVA, province, total);
-                break;
-
-            case 'mendoza':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.5, totalPurchase, IVA, province, total);
-                break;
-
-            case 'salta':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.4, totalPurchase, IVA, province, total);
-                break;
-
-            case 'tucuman':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.4, totalPurchase, IVA, province, total);
-                break;
-
-            case 'corrientes':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.3, totalPurchase, IVA, province, total);
-                break;
-
-            case 'jujuy':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.4, totalPurchase, IVA, province, total);
-                break;
-
-            case 'rio negro':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.6, totalPurchase, IVA, province, total);
-                break;
-
-            case 'san luis':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.4, totalPurchase, IVA, province, total);
-                break;
-
-            case 'neuquen':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.6, totalPurchase, IVA, province, total);
-                break;
-
-            case 'chubut':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.6, totalPurchase, IVA, province, total);
-                break;
-
-            case 'san juan':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.4, totalPurchase, IVA, province, total);
-                break;
-
-            case 'la rioja':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.3, totalPurchase, IVA, province, total);
-                break;
-
-            case 'catamarca':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.3, totalPurchase, IVA, province, total);
-                break;
-
-            case 'santiago del estero':
-
-                totalPurchase = purchaseAmount();
-                shippingCost(1.5, totalPurchase, IVA, province, total);
-                break;
-
-            default:
-                alert('La provincia ingresada no existe, intente nuevamente por favor.');
-                askProvince();
-
-        }
-
-    } else {
-
-        //*SI EL USUARIO INGRESA UN VALOR NUMERICO, LO RECHAZAMOS Y VOLVEMOS A PREGUNTAR.
-        alert('No se permiten valores numericos para este campo, intente nuevamente por favor.');
-        askProvince();
-    };
-
+        })
+        
+    })    
+    
 };
-
-//!CON ESTA CONSTANTE GENERAMOS EVENTO EN BOTON CALCULAR ENVIO
-const accionBoton = document.querySelector('#botonCalculoEnvio').addEventListener('click', askProvince);

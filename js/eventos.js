@@ -12,19 +12,19 @@ $(document).ready( () => {
 
     $('.techStyle').css('opacity', '1');
     $('#tech-intro').append('<img src="/images/intro/tech-intro.gif">');
-    $('#tech-intro img').css('width', '50%', 'height', '50%');
+    $('#tech-intro img').css('width', '75%', 'height', '75%');
 
-    //*AL PASAR EL MOUSE POR LA IMAGEN 'PC' ESTA SE OCULTA Y EN SU LUGAR APARECE UNA ANIMACION DE EXPLOSION
+    //*AL PASAR EL MOUSE POR LA IMAGEN 'PC' ESTA SE OCULTA Y EN SU LUGAR APARECE UNA ANIMACION
     $(function(){
     
         $('#tech-intro').on({
 
             mouseenter: function(){
 
-                $(this).css('opacity', '0.5');
+                $(this).css('opacity', '1');
                 $('#tech-intro').hide();
                 $('#tech-intro-explotion').append('<img src="/images/intro/explosion-tech-intro.gif">');
-                $('#tech-intro-explotion img').css('width', '50%', 'height', '50%');
+                $('#tech-intro-explotion img').css('width', '100%', 'height', '100%');
 
             },
 
