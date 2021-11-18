@@ -50,6 +50,14 @@ const registro = () => {
 
 };
 
+//!FUNCION PARA ACCEDER A EXCHANGE DEL USUARIO
+const exchange = () => {
+
+    window.location = "/pages/currencyExchange.html";
+
+};
+
+
 //!FUNCION PARA VOLVER AL TEMPLATE HOME
 const error = () => {
 

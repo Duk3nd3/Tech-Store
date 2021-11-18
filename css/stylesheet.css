@@ -529,11 +529,12 @@ body {
 }
 
 .btn-cart {
+
   position: relative;
   display: block;
   height: auto;
   width: 5%;
-  margin-left: 85%;
+  margin-left: 50%;
   border-radius: 4px;
   text-transform: uppercase;
   background-color: transparent;
@@ -546,6 +547,51 @@ body {
   z-index: 0;
   font-weight: 75%;
   cursor: pointer;
+
+}
+
+.btn-cambio {
+
+  position: relative;
+  display: block;
+  height: auto;
+  width: 6%;
+  margin-left: 2%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 100%;
+  overflow: hidden;
+  padding: 0.3%;
+  transition: all 500ms ease;
+  border: 2px solid #20e2d7;
+  z-index: 0;
+  font-weight: 75%;
+  cursor: pointer;
+
+}
+
+.btn-cambio-exchange {
+
+  position: relative;
+  display: block;
+  height: auto;
+  width: 7%;
+  margin-left: -10%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #000000;
+  font-size: 100%;
+  overflow: hidden;
+  padding: 1%;
+  transition: all 500ms ease;
+  border: 2px solid #20e2d7;
+  z-index: 0;
+  font-weight: 75%;
+  cursor: pointer;
+
 }
 
 .btn--2-error:hover {
@@ -1175,3 +1221,111 @@ p {
   font-size: 20px;
 
 };
+
+/*ESTILOS CAMBIO DE MONEDAD*/
+
+:root {
+
+  --primary-color: #f5ce52;
+
+}
+
+*{
+
+  box-sizing: border-box;
+
+}
+
+#exchangeTitle{
+
+  color: var(--primary-color);
+  margin-left: 35%;
+  font-size: 50px;
+  font-weight: 700;
+
+}
+
+.exchangeSubTitle{
+
+  color: var(--primary-color);
+  margin-left: 1%;
+  margin-bottom: 5%;
+  font-size: 25px;
+  font-weight: 700;
+
+}
+
+p {
+
+  text-align: center;
+
+}
+
+.conversor-imagen{
+  
+  width: 15%;
+  margin-left: 41%;
+  margin-top: 1%;
+
+}
+
+.moneda{
+
+  padding: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.moneda select{
+
+  padding: 10px 20px 10px 10px;
+  border-radius: 5% solid #dedede;
+  font-size: 16px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+
+}
+
+.moneda input {
+
+  border-radius: 5%;
+  font-size: 25px;
+  text-align: right;
+
+}
+
+.taza-cambio-container{
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.cambio{
+
+  color: var(--primary-color);
+  font-size: 25px;
+  padding: 0 10px;
+  font-weight: 600;
+
+}
+
+select:focus, input:focus, button:focus{
+
+  outline: 0;
+
+}
+
+@media (max-width:600px) {
+
+  .moneda input{
+
+    width: 200px;
+
+  }
+  
+}
