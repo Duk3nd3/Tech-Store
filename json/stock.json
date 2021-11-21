@@ -1,0 +1,246 @@
+[
+
+    {
+        "id": 1,
+        "marca": "Gigabyte",
+        "modelo": "RTX 2070",
+        "desc": "La tarjeta gráfica RTX 2070 Super es una de las mejores tarjetas gráficas del mercado situada dentro del top 5 de las más potentes justo por debajo de la RTX 2080 y con un 85% de rendimiento en comparación con la más potente.",
+        "precio": 165000,
+        "memoria": "8GB GDDR6 a 4.1 GHz",
+        "img": "/images/placas_de_video/RTX-2070-Super-preview-min.png",
+        "stock": true
+    },
+    {
+        "id": 2,
+        "marca": "MSI",
+        "modelo": "Radeon Rx 570",
+        "desc": "La tarjeta gráfica Radeon Rx 570 es la segunda clasificada en la mítica serie RX de la compañía AMD. Esta serie es la gama media de procesadores gráficos de dicha compañía y están destinadas a rendimientos medios para resoluciones FullHD.",
+        "precio": 115000,
+        "memoria": "4GB GDDR5 a 7 GHz",
+        "img": "/images/placas_de_video/RX-570-preview-min.png",
+        "stock": false
+    },
+    {
+        "id": 3,
+        "marca": "Sapphire",
+        "modelo": "RX 580",
+        "desc": "Sapphire Nitro Radeon RX 580 está diseñada sobre una arquitectura Polaris, especialmente recomendada para juegos de última generación que requieren características muy especificas. Estamos hablando de los juegos eSports y MOBA así como los títulos AAA más intensivos en gráficos.",
+        "precio": 95000,
+        "memoria": "8GB GDDR5 a 8 GHz",
+        "img": "/images/placas_de_video/SAPPHIRE-preview-min.png",
+        "stock": true
+    },
+    {
+        "id": 4,
+        "marca": "MSI",
+        "modelo": "GTX 1060 X",
+        "desc": "Es la hermana mayor de la tarjeta gráfica MSI anteriormente descrita (N6), sin embargo, ésta presenta más velocidad de procesamiento, frecuencia y memoria, lo que va a proporcionarte un comportamiento algo más eficiente.",
+        "precio": 95000,
+        "memoria": "3GB GDDR5 a 8Ghz",
+        "img": "/images/placas_de_video/MSI1060-preview-min.png",
+        "stock": false
+    },
+    {
+        "id": 5,
+        "marca": "Evga",
+        "modelo": "GTX 1070 SC",
+        "desc": "La combinación de la potencia de su CPU y GPU, junto con el uso de memoria GDDR5 y su compatibilidad con la última versión de DirectX, hacen que comprar esta tarjeta gráfica sea el primer paso para introducirte de cabeza en la realidad virtual.",
+        "precio": 290000,
+        "memoria": "8Gb GDDR5 a 1,7 Ghz",
+        "img": "/images/placas_de_video/EVGA-preview-min.png",
+        "stock": true
+    },
+    {
+        "id": 6,
+        "marca": "Nvidia",
+        "modelo": "RTX 3070",
+        "desc": "La tarjeta gráfica RTX 3070 está posicionada como la gama media-alta de la última generación de Nvidia (Serie 30) y una de las mejores del mercado en cuanto a rendimiento se refiere. Actualmente podemos afirmar que es una de las mejores graficas del mercado por bastante diferencia respecto a la anterior generación.",
+        "precio": 360000,
+        "memoria": "8GB GDDR6 a 15 GHz",
+        "img": "/images/placas_de_video/rtx_3070-preview-min.png",
+        "stock": false
+    },
+
+    {
+        "id": 7,
+        "marca": "Corsair",
+        "modelo": "Corsair Vengeance LED",
+        "desc": "Corsair es una de las marcas más fiables cuando se trata de la mejor RAM del mercado. Especialmente su serie Vengeance, que ofrece modelos para todos los usuarios con sus opciones LED DDR4.",
+        "precio": 13999,
+        "especificaciones": "Tipo: DDR4 Capacidad: 16GB Kit (2 x 8GB) Velocidad: 3200MHz",
+        "img": "/images/rams/corsair-vengeance-led-preview-min.png",
+        "stock": true
+    },
+    {
+        "id": 8,
+        "marca": "G.Skill",
+        "modelo": "G.Skill Trident Z RGB",
+        "desc": "Una de las mejores RAM, no solo porque es rápida, sino también porque en la parte superior de cada DIMM cuenta con una barra de luz arcoíris que combina con la iluminación RGB de ordenador.",
+        "precio": 24000,
+        "especificaciones": "Tipo: DDR4 Capacidad: 16GB (2x8GB) Velocidad: 3200MHz",
+        "img": "/images/rams/G.Skill-Trident_Z-RGB-preview-min.png",
+        "stock": false
+    },
+    {
+        "id": 9,
+        "marca": "Kingston",
+        "modelo": "Kingston HyperX Predator",
+        "desc": "La gama de alto rendimiento HyperX de Kingston ofrece algunas de las mejores RAM DDR3 del mercado, y los modelos Predator están especialmente enfocados a la velocidad y al rendimiento extremo.",
+        "precio": 12000,
+        "especificaciones": "Tipo: DDR4 Capacidad: 8GB, 16GB Velocidad: hasta 4600MHz",
+        "img": "/images/rams/Kingston-HyperX-Predator-preview-min.png",
+        "stock": true
+    },
+    {
+        "id": 10,
+        "marca": "Adata",
+        "modelo": "Adata Spectrix D80",
+        "desc": "Si esto te atrae, entonces la Adata Spectrix D80 es la RAM ideal para ti. Además de estar disponible con frecuencias de hasta 5.000 MHz, también integra refrigeración líquida, lo que significa que no tendrás que preocuparte por el sobrecalentamiento.",
+        "precio": 10500,
+        "especificaciones": "Tipo: DDR4 Capacidad: 16GB (2x8GB), 32 (2x16GB) Velocidad: hasta 4,133MHz",
+        "img": "/images/rams/Adata-Spectrix-D80-preview-min.png",
+        "stock": false
+    },
+    {
+        "id": 11,
+        "marca": "Corsair",
+        "modelo": "Corsair Dominator Platinum RGB",
+        "desc": "Es la misma RAM de gama alta que ya conocíamos y nos encantaba con velocidades de hasta 3600 MHz, y ahora el RGB mejorado con luces LED Capellix RGB, lo que hace que su diseño sea mucho más atractivo y colorido hace que sea la mejor RAM.",
+        "precio": 9400,
+        "especificaciones": "Tipo: DDR4 Capacidad: 16GB (2 x 8GB) Velocidad: 3000MHz",
+        "img": "/images/rams/corsair-dominator-platinum-rgb-preview-min.png",
+        "stock": true
+    },
+    {
+        "id": 12,
+        "marca": "G.Skill",
+        "modelo": "G.Skill Trident Z RGB DC",
+        "desc": "Si queres tener tanta RAM que en realidad no sabes ni cómo conseguirás exprimirla al máximo, querrás optar por la memoria DC G.Skill Trident Z RGB",
+        "precio": 35000,
+        "especificaciones": "Tipo: DDR4 Capacidad: 64GB (2x32GB) Velocidad: 3200MHz",
+        "img": "/images/rams/gskill-trident-z-rgb-dc-preview-min.png",
+        "stock": false
+    },
+
+    {
+        "id": 13,
+        "marca": "INTEL",
+        "modelo": "i5-10600K",
+        "desc": "AMD siempre ha sido la mejor opción en procesadores económicos, pero en un extraño giro, estamos recomendando un procesador Intel en esta categoría. Desde juegos hasta productividad ligera, el i5-10600 es un chip más capaz.",
+        "precio": 44000,
+        "velocidad": "5 GHz",
+        "img": "/images/procesadores/intel-core-i5-10600k-preview-min.png",
+        "stock": true
+    },
+    {
+        "id": 14,
+        "marca": "INTEL",
+        "modelo": "i7-11700K",
+        "desc": "Trabaja a muy altas temperaturas y requiere mucha energía, por lo que genera mucho calor y necesita un buen sistema de enfriamiento, pero puede alcanzar velocidades de reloj muy por delante de todo lo que AMD tiene para ofrecer.",
+        "precio": 69000,
+        "velocidad": "5.2 GHz",
+        "img": "/images/procesadores/intel-core-i711700k-preview-min.png",
+        "stock": false
+    },
+    {
+        "id": 15,
+        "marca": "AMD",
+        "modelo": "Ryzen 9 5900X",
+        "desc": "Dos chips lideran los procesadores de AMD, el 5900X y el 5950X. Este último es indudablemente el procesador más poderoso. El 5900X supera por mucho al 3900X de la generación pasada, así como al 10900K, el principal competidor de Intel.",
+        "precio": 83000,
+        "velocidad": "4.8 GHz",
+        "img": "/images/procesadores/amd-ryzen-9-5900x-preview-min.png",
+        "stock": true
+    },
+    {
+        "id": 16,
+        "marca": "AMD",
+        "modelo": "Threadripper 3990X",
+        "desc": "Si te es posible, aprovecha sus 64 núcleos y 128 subprocesos, ya que no hay otro procesador de este nivel fuera de la gama de servidores. Ya que, además de tener más núcleos y subprocesos de los que la mayoría de las aplicaciones sabrán aprovechar, también cuenta con un rendimiento de un solo subproceso simplemente fantástico.",
+        "precio": 89000,
+        "velocidad": "4.0 GHz",
+        "img": "/images/procesadores/Amd-Threadripper-3990-preview-min.png",
+        "stock": false
+    },
+    {
+        "id": 17,
+        "marca": "INTEL",
+        "modelo": "Pentium Gold G6400",
+        "desc": "El Pentium Gold G6400 es un procesador de doble núcleo con multihilo que puede resultar útil para crear equipos para ofimática básicos, e incluso para juegos con tarjetas gráficas poco potentes, como una GTX 1650.",
+        "precio": 25000,
+        "velocidad": "4 GHz",
+        "img": "/images/procesadores/Pentium-gold-g6400-preview-min.png",
+        "stock": true
+    },
+    {
+        "id": 18,
+        "marca": "AMD",
+        "modelo": "Atlhon 3000G",
+        "desc": "El Athlon 3000G es una competitiva APU de AMD que incluye dos núcleos Ryzen con multihilo —cuatro núcleos lógicos— con una frecuencia de 3.5 GHz (sin turbo), e incluye una unidad gráfica Radeon Vega 3. Es una opción más que interesante de compra, porque la parte de iGPU tiene más potencia que las iGPU de los procesadores de Intel",
+        "precio": 27000,
+        "velocidad": "3.5 GHz",
+        "img": "/images/procesadores/athlon-3000g-preview-min.png",
+        "stock": false
+    },
+
+    {
+        "id": 19,
+        "marca": "Gigabyte",
+        "modelo": "Z490 Aorus Master",
+        "desc": "El Gigabyte Z490 Aorus Master tiene un aspecto general más limpio en comparación con su predecesor. También está equipado con una gran armadura reactiva térmica, que incluye un disipador de calor dedicado para cada ranura SSD M.2. Esta placa puede ofrecer bastante potencia, gracias a sus 14 fases digitales VRMs con 90A etapas de potencia inteligente.",
+        "precio": 46350,
+        "ventaja": "Posee un fuerte rendimiento, tiene un aspecto más limpio que el modelo anterior, cuenta con 14 Frases VRMs digitales",
+        "img": "/images/mothers/GIGABYTE-Z490-AORUS-Master-preview-min.png",
+        "stock": true
+    },
+    {
+        "id": 20,
+        "marca": "MSI",
+        "modelo": "MPG X570 Pro Carbono",
+        "desc": "La placa base MSI MPG X570 Gaming Pro Carbon Wi-Fi es una gran opción para los procesadores AMD. Si bien sigue siendo compatible con procesadores AMD Ryzen de 2a generación, también está diseñada para aprovechar al máximo los últimos modelos de 3a generación.",
+        "precio": 34000,
+        "ventaja": "Posee varias opciones de ranuras y puertos, se mantiene bien refrigerada cuando se usa",
+        "img": "/images/mothers/MSI-MPG-X570-GAMING-PRO-CARBONO-preview-min.png",
+        "stock": false
+    },
+    {
+        "id": 21,
+        "marca": "ASUS",
+        "modelo": "ROG Maximus XII Extreme",
+        "desc": "La Maximus IX Hero es una de las mejores placas producidas de ASUS, por lo que está cargada de características que la convierten en un gran producto hoy en día. Posee un Socket LGA 1200 para la compatibilidad con procesadores Intel Core de 10ª generación.",
+        "precio": 78000,
+        "ventaja": "Fantástico rendimiento, excelente refrigeración, calidad de construcción fuerte",
+        "img": "/images/mothers/ASUS-ROG-Maximus-XII-Extreme-Z490-preview-min.png",
+        "stock": true
+    },
+    {
+        "id": 22,
+        "marca": "MSI",
+        "modelo": "MPG Z490 Gaming Carbon",
+        "desc": "El Gigabyte Z390 le permite experimentar con la nueva generación de las placas base de MSI, equipado con los procesadores de Intel de 10ª generación. Posee la tecnología Mystic Light que le proporciona un control completo de la iluminación; admite tiras de LED RGB RAINBOW con 16,8 millones de colores y 29 efectos",
+        "precio": 59000,
+        "ventaja": "Buen rendimiento, precio modesto, diseño discreto",
+        "img": "/images/mothers/MSI-MPG-Z490-Gaming-Carbon-preview-min.png",
+        "stock": false
+    },
+    {
+        "id": 23,
+        "marca": "MSI",
+        "modelo": "MEG Z490 Godlike",
+        "desc": "El MSI MEG Z490 Godlike le brinda casi cualquier cosa que puedas desear de una placa base Intel 10th-generación y mucho más. Tiene 4 ranuras DIMM que soportan hasta 128 GB de RAM con 5.000Mhz de velocidad en overclocking.",
+        "precio": 89000,
+        "ventaja": "Excelente rendimiento, conectividad rápida, pantalla de estado OLED",
+        "img": "/images/mothers/MSI-MEG-Z490-GODLIKE-preview-min.png",
+        "stock": true
+    },
+    {
+        "id": 24,
+        "marca": "MSI",
+        "modelo": "Z490-A Pro",
+        "desc": "El MSI Z490-A Pro a pesar de ser una placa con un excelente presupuesto, soporta procesadores Intel Core / Pentium Gold / Celeron de 10ª Generación compatibles con el zócalo LGA 1200. Además, admite hasta 128 GB de memoria DDR4 de doble canal a 4800 MHz.",
+        "precio": 47000,
+        "ventaja": "Asequible, fuerte rendimiento",
+        "img": "/images/mothers/MSI-Z490-A-PRO-preview-min.png",
+        "stock": false
+    }
+]

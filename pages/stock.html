@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Open+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/stylesheet.css">
+        <title>-STORE</title>
+    </head>
+<body style="background-color: rgba(0, 0, 0, 0.3);">
+
+    <div class="container my-5 text-center">
+        <button class="btn-stock btn--2" onclick="traer()">Verificar Stock</button>
+        <div class="mt-5">
+            <table class="table">
+                <thead style="color: darkred;">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="contenido" style="color: rgb(0, 0, 0)">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="backHome">
+        <a type="button" class="btn-home btn--2" href="intro.html">Volver a Home</a>
+    </div>
+
+    <script src="/js/productos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.11/dist/sweetalert2.all.min.js"></script>
+    <script src="/json/stock.json"></script>
+    <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
+    <script defer src="/js/bootstrap.bundle.min.js"></script>
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script defer src="/js/eventos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -121,15 +121,12 @@
     </div>
     <div id="boughtAmount"></div>
     <footer>
-        <!--ORDENAMOS PRODUCTOS DE LA A to Z-->
+        <!--VERIFICAMOS STOCK DE PRODUCTOS-->
         <div class="content centered-elements">
             <button id="botonOrdenarAsc" type="button"
-                class="btn-footer btn--3 btn-secondary btn-lg botonesOrganizarProductos">Ordenar producto de
-                A-Z</button>
-            <!--ORDENAMOS PRODUCTOS DE LA Z to A-->
-            <button id="botonOrdenarDesc" type="button"
-                class="btn-footer btn--3 btn-secondary btn-lg botonesOrganizarProductos">Ordenar producto de
-                Z-A</button>
+                class="btn-footer btn--3 btn-secondary btn-lg botonesOrganizarProductos" onclick="checkStock()">Stock Productos</button>
+        </div>
+        <div class="content centered-elements" >
             <!--CALCULAMOS EL ENVIO DEL PRODUCTO-->
             <button id="botonCalculoEnvio" type="button"
                 class="btn-footer btn--3 btn-secondary btn-lg botonesOrganizarProductos">Calcular Envio</button>

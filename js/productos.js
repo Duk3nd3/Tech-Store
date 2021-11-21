@@ -27,40 +27,39 @@ const combo1 = new Productos(1, "590 RX", "i3", "DDR3", 130000, "GIGABYTE");
 const combo2 = new Productos(2, "2080 RTX", "i5", "DDR4", 210000, "MSI");
 const combo3 = new Productos(3, "3070 RTX", "i7", "DDR5", 350000, "EVGA");
 
-//!ORDENAMOS POR ID LOS PODUCTOS CON EL METODO 'SORT'
-
-//*ASCENDENTE
-function ordenarAsc() {
-
-    const menor = [combo2.valor, combo1.valor, combo3.valor];
-    menor.sort(function (a, b) {
-        return a - b
-    });
-    console.log(menor);
-
-}
-
-//*DESCENDENTE
-function ordenarDesc() {
-
-    const mayor = [combo1.valor, combo3.valor, combo2.valor];
-    mayor.sort(function (a, b) {
-        return b - a
-    });
-    console.log(mayor);
-
-}
-
 //!AQUI COMENZAMOS CON LA EJECUCION DEL CODIGO LLAMANDO A LAS FUNCIONES
 
-/* OBJETO GLOBAL WINDOWS ESPERA A QUE CARGUE EL HTML Y ESTILOS PARA LUEGO EJECUTAR LO QUE ESTA DENTRO, EN ESTE CASO EL LLAMADO A TODAS LAS FUNCIONES */
-window.onload = function () {
+let contenido = document.querySelector('#contenido')
 
-    const accionBotonAsc = document.querySelector('#botonOrdenarAsc').addEventListener('click', ordenarAsc);
+function traer() {
 
-    const accionBotonDesc = document.querySelector('#botonOrdenarDesc').addEventListener('click', ordenarDesc);
+    fetch('/json/stock.json')
 
-};
+        .then(res => res.json())
+        .then(datos => {
+            
+        tabla(datos)
+    })
+}
+
+function tabla(datos) {
+    
+    contenido.innerHTML = ''
+
+    for(let valor of datos){
+        
+        contenido.innerHTML += `
+        
+        <tr>
+            <th scope="row">${ valor.id }</th>
+            <td>${ valor.marca }</td>
+            <td>${ valor.modelo }</td>
+            <td>${ valor.stock ? "Stock Disponible" : "Sin Stock" }</td>
+        </tr>
+        
+        `
+    }
+}
 
 //!LLAMADO AL TEMPLATE VGA.JS
 const cajaProductosVga = document.querySelector('#caja-productos-vga');

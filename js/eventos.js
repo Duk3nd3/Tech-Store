@@ -50,6 +50,13 @@ const registro = () => {
 
 };
 
+//!FUNCION PARA BOTON STOCK PRODUCTOS EN FOOTER
+const checkStock = () => {
+
+    window.location = "/pages/stock.html";
+
+}
+
 //!FUNCION PARA ACCEDER A EXCHANGE DEL USUARIO
 const exchange = () => {
 
