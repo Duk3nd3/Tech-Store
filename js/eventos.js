@@ -136,9 +136,6 @@ $('#botonLogout').click(function () {
             localStorage.removeItem('password');
             localStorage.removeItem('email');
 
-            //!TEMPORAL LIMPIAMOS LOCALSTORE
-            localStorage.clear();
-
             //*EVITAMOS QUE NOS ENVIE A LA PAGINA DE INICIO ENSEGUIDA LUEGO DE ELIMINAR LA CUENTA
             function redireccionar() {
 
@@ -151,7 +148,7 @@ $('#botonLogout').click(function () {
 
         } else if (
 
-            //* Read more about handling dismissals below *//
+            //*SIN CANCELA ESTA ACCION HACEMOS LO SIGUIENTE
             result.dismiss === Swal.DismissReason.cancel
 
         ) {
@@ -220,8 +217,10 @@ const registrarse = () => {
             position: 'top',
             icon: 'success',
             title: 'Registro exitoso',
+            background: '#ffff',
+            footer: '<span class="redFooterLogout">¡Bienvenid@!</span>',
             showConfirmButton: false,
-            timer: 2500,
+            timer: 3500,
             backdrop: true,
 
         });
@@ -234,6 +233,7 @@ const registrarse = () => {
 
         homeButton.innerHTML = `
     
+            <img style="position: absolute;" src="/images/register/background.gif" alt="">
             <div class="register-success">
             <img src="/images/register/hello-world-removebg-preview.png" alt=" hello world">
             <img src="/images/register/Tech-Store-removebg-preview.png" alt="registro exitoso">
@@ -310,7 +310,7 @@ const contadorCarrito = document.getElementById('contador-carrito');
 const precioTotal = document.getElementById('precioTotal');
 
 //*ARRAY CARRITO
-const carrito = [];
+let carrito = [];
 
 //!VACIAMOS CARRITO POR COMPLETO
 
@@ -320,6 +320,9 @@ if (botonVaciar) {
     botonVaciar.addEventListener('click', () => {
 
         if (carrito.length === 0) {
+
+            //*QUITAMOS EL BOTON FINALIZAR COMPRA SI EL CARRITO ESTA VACIO
+            $('#finalizarCompra').hide();
 
             //*VACIAMOS EL ARRAY CARRITO DENTRO DEL MODAL Y MOSTRAMOS EL MENSAJE
             $('#vaciado').html('<h3><strong>¡El carrito ya se encuentra vacio!</strong></h3>');
@@ -335,10 +338,14 @@ if (botonVaciar) {
 
                 $('#emptyCart').hide();
                 $('#vaciar-carrito').show();
+                $('#vaciar-carrito').html('<a href=""><strong>CLIC AQUI</strong></a>');
 
             }, 3000);
 
         } else {
+
+            //*QUITAMOS EL BOTON FINALIZAR COMPRA SI EL CARRITO ESTA VACIO
+            $('#finalizarCompra').hide();
 
             //*VACIAMOS EL ARRAY CARRITO DENTRO DEL MODAL Y MOSTRAMOS EL MENSAJE
             $('#vaciado').html('<h3><strong>¡El carrito se ha vaciado con éxito!</strong></h3>');
@@ -354,6 +361,7 @@ if (botonVaciar) {
 
                 $('#emptyCart').hide();
                 $('#vaciar-carrito').show();
+                $('#vaciar-carrito').html('<a href=""><strong>CLIC AQUI</strong></a>');
 
             }, 3000);
 
@@ -372,6 +380,37 @@ if (botonVaciar) {
     });
 };
 
+//!BOTON FINALIZAR COMPRA
+
+finalizarCompra.addEventListener('click', () => {
+
+    if (carrito.length === 0) {
+
+        Swal.fire({
+
+            icon: 'error',
+            title: 'Oops...',
+            text: 'El carrito se encuentra vacío',
+            footer: '<a href="">Caso contrario contacte al área de Soporte</a>'
+
+            }) 
+
+        } else {
+
+            Swal.fire({
+
+            icon: 'success',
+            title: '¡Compra realizada con éxito!',
+            text: '¡Muchas gracias por su compra!',
+            footer: '<a href="">Enviaremos su factura de compra al correo registrado</a>'
+
+        })
+
+    }
+
+})
+
+
 //!VGA carrito
 
 //*AGREGAMOS PRODUCTOS AL CARRITO
@@ -379,8 +418,15 @@ const agregarAlCarritoVGA = (prodId) => {
 
     const item = stockProductos_vga.find((prod) => prod.id === prodId);
 
-    //*CON PUSH CREAMOS EL ITEM DENTRO DEL CARRITO
-    carrito.push(item);
+    if (item) { 
+
+        //*SI EL PRODUCTO EXISTE EN EL CARRITO, SE INCREMENTA EL CONTADOR
+        const existe = carrito.find((prod) => prod.id === prodId);
+
+        //*SUGAR SINTAX PARA EL PUSH DEL CARRITO
+        existe ? existe.cantidad++ : carrito.push({...item, cantidad: 1});
+
+     } 
 
     //*ALMACENAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
     localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -434,7 +480,8 @@ const actualizarCarritoVGA = () => {
 
             <td><img src="${productosVga.img}" width=100></td>
             <p>${productosVga.marca}</p>
-            <p>Precio: $${productosVga.precio}</p>
+            <p><strong>Precio:</strong> $${productosVga.precio}</p>
+            <p><strong>Cantidad:</strong> ${productosVga.cantidad}</p>
             <button id="${productosVga.id}" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
         
         `;
@@ -470,8 +517,15 @@ const agregarAlCarritoCORE = (prodId) => {
 
     const item = stockProductos_procesadores.find((prod) => prod.id === prodId);
 
-    //*CON PUSH CREAMOS EL ITEM DENTRO DEL CARRITO
-    carrito.push(item);
+    if (item) { 
+
+        //*SI EL PRODUCTO EXISTE EN EL CARRITO, SE INCREMENTA EL CONTADOR
+        const existe = carrito.find((prod) => prod.id === prodId);
+
+        //*SUGAR SINTAX PARA EL PUSH DEL CARRITO
+        existe ? existe.cantidad++ : carrito.push({...item, cantidad: 1});
+
+     } 
 
     //*AGREGAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
     localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -524,7 +578,8 @@ const actualizarCarritoCORE = () => {
 
             <td><img src="${productosCore.img}" width=100></td>
             <p>${productosCore.marca}</p>
-            <p>Precio: $${productosCore.precio}</p>
+            <p><strong>Precio:</strong> $${productosCore.precio}</p>
+            <p><strong>Cantidad:</strong> ${productosCore.cantidad}</p>
             <button id="${productosCore.id}" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
         
         `;
@@ -560,8 +615,15 @@ const agregarAlCarritoMOTHER = (prodId) => {
 
     const item = stockProductos_mothers.find((prod) => prod.id === prodId);
 
-    //*CON PUSH CREAMOS EL ITEM DENTRO DEL CARRITO
-    carrito.push(item);
+    if (item) { 
+
+        //*SI EL PRODUCTO EXISTE EN EL CARRITO, SE INCREMENTA EL CONTADOR
+        const existe = carrito.find((prod) => prod.id === prodId);
+
+        //*SUGAR SINTAX PARA EL PUSH DEL CARRITO
+        existe ? existe.cantidad++ : carrito.push({...item, cantidad: 1});
+
+     } 
 
     //*AGREGAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
     localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -614,7 +676,8 @@ const actualizarCarritoMOTHER = () => {
 
             <td><img src="${productosMother.img}" width=100></td>
             <p>${productosMother.marca}</p>
-            <p>Precio: $${productosMother.precio}</p>
+            <p><strong>Precio:</strong> $${productosMother.precio}</p>
+            <p><strong>Cantidad:</strong> ${productosMother.cantidad}</p>
             <button id="${productosMother.id}" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
         
         `;
@@ -650,8 +713,15 @@ const agregarAlCarritoRAM = (prodId) => {
 
     const item = stockProductos_rams.find((prod) => prod.id === prodId);
 
-    //*CON PUSH CREAMOS EL ITEM DENTRO DEL CARRITO
-    carrito.push(item);
+    if (item) { 
+
+        //*SI EL PRODUCTO EXISTE EN EL CARRITO, SE INCREMENTA EL CONTADOR
+        const existe = carrito.find((prod) => prod.id === prodId);
+
+        //*SUGAR SINTAX PARA EL PUSH DEL CARRITO
+        existe ? existe.cantidad++ : carrito.push({...item, cantidad: 1});
+
+     } 
 
     //*AGREGAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
     localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -704,7 +774,8 @@ const actualizarCarritoRAM = () => {
 
             <td><img src="${productosRam.img}" width=100></td>
             <p>${productosRam.marca}</p>
-            <p>Precio: $${productosRam.precio}</p>
+            <p><strong>Precio:</strong> $${productosRam.precio}</p>
+            <p><strong>Cantidad:</strong> ${productosRam.cantidad}</p>
             <button id="${productosRam.id}" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
         
         `;
@@ -732,6 +803,19 @@ const actualizarCarritoRAM = () => {
     precioTotal.innerText = carrito.reduce((acumulador, prod) => acumulador + prod.precio, 0);
 
 };
+
+//!ACA VERIFICAMOS SI EN LOCALSTORAGE HAY PRODUCTOS GUARDADOS PARA MOSTRARLOS DENTRO DEL CARRITO CUANDO EL USUARIO INICIA SESION
+let carritoConProductos = JSON.parse(localStorage.getItem('carrito'));
+
+if (carritoConProductos) {
+
+    carrito = carritoConProductos;
+    actualizarCarritoMOTHER();
+    actualizarCarritoCORE();
+    actualizarCarritoRAM();
+    actualizarCarritoVGA();
+
+}
 
 //!EVENTO AL PRESIONAR UNA TECLA OCULTAMOS CARRITO
 presionar_tecla = (e) => {
