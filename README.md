@@ -54,18 +54,18 @@ main :: func(): void {
 
 - Index
 
-![intro.gif](https://s10.gifyu.com/images/intro.gif)
+![intro.gif](https://github.com/Duk3nd3/Tech-Store/blob/master/images/gif_Readme/intro-min.gif)
 
 - Intro
 
-![index_.gif](https://s10.gifyu.com/images/index_.gif)
+![index_.gif](https://github.com/Duk3nd3/Tech-Store/blob/master/images/gif_Readme/index_-min.gif)
 
 - Shipping 
 
-![shipping.gif](https://s10.gifyu.com/images/shipping.gif)
+![shipping.gif](https://github.com/Duk3nd3/Tech-Store/blob/master/images/gif_Readme/shipping-min.gif)
 
 - Currency Exchange
 
-![currency.gif](https://s10.gifyu.com/images/currency.gif)
+![currency.gif](https://github.com/Duk3nd3/Tech-Store/blob/master/images/gif_Readme/currency-min.gif)
 
 <img src="https://imgur.com/rilHVxA.png"/>
