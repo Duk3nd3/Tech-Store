@@ -62,7 +62,6 @@ const login = () => {
         //*MENSAJE DE ERROR SI SE INTENTA ACCEDER CON USUARIO O CONTRASEÑA INCORRECTOS
     } else {
 
-        console.log(typeof pass);
         const tryAgain = document.getElementsByTagName('p')[0];
 
         //!MENSAJE DE ERROR        

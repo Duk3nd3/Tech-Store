@@ -29,38 +29,6 @@ const combo3 = new Productos(3, "3070 RTX", "i7", "DDR5", 350000, "EVGA");
 
 //!AQUI COMENZAMOS CON LA EJECUCION DEL CODIGO LLAMANDO A LAS FUNCIONES
 
-let contenido = document.querySelector('#contenido')
-
-function traer() {
-
-    fetch('/json/stock.json')
-
-        .then(res => res.json())
-        .then(datos => {
-            
-        tabla(datos)
-    })
-}
-
-function tabla(datos) {
-    
-    contenido.innerHTML = ''
-
-    for(let valor of datos){
-        
-        contenido.innerHTML += `
-        
-        <tr>
-            <th scope="row">${ valor.id }</th>
-            <td>${ valor.marca }</td>
-            <td>${ valor.modelo }</td>
-            <td>${ valor.stock ? "Stock Disponible" : "Sin Stock" }</td>
-        </tr>
-        
-        `
-    }
-}
-
 //!LLAMADO AL TEMPLATE VGA.JS
 const cajaProductosVga = document.querySelector('#caja-productos-vga');
 

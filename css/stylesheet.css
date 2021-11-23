@@ -570,6 +570,25 @@ body {
   cursor: pointer;
 }
 
+.btn-delete {
+  position: relative;
+  display: block;
+  height: auto;
+  width: 5%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #ffffff;
+  padding: 0.3%;
+  font-size: 100%;
+  overflow: hidden;
+  transition: all 500ms ease;
+  border: 2px solid #20e2d7;
+  z-index: 0;
+  font-weight: 75%;
+  cursor: pointer;
+}
+
 .btn-cart {
 
   position: relative;
