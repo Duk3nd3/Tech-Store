@@ -1,5 +1,7 @@
 ### Hi there 👋<h2> I'm Dukende</h2>
 
+<img align="right" alt="GIF" src="https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif" />
+
 <h3> 💻 Skills </h3>
  
 - 🌐 &nbsp;
@@ -16,7 +18,6 @@
 - 🖥 &nbsp;
   ![Photoshop](https://img.shields.io/badge/-Photoshop-333333?style=flat&logo=adobe-photoshop)
   <br/>
-  <img align="right" alt="GIF" src="https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif" />
   
   <h3> 👨‍💻 About Me </h3>
 
