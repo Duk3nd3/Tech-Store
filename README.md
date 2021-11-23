@@ -20,13 +20,52 @@
   
   <h3> 👨‍💻 About Me </h3>
 
-- Learning : Full-Stack Development ⚡ | Open-Source 🔥
-- Languages : JavaScript
-- Hobbies : Video games & Music 🎧
-- Fact : First solve the problem, then write the code ❤️
+```julia
+module main
+
+aboutMe :: struct {
+  pronouns :: string["He"/"She"];
+  languages :: string["Spanish"/"English"];
+  hobbies :: string["Music", "Video Games"];
+  funFact :: string;
+}
+
+main :: func(): void {
+  ethan :: aboutMe = {
+    pronouns: ["He", "Him"],
+    languages: ["JS"],
+    hobbies: ["Coding", "Gaming", "Talking"],
+    funFact: "The first computer virus was created in 1983!"
+  };
+
+  println "Pronouns: ${Dukende.pronouns}";
+  println "Languages I Know: ${Dukende.languages}";
+  println "My Hobbies: ${Dukende.hobbies}";
+  println "Fun Fact: ${Dukende.funFact}";
+}
+```
+#### :muscle: Things I am challenging myself with:
+- Waking up earlier to make good use of the day
+- Coding at least 4 hours a day
+- Exercising 3 days a week
+- Improving my CV with some education apart from university
 
 <h3> 🔭 This Project</h3>
 
-Intro
+- Index
 
-![url=https://gifyu.com/image/S27yI]
+![intro.gif](https://s10.gifyu.com/images/intro.gif)
+
+- Intro
+
+![index_.gif](https://s10.gifyu.com/images/index_.gif)
+
+- Shipping 
+
+![shipping.gif](https://s10.gifyu.com/images/shipping.gif)
+
+- Currency Exchange
+
+![currency.gif](https://s10.gifyu.com/images/currency.gif)
+
+<img src="https://imgur.com/rilHVxA.png"/>
