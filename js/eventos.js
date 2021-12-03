@@ -142,7 +142,8 @@ if (botonVaciar) {
 
                 $('#emptyCart').hide();
                 $('#vaciar-carrito').show();
-                $('#vaciar-carrito').html('<a href=""><strong>CLIC AQUI</strong></a>');
+                $('#vaciado').hide();
+                $('#vaciar-carrito').html('<a href=""><strong>CERRAR</strong></a>');
 
             }, 3000);
 
@@ -165,7 +166,8 @@ if (botonVaciar) {
 
                 $('#emptyCart').hide();
                 $('#vaciar-carrito').show();
-                $('#vaciar-carrito').html('<a href=""><strong>CLIC AQUI</strong></a>');
+                $('#vaciado').hide();
+                $('#vaciar-carrito').html('<a href=""><strong>CERRAR</strong></a>');
 
             }, 3000);
 
@@ -208,7 +210,6 @@ finalizarCompra.addEventListener('click', async () => {
             timerProgressBar: true,
             allowEscapeKey: false,
             allowOutsideClick: false,
-            footer: '<a href="">Caso contrario contacte al área de Soporte</a>'
 
         })
 

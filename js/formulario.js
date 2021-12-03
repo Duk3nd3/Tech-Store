@@ -13,51 +13,51 @@ const correo = /^[a-z0-9_]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,1
 //!AQUI GENERAMOS EL GUARDADO DE DATOS EN LOCALSTORAGE
 
 //?OBJETO VACIO
-let registeredUsers = [];
+// let registeredUsers = [];
 
 //?FUNCION PARA GENERAR USUARIO
-const addUsersToSystem = () => {
+// const addUsersToSystem = () => {
 
-    let user = document.getElementById("floatingUser").value;
-    let pass = document.getElementById("floatingPassword").value;
-    let email = document.getElementById("floatingEmail").value;
+//     let user = document.getElementById("floatingUser").value;
+//     let pass = document.getElementById("floatingPassword").value;
+//     let email = document.getElementById("floatingEmail").value;
 
-    let newUser = {
+//     let newUser = {
 
-        user: user,
-        pass: pass,
-        email: email
-    }
+//         user: user,
+//         pass: pass,
+//         email: email
+//     }
     
-    registeredUsers.push(newUser);
+//     registeredUsers.push(newUser);
+
+//     saveUsersToSystem();
     
-    saveUsersToSystem();
-    
-}
+// }
 
 //?FUNCION PARA REALIZAR CONSTROL EN LOCALSTORAGE
-const getUsersFromSystem = () => {
+// const getUsersFromSystem = () => {
 
-    let storedList = localStorage.getItem('localUserList');
+//     let storedList = localStorage.getItem('localUserList');
 
-    if ((storedList == null) || (storedList == undefined)) {
+//     if ((storedList == null) || (storedList == undefined)) {
 
-        registeredUsers = [];
+//         registeredUsers = [];
 
-    }else {
+//     }else {
         
-        registeredUsers = JSON.parse(storedList);
+//         registeredUsers = JSON.parse(storedList);
 
-    }
+//     }
 
-}
+// }
 
 //?FUNCION PARA GUARDAR DATOS EN LOCALSTORAGE
-const saveUsersToSystem = () => {
+// const saveUsersToSystem = () => {
 
-    localStorage.setItem('localUserList', JSON.stringify(registeredUsers));
+//     localStorage.setItem('localUserList', JSON.stringify(registeredUsers));
 
-}
+// }
 
 //!FUNCION PARA EL REGISTRO DEL USUARIO
 const registrarse = () => {
@@ -218,17 +218,17 @@ const registrarse = () => {
 
         //*ALMACENAMOS EN LOCALSTORAGE LOS VALORES DE LOS INPUTS EN VARIABLES
         
-        addUsersToSystem();
+        // addUsersToSystem();
         
-        getUsersFromSystem();
+        // getUsersFromSystem();
         
-        saveUsersToSystem();
+        // saveUsersToSystem();
 
-        // localStorage.setItem("user", document.getElementById("floatingUser").value);
+        localStorage.setItem("user", document.getElementById("floatingUser").value);
 
-        // localStorage.setItem("password", document.getElementById("floatingPassword").value);
+        localStorage.setItem("password", document.getElementById("floatingPassword").value);
 
-        // localStorage.setItem("email", document.getElementById("floatingEmail").value);
+        localStorage.setItem("email", document.getElementById("floatingEmail").value);
 
         //*LUEGO DE REGISTRARSE LIMPIAMOS LA PANTALLA Y MOSTRAMOS EL REGISTRO EXITOSO
         Swal.fire({
