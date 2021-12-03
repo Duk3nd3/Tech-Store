@@ -425,7 +425,6 @@ const purchaseAmount = () => {
             inputPlaceholder: 'Ingrese el valor de la compra',
             input: 'number',
             confirmButtonText: 'Ingresar!',
-            // cancelButtonText: 'Cancelar!',
             showCancelButton: false,
             showConfirmButton: true,
             allowOutsideClick: false,

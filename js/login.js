@@ -1,3 +1,4 @@
+//!CONTROLES DE LOGIN SOBRE EL USUARIO
 const login = () => {
 
     //!CON LOCALSTORAGE GETITEM GUARDAMOS EL VALOR DEL ULTIMO LOGIN
@@ -48,8 +49,8 @@ const login = () => {
                         <h2>¿TE SUSCRIBISTE?</h2>
                         <p>Recibiras las mejores ofertas Tech del mercado.</p>
                         <form>
-                            <input type="email" class="subs-email" placeholder="Escribe tu correo electronico">
-                            <button class="btn-suscripcion btn--4" type="submit">Enviar Suscripcion</button>
+                            <input id="subsValidate" type="email" class="subs-email" name="email" placeholder="Escribe tu correo electronico">
+                            <button class="btn-suscripcion btn--4" type="submit" onclick="sendMail()">Enviar Suscripcion</button>
                         </form>
                     </div>
                     <div class="line"></div>
@@ -58,9 +59,9 @@ const login = () => {
         </div>
         
         `;
-    
-        //*MENSAJE DE ERROR SI SE INTENTA ACCEDER CON USUARIO O CONTRASEÑA INCORRECTOS
-    } else {
+
+    //*MENSAJE DE ERROR SI SE INTENTA ACCEDER CON USUARIO O CONTRASEÑA INCORRECTOS
+    }else {
 
         const tryAgain = document.getElementsByTagName('p')[0];
 
@@ -95,3 +96,39 @@ const login = () => {
     }
 
 };
+
+//!ENVIO DEL CORREO ELECTRONICO PARA LA SUSCRIPCION
+
+//*FUNCION CORRESPONDIENTE A LA INTEGRACIÓN CON 'EmailJS'
+(function() {
+
+    emailjs.init("user_4oDCSJQQLETBYYhojeexC");
+
+})();
+
+
+//*FUNCION PARA ENVIAR EL CORREO DE SUSCRIPCION
+const sendMail = () => {
+
+    let tempParams = {
+
+        from_name: "Tech Store Family",
+        to_name: localStorage.getItem("email", document.getElementById("subsValidate").value)
+
+    }
+
+    //*PRIMER PARAMETRO IDGMAIL, SEGUNDO PARAMETRO IDTEMPLATE, TERCER PARAMETRO LA FUNCION TempPARAMS
+    emailjs.send("service_4j2suvm", "template_y3u8pti", tempParams)
+
+    //*CONTROL SOBRE EL PROCESO DE ENVIO
+    .then(function(response) {
+
+        console.log("SUCCESS!", response.status, response.text);
+
+    }, function(error) {
+
+        console.log("FAILED...", error);
+
+    });
+
+}

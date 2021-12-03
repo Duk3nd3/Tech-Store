@@ -12,24 +12,37 @@
 </head>
 
 <body class="background">
-    <form id="formulario">
-        
-        <div class="form-floating mb-3 formStyle">
-            <input type="user" class="form-control" id="floatingUser" placeholder="Coloca tu usuario">
-            <label for="floatingUser" class="colorText">Usuario</label>
-        </div>
-        <div class="form-floating mb-3 formStyle">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Coloca tu contraseña">
-            <label for="floatingPassword" class="colorText">Contraseña</label>
-        </div>
-        <div class="form-floating mb-3 formStyle">
-            <input type="email" class="form-control" id="floatingEmail" placeholder="Coloca tu correo">
-            <label for="floatingEmail" class="colorText">Correo</label>
-        </div>
 
-        <button type="button" value="registrar usuario" id="registrar" class="btn btn--4 botonForm" onclick="registrarse()">Registrar</button>
-        <button type="reset" value="limpia campos" id="limpiar" class="btn btn--4 botonForm">Limpiar</button>
+    <form id="formulario">
     
+        <div class="form">
+
+            <div class="form-logo">
+                <img src="/images/register/Tech-Store-removebg-preview.png" alt="registro logo empresa">
+            </div>
+
+            <div id="dato_ok" class="form-floating mb-3 formStyle">
+                <input type="user" class="form-control" id="floatingUser" placeholder="Ingresa tu usuario" name="usuario">
+            </div>
+
+            <div class="form-floating mb-3 formStyle">
+                <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Ingresa tu contraseña">
+            </div>
+
+            <div class="form-floating mb-3 formStyle">
+                <input type="password" name="password" class="form-control" id="floatingPasswordConfirm" placeholder="Confirma la contraseña ingresada">
+            </div>
+
+            <div class="form-floating mb-3 formStyle">
+                <input type="email" name="email" class="form-control" id="floatingEmail" placeholder="Ingresa tu correo">
+            </div>
+
+            <button type="button" value="registrar usuario" id="registrar" class="btn btn--4 botonForm" type="submit" onclick="registrarse()">Enviar Formulario</button>
+
+            <button type="reset" value="limpia campos" id="limpiar" class="btn btn--4 botonForm">Limpiar Formulario</button>
+
+        </div> 
+
     </form>
 
     <div id="backHome">
@@ -38,7 +51,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.11/dist/sweetalert2.all.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="/js/index.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <script src="/js/formulario.js"></script>
 </body>
 
 </html>

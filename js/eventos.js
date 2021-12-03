@@ -1,11 +1,11 @@
 //?ACCESOS A HTML DESDE ESTAS FUNCIONES
 
 //!COLOCAMOS EL CURSOR SOBRE EL INPUT #usuario CON JQUERY
-$(document).ready( () => {
+$(document).ready(() => {
 
     $('#usuario').trigger('focus');
 
-} );
+});
 
 //!FUNCION PARA ACCEDER A EXCHANGE DEL USUARIO
 const exchange = () => {
@@ -138,7 +138,7 @@ if (botonVaciar) {
             $('#emptyCart').append("<img src='/images/modal_carrito/carrito_vacio-min.png'>");
             $('#emptyCart img').css('width', '25%', 'height', '25%');
 
-            setTimeout(function(){
+            setTimeout(function () {
 
                 $('#emptyCart').hide();
                 $('#vaciar-carrito').show();
@@ -161,7 +161,7 @@ if (botonVaciar) {
             $('#emptyCart').append("<img src='/images/modal_carrito/carrito_vaciado.png'>");
             $('#emptyCart img').css('width', '20%', 'height', '20%');
 
-            setTimeout(function(){
+            setTimeout(function () {
 
                 $('#emptyCart').hide();
                 $('#vaciar-carrito').show();
@@ -169,7 +169,7 @@ if (botonVaciar) {
 
             }, 3000);
 
-        } 
+        }
 
         carrito.length = 0;
 
@@ -182,48 +182,109 @@ if (botonVaciar) {
         actualizarCarritoRAM();
 
     });
+
 };
 
 //!BOTON FINALIZAR COMPRA
-
 let finalizarCompra = document.getElementById('finalizarCompra');
 
-//*CON ESTE IF VERIFICAMOS QUE 'finalizarCompra' NO SEA NULL ANTES DE AGREGAR UN EVENT LISTENER.
-if (finalizarCompra) {
+//*EVENTSILTENER SOBRE BOTON FINALIZAR COMPRA
+finalizarCompra.addEventListener('click', async () => {
 
-    finalizarCompra.addEventListener('click', () => {
+    //?VERIFICAMOS SI EL CARRITO NO SE ENCUENTRA VACIO
+    if (carrito.length === 0) {
 
-        if (carrito.length === 0) {
+        Swal.fire({
 
-            Swal.fire({
+            imageUrl: '/images/modal_carrito/carrito_vacio.gif',
+            imageWidth: 200,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+            icon: 'error',
+            title: 'Mmmm...',
+            text: 'El carrito se encuentra vacío',
+            showConfirmButton: false,
+            timer: 6000,
+            timerProgressBar: true,
+            allowEscapeKey: false,
+            allowOutsideClick: false,
+            footer: '<a href="">Caso contrario contacte al área de Soporte</a>'
 
-                icon: 'error',
-                title: 'Oops...',
-                text: 'El carrito se encuentra vacío',
-                footer: '<a href="">Caso contrario contacte al área de Soporte</a>'
+        })
 
-                }) 
+        //*FRENAMOS EL PROCESO DE COMPRA SI EL CARRITO SE ENCUENTRA VACIO
+        return;
 
-            } else {
+    } else {
 
-                Swal.fire({
+        Swal.fire({
 
-                icon: 'success',
-                title: '¡Compra realizada con éxito!',
-                text: '¡Muchas gracias!',                
-                showConfirmButton: false,
-                timer: 5000,
-                timerProgressBar: true,
-                allowEscapeKey: false,
-                allowOutsideClick: false,                
-                footer: '<a href=""><strong>CLIC AQUI PARA FINALIZAR</strong></a>'
+            icon: 'success',
+            title: '¡Compra realizada con éxito!',
+            text: '¡Muchas gracias!',
+            showConfirmButton: false,
+            timer: 6000,
+            timerProgressBar: true,
+            allowEscapeKey: false,
+            allowOutsideClick: false,
+            footer: '<a><strong>Redireccionando a Mercado Pago...</strong></a>'
 
-            })
+        })
+    
+    }
+
+    //*CREAMOS NUEVO ARRAY CON LOS RESULTADOS DE LA LLAMADA A LA FUNCION UTILIZANDO EL METODO MAP
+
+    const enviarCarritoMP = carrito.map((productos) => {
+
+        return {
+
+            title: productos.marca,
+            description: productos.desc,
+            picture_url: productos.img,
+            category_id: productos.id,
+            quantity: productos.cantidad,
+            currency_id: 'ARS',
+            unit_price: productos.precio
 
         }
 
     })
-}
+
+    //*REALIZAMOS LA PETICION A MERCADO PAGO CON FETCH UTILIZANDO ASYNC Y AWAIT
+    const respuesta = await fetch('https://api.mercadopago.com/checkout/preferences', {
+
+        method: 'POST',
+        headers: {
+
+            //?TOKEN DE ACCESO PARA LA API DE MERCADO PAGO
+            authorization: 'Bearer TEST-3724878425714320-102520-ae6452c748c61e963b67ea40a6ce94ed-157059138'
+
+        },
+
+        //*LA API DE MP NO RECONOCE AL OBJETO JS, POR LO CUAL HAY QUE ENVIAR LA PETICION COMO JSON
+        body: JSON.stringify({
+
+            //?OBJETO CON LOS DATOS DEL PRODUCTO
+            items: enviarCarritoMP,
+
+            //?OTORGAMOS LA OPCION AL USUARIO DE VOLVER ANUESTRA PAGINA SEA O NO POSITIVO EL PROCESO REALIZADO
+            back_urls: {
+
+                success: window.location.href,
+                failure: window.location.href
+
+            },
+
+        })
+
+    })
+
+    const data = await respuesta.json();
+
+    window.location.replace(data.init_point);
+
+});
 
 //!VGA carrito
 
@@ -232,32 +293,37 @@ const agregarAlCarritoVGA = (prodId) => {
 
     const item = stockProductos_vga.find((prod) => prod.id === prodId);
 
-    if (item) { 
+    if (item) {
 
         //*SI EL PRODUCTO EXISTE EN EL CARRITO, SE INCREMENTA EL CONTADOR
         const existe = carrito.find((prod) => prod.id === prodId);
-
+        
         //*SUGAR SINTAX PARA EL PUSH DEL CARRITO
-        existe ? existe.cantidad++ : carrito.push({...item, cantidad: 1});
+        existe ? existe.cantidad++ : carrito.push({
 
-     } 
+            ...item,
+            cantidad: 1
+
+        });
+
+    }
 
     //*ALMACENAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
     localStorage.setItem('carrito', JSON.stringify(carrito));
-    
+
     actualizarCarritoVGA();
 
     Toastify({
-        
+
         text: "Producto agregado al carrito",
         className: "info",
         position: "right",
         avatar: "https://icon-library.com/images/success-icon-png/success-icon-png-11.jpg",
         style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
         }
 
-      }).showToast();
+    }).showToast();
 
 }
 
@@ -269,7 +335,7 @@ const eliminarDelCarritoVGA = (prodId) => {
     //*INDEXOF NOS RETORNA EL INDICE DEL ELEMENTO (item) DENTRO DEL CARRITO
     const indice = carrito.indexOf(item);
 
-    //*CON SPLICE QUITAMOS EL ELEMENTO DEL CARRITO MEDIANTE EL IDENTIFICADOR INDICE
+    //*CON SPLICE QUITAMOS EL ELEMENTO DEL CARRITO MEDIANTE LA CONSTANTE INDICE
     carrito.splice(indice, 1);
 
     //*ELIMINAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
@@ -331,15 +397,20 @@ const agregarAlCarritoCORE = (prodId) => {
 
     const item = stockProductos_procesadores.find((prod) => prod.id === prodId);
 
-    if (item) { 
+    if (item) {
 
         //*SI EL PRODUCTO EXISTE EN EL CARRITO, SE INCREMENTA EL CONTADOR
         const existe = carrito.find((prod) => prod.id === prodId);
 
         //*SUGAR SINTAX PARA EL PUSH DEL CARRITO
-        existe ? existe.cantidad++ : carrito.push({...item, cantidad: 1});
+        existe ? existe.cantidad++ : carrito.push({
 
-     } 
+            ...item,
+            cantidad: 1
+
+        });
+
+    }
 
     //*AGREGAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
     localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -353,11 +424,11 @@ const agregarAlCarritoCORE = (prodId) => {
         position: "right",
         avatar: "https://icon-library.com/images/success-icon-png/success-icon-png-11.jpg",
         style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
         }
 
-      }).showToast();
-      
+    }).showToast();
+
 }
 
 //*ELIMINAMOS PRODUCTOS DEL CARRITO
@@ -429,15 +500,20 @@ const agregarAlCarritoMOTHER = (prodId) => {
 
     const item = stockProductos_mothers.find((prod) => prod.id === prodId);
 
-    if (item) { 
+    if (item) {
 
         //*SI EL PRODUCTO EXISTE EN EL CARRITO, SE INCREMENTA EL CONTADOR
         const existe = carrito.find((prod) => prod.id === prodId);
 
         //*SUGAR SINTAX PARA EL PUSH DEL CARRITO
-        existe ? existe.cantidad++ : carrito.push({...item, cantidad: 1});
+        existe ? existe.cantidad++ : carrito.push({
 
-     } 
+            ...item,
+            cantidad: 1
+
+        });
+
+    }
 
     //*AGREGAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
     localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -451,10 +527,10 @@ const agregarAlCarritoMOTHER = (prodId) => {
         position: "right",
         avatar: "https://icon-library.com/images/success-icon-png/success-icon-png-11.jpg",
         style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
         }
 
-      }).showToast();
+    }).showToast();
 
 }
 
@@ -480,7 +556,7 @@ const eliminarDelCarritoMOTHER = (prodId) => {
 const actualizarCarritoMOTHER = () => {
 
     contenedorCarrito.innerHTML = '';
-
+    
     carrito.forEach((productosMother) => {
 
         const div = document.createElement('div');
@@ -527,15 +603,20 @@ const agregarAlCarritoRAM = (prodId) => {
 
     const item = stockProductos_rams.find((prod) => prod.id === prodId);
 
-    if (item) { 
+    if (item) {
 
         //*SI EL PRODUCTO EXISTE EN EL CARRITO, SE INCREMENTA EL CONTADOR
         const existe = carrito.find((prod) => prod.id === prodId);
 
         //*SUGAR SINTAX PARA EL PUSH DEL CARRITO
-        existe ? existe.cantidad++ : carrito.push({...item, cantidad: 1});
+        existe ? existe.cantidad++ : carrito.push({
 
-     } 
+            ...item,
+            cantidad: 1
+
+        });
+
+    }
 
     //*AGREGAMOS EL PRODUCTO DE LA COMPRA EN LOCALSTORAGE
     localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -549,10 +630,10 @@ const agregarAlCarritoRAM = (prodId) => {
         position: "right",
         avatar: "https://icon-library.com/images/success-icon-png/success-icon-png-11.jpg",
         style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
         }
 
-      }).showToast();
+    }).showToast();
 
 }
 
@@ -619,7 +700,7 @@ const actualizarCarritoRAM = () => {
 };
 
 //!VERIFICAMOS SI EN LOCALSTORAGE HAY PRODUCTOS GUARDADOS PARA MOSTRARLOS DENTRO DEL CARRITO CUANDO EL USUARIO INICIA SESION
-    
+
 let carritoConProductos = JSON.parse(localStorage.getItem('carrito'));
 
 if (carritoConProductos) {
@@ -645,7 +726,7 @@ presionar_tecla = (e) => {
         //*LLAMAMOS A LA VARIABLE DEL EVENTO botonCerrar 
         return botonCerrar.click();
 
-    } 
+    }
 
 };
 

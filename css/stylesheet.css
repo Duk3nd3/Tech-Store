@@ -70,7 +70,6 @@ body {
   }
 }
 
-
 .login-main-text{
   margin-top: 20%;
   padding: 60px;
@@ -79,6 +78,10 @@ body {
 
 .login-main-text h2{
   font-weight: 300;
+}
+
+.intro-h2 {
+  margin-bottom: 5%;
 }
 
 .btn-black{
@@ -467,9 +470,7 @@ body {
   transition: all 500ms ease;
   border: 2px solid #20e2d7;
   margin-left: 43%;
-  margin-top: -5%;
   padding: 1%;
-  z-index: 0;
   font-weight: 75%;
   cursor: pointer;
 }
@@ -732,6 +733,7 @@ PEQUEÑOS ESTILOS PARA LAS TARJETAS
 .card-text {
 
   color: #ffff;
+  text-align: center;
 
 }
 
@@ -749,13 +751,21 @@ h2 {
 
 }
 
+.form-logo {
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-left: -1%;
+
+}
+
 .formStyle {
 
-  width: 50%;
+  width: 25%;
   height: auto;
-  margin: 1%;
-  padding: 1%;
-  margin-left: 25%;
+  padding: 0.5%;
+  margin-left: 37%;
 
 }
 
@@ -776,18 +786,17 @@ h2 {
 
 .botonForm {
 
-  width: 15%;
+  width: 10%;
   height: auto;
-  margin: 1%;
-  padding: 1%;
-  margin-left: 43%;
+  margin:1%;
+  padding: 0.2%;
+  margin-left: 45%;
 
 }
 
 .register-success {
 
-  margin-left: 24%;
-  margin-top:10%;
+ margin-left: 35%;
 
 }
 
