@@ -358,7 +358,7 @@ const shippingCost = (envio, totalPurchase, IVA, province, total) => {
             footer: '<strong>Proceso finalizado</strong>',
             showConfirmButton: false,
             timerProgressBar: true,
-            timer: 5000
+            timer: 7000
 
         })
 
@@ -376,7 +376,7 @@ const shippingCost = (envio, totalPurchase, IVA, province, total) => {
             footer: '<strong>Proceso finalizado</strong>',
             showConfirmButton: false,
             timerProgressBar: true,
-            timer: 5000
+            timer: 7000
 
         })
 

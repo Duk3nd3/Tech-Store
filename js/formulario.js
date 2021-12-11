@@ -10,55 +10,6 @@ const usuario = /^[a-zA-Z]+$/i // Solo letras, con flag case insensitive (i).
 const pass = /^.{4,10}$/ // De 4 a 10 digitos, cualquier caracter.
 const correo = /^[a-z0-9_]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/ //Validamos la dirección de correo
 
-//!AQUI GENERAMOS EL GUARDADO DE DATOS EN LOCALSTORAGE
-
-//?OBJETO VACIO
-// let registeredUsers = [];
-
-//?FUNCION PARA GENERAR USUARIO
-// const addUsersToSystem = () => {
-
-//     let user = document.getElementById("floatingUser").value;
-//     let pass = document.getElementById("floatingPassword").value;
-//     let email = document.getElementById("floatingEmail").value;
-
-//     let newUser = {
-
-//         user: user,
-//         pass: pass,
-//         email: email
-//     }
-    
-//     registeredUsers.push(newUser);
-
-//     saveUsersToSystem();
-    
-// }
-
-//?FUNCION PARA REALIZAR CONSTROL EN LOCALSTORAGE
-// const getUsersFromSystem = () => {
-
-//     let storedList = localStorage.getItem('localUserList');
-
-//     if ((storedList == null) || (storedList == undefined)) {
-
-//         registeredUsers = [];
-
-//     }else {
-        
-//         registeredUsers = JSON.parse(storedList);
-
-//     }
-
-// }
-
-//?FUNCION PARA GUARDAR DATOS EN LOCALSTORAGE
-// const saveUsersToSystem = () => {
-
-//     localStorage.setItem('localUserList', JSON.stringify(registeredUsers));
-
-// }
-
 //!FUNCION PARA EL REGISTRO DEL USUARIO
 const registrarse = () => {
 
@@ -86,9 +37,9 @@ const registrarse = () => {
             backdrop: true,
 
         });
-     
-    //*VERIFICAMOS SI LOS DATOS INGRESADOS SON CORRECTOS EN BASE A LAS 'EXPRESIONES REGULARES' DECLARAS AL INICIO
-    }else if ((!usuario.test(document.getElementById("floatingUser").value)) || (!pass.test(document.getElementById("floatingPassword").value)) || (!pass.test(document.getElementById("floatingPasswordConfirm").value)) || (!correo.test(document.getElementById("floatingEmail").value))){
+
+        //*VERIFICAMOS SI LOS DATOS INGRESADOS SON CORRECTOS EN BASE A LAS 'EXPRESIONES REGULARES' DECLARAS AL INICIO
+    } else if ((!usuario.test(document.getElementById("floatingUser").value)) || (!pass.test(document.getElementById("floatingPassword").value)) || (!pass.test(document.getElementById("floatingPasswordConfirm").value)) || (!correo.test(document.getElementById("floatingEmail").value))) {
 
         //*DENTRO DEL SWITCH SEPARAMOS LOS CAMPOS PARA UN MEJOR CONTROL Y RETORNO DE ERROR PARA EL USUARIO
         switch (true) {
@@ -106,18 +57,24 @@ const registrarse = () => {
                     text: 'Solo se permiten letras para el usuario',
                     footer: '<strong>Volvé a intentarlo</strong>',
                     background: '#ffff',
-                    showConfirmButton: false,           
+                    showConfirmButton: false,
                     allowEscapeKey: false,
                     allowOutsideClick: false,
                     timerProgressBar: true,
                     timer: 6000,
                     width: '20%',
                     backdrop: true,
-        
+
                 });
+
+                //*LIMPIAMOS EL CAMPO INCORRECTO PARA USUARIO
+                document.getElementById("floatingUser").value = "";
+
+                //*UBIACION DEL FOCO AL CAMPO USUARIO
+                document.getElementById("floatingUser").focus();
                 break;
-            
-            //*CASO 2 PASSWORD
+
+                //*CASO 2 PASSWORD
             case (!pass.test(document.getElementById("floatingPassword").value)):
                 Swal.fire({
 
@@ -129,18 +86,24 @@ const registrarse = () => {
                     text: 'La contraseña debe tener entre 4 y 10 caracteres',
                     footer: '<strong>Volvé a intentarlo</strong>',
                     background: '#ffff',
-                    showConfirmButton: false,           
+                    showConfirmButton: false,
                     allowEscapeKey: false,
                     allowOutsideClick: false,
                     timerProgressBar: true,
                     timer: 6000,
                     width: '20%',
                     backdrop: true,
-        
+
                 });
+
+                //*LIMPIAMOS EL CAMPO INCORRECTO PARA PASSWORD
+                document.getElementById("floatingPassword").value = "";
+
+                //*UBICACION DEL FOCO AL CAMPO PASSWORD
+                document.getElementById("floatingPassword").focus();
                 break;
 
-            //*CASO 3 CORREO
+                //*CASO 3 CORREO
             case (!correo.test(document.getElementById("floatingEmail").value)):
 
                 Swal.fire({
@@ -153,35 +116,38 @@ const registrarse = () => {
                     text: 'El correo ingresado no es válido',
                     footer: '<strong>Volvé a intentarlo</strong>',
                     background: '#ffff',
-                    showConfirmButton: false,           
+                    showConfirmButton: false,
                     allowEscapeKey: false,
                     allowOutsideClick: false,
                     timerProgressBar: true,
                     timer: 6000,
                     width: '20%',
                     backdrop: true,
-        
+
                 });
+
+                //*LIMPIAMOS EL CAMPO INCORRECTO PARA CORREO
+                document.getElementById("floatingEmail").value = "";
+
+                //*UBICACION DEL FOCO AL CAMPO CORREO
+                document.getElementById("floatingEmail").focus();
                 break;
 
         }
+        //*ACA VALIDAMOS QUE LA CONTRASEÑA Y LA CONFIRMACION DE LA MISMA, COINCIDEN
+    } else if ((document.getElementById("floatingPassword").value) !== (document.getElementById("floatingPasswordConfirm").value)) {
 
-    //*VERIFICAMOS SI LOS DATOS DEL REGISTRO YA SE ENCUENTRA ALMACENADOS EN LOCALSTORAGE
-    }else if (document.getElementById("floatingUser").value == localStorage.getItem('user') || document.getElementById("floatingEmail").value == localStorage.getItem('email')) {
-
-        //*ALERTA ERROR AL REGISTRARSE CON USUARIO Y/O EMAIL EXISTENTES
         Swal.fire({
 
-            imageUrl: '/images/register/exist_user.gif',
+            imageUrl: '/images/register/ohno.gif',
             imageWidth: 200,
             imageHeight: 100,
             icon: 'warning',
-            title: 'Oops...',
-            text: 'Usuario o correo preexistente',
-            showConfirmButton: false,
-            footer: '<strong>Verifica los datos</strong>',
+            title: 'Error',
+            text: 'Verifica que ambas contraseñas coincidan por favor',
+            footer: '<strong>Volvé a intentarlo</strong>',
             background: '#ffff',
-            showConfirmButton: false,           
+            showConfirmButton: false,
             allowEscapeKey: false,
             allowOutsideClick: false,
             timerProgressBar: true,
@@ -191,39 +157,17 @@ const registrarse = () => {
 
         });
 
-    //*ACA VALIDAMOS QUE LA CONTRASEÑA Y LA CONFIRMACION DE LA MISMA, COINCIDEN
-    }else if ((document.getElementById("floatingPassword").value) !== (document.getElementById("floatingPasswordConfirm").value)) {
+        //*LIMPIAMOS EL CAMPO INCORRECTO PARA PASSWORD
+        document.getElementById("floatingPassword").value = "";
+        document.getElementById("floatingPasswordConfirm").value = "";
 
-            Swal.fire({
+        //*UBICACION DEL FOCO AL CAMPO PASSWORD
+        document.getElementById("floatingPassword").focus();
 
-                imageUrl: '/images/register/ohno.gif',
-                imageWidth: 200,
-                imageHeight: 100,
-                icon: 'warning',
-                title: 'Error',
-                text: 'Verifica que ambas contraseñas coincidan por favor',
-                footer: '<strong>Volvé a intentarlo</strong>',
-                background: '#ffff',
-                showConfirmButton: false,           
-                allowEscapeKey: false,
-                allowOutsideClick: false,
-                timerProgressBar: true,
-                timer: 6000,
-                width: '20%',
-                backdrop: true,
-    
-            });
-
-    }else {
-
+        //?ALMACENAMOS EN LOCALSTORAGE LOS VALORES
+    } else {
+ 
         //*ALMACENAMOS EN LOCALSTORAGE LOS VALORES DE LOS INPUTS EN VARIABLES
-        
-        // addUsersToSystem();
-        
-        // getUsersFromSystem();
-        
-        // saveUsersToSystem();
-
         localStorage.setItem("user", document.getElementById("floatingUser").value);
 
         localStorage.setItem("password", document.getElementById("floatingPassword").value);
@@ -257,18 +201,16 @@ const registrarse = () => {
         homeButton.innerText = ""
 
         homeButton.innerHTML = `
-
-            <div class="register-success">
-                <img style="position: absolute;" src="/images/register/background-2.gif" alt="">
-            
-                <img src="/images/register/Tech-Store-removebg-preview.png" alt="registro exitoso">
-            </div>
-            <span><button type="button" value="acceder" id="loginAccess" onclick="accesoRegistrado()" class="btn-success-1-reg btn--1-ok-reg">Acceder a login</button></span>
-            <div class="register-success">
-                <img style="position: absolute;" src="/images/register/background-3.gif" alt="">
-            </div>
-
-        `
+                <div class="register-success">
+                    <img style="position: absolute;" src="/images/register/background-2.gif" alt="">
+                
+                    <img src="/images/register/Tech-Store-removebg-preview.png" alt="registro exitoso">
+                </div>
+                <span><button type="button" value="acceder" id="loginAccess" onclick="accesoRegistrado()" class="btn-success-1-reg btn--1-ok-reg">Acceder a login</button></span>
+                <div class="register-success">
+                    <img style="position: absolute;" src="/images/register/background-3.gif" alt="">
+                </div>
+            `
 
     }
 
@@ -286,7 +228,7 @@ presionar_tecla = (e) => {
         //*LLAMAMOS A LA VARIABLE DEL EVENTO botonCerrar 
         return false;
 
-    } 
+    }
 
 };
 

@@ -210,6 +210,7 @@ finalizarCompra.addEventListener('click', async () => {
             timerProgressBar: true,
             allowEscapeKey: false,
             allowOutsideClick: false,
+            allowEnterKey: false,
 
         })
 
@@ -228,14 +229,14 @@ finalizarCompra.addEventListener('click', async () => {
             timerProgressBar: true,
             allowEscapeKey: false,
             allowOutsideClick: false,
+            allowEnterKey: false,
             footer: '<a><strong>Redireccionando a Mercado Pago...</strong></a>'
 
         })
     
     }
-
+    
     //*CREAMOS NUEVO ARRAY CON LOS RESULTADOS DE LA LLAMADA A LA FUNCION UTILIZANDO EL METODO MAP
-
     const enviarCarritoMP = carrito.map((productos) => {
 
         return {
@@ -269,7 +270,7 @@ finalizarCompra.addEventListener('click', async () => {
             //?OBJETO CON LOS DATOS DEL PRODUCTO
             items: enviarCarritoMP,
 
-            //?OTORGAMOS LA OPCION AL USUARIO DE VOLVER ANUESTRA PAGINA SEA O NO POSITIVO EL PROCESO REALIZADO
+            //?OTORGAMOS LA OPCION AL USUARIO DE VOLVER A NUESTRA PAGINA SEA O NO POSITIVO EL PROCESO REALIZADO
             back_urls: {
 
                 success: window.location.href,
