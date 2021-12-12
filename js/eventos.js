@@ -153,7 +153,7 @@ if (botonVaciar) {
             $('#finalizarCompra').hide();
 
             //*VACIAMOS EL ARRAY CARRITO DENTRO DEL MODAL Y MOSTRAMOS EL MENSAJE
-            $('#vaciado').html('<h3><strong>¡El carrito se ha vaciado con éxito!</strong></h3>');
+            $('#vaciado').html('<h3><strong>¡El carrito se vació con éxito!</strong></h3>');
 
             //*OCULTAMOS EL BOTON 'VACIAR CARRITO' LUEGO DEL PROCESO
             $('#vaciar-carrito').hide();

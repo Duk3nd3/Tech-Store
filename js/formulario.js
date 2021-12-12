@@ -207,7 +207,7 @@ const registrarse = () => {
                     <img src="/images/register/Tech-Store-removebg-preview.png" alt="registro exitoso">
                 </div>
                 <span><button type="button" value="acceder" id="loginAccess" onclick="accesoRegistrado()" class="btn-success-1-reg btn--1-ok-reg">Acceder a login</button></span>
-                <div class="register-success">
+                <div class="register-success-2">
                     <img style="position: absolute;" src="/images/register/background-3.gif" alt="">
                 </div>
             `

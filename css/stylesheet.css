@@ -469,7 +469,7 @@ body {
   overflow: hidden;
   transition: all 500ms ease;
   border: 2px solid #20e2d7;
-  margin-left: 43%;
+  margin-left: 44%;
   padding: 1%;
   font-weight: 75%;
   cursor: pointer;
@@ -796,7 +796,16 @@ h2 {
 
 .register-success {
 
- margin-left: 35%;
+  margin-left: 36%;
+
+}
+
+.register-success-2 img {
+
+  margin-left: 42%;
+  margin-top: 3%;
+  width: 15%;
+  height: auto;  
 
 }
 
@@ -1086,8 +1095,8 @@ h2 {
 
 .vertical-menu {
 
-  width: 40%;
-  height: 80%;
+  width: 20%;
+  height: 50%;
   overflow-y: auto;
 
 }
@@ -1183,13 +1192,13 @@ p {
 .modal-carrito {
 
   position: relative;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   min-width: 500px;
   padding: 20px;
   margin-top: -100%;
   transition: all .5s;
-  border-radius: 4px;
-  box-shadow: 2px 6px 3px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  box-shadow: 2px 6px 3px 3px rgba(7, 142, 175, 0.775);
 
 }
 
@@ -1234,34 +1243,36 @@ p {
 
 .productoEnCarrito {
 
-  border-left: 5px solid lightblue;
+  border-left: 5px solid rgb(187, 187, 187);
   border-bottom-left-radius: 3px;
   border-top-left-radius: 3px;
   margin: 5px 0;
   padding: 5px 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
 }
 .productoEnCarrito:hover {
 
-  border-left: 5px solid royalblue;
+  border-left: 5px solid rgb(0, 0, 0);
 
 }
 
 .boton-eliminar {
 
-  background-color: white;
-  color: red;
+  background-color: transparent;
+  color: rgb(145, 145, 145);
   border: none;
   font-size: 20px;
-  margin-bottom: 25% !important;
+  margin-bottom: 4%;
 
 }
 
 .boton-eliminar:hover {
 
   cursor: pointer;
+  color: red;
 
 }
 .boton-eliminar:focus {
