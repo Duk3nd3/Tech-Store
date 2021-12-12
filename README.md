@@ -44,27 +44,31 @@ main :: func(): void {
 }
 ```
 #### :muscle: Things I am challenging myself with:
-- Waking up earlier to make good use of the day
 - Coding at least 4 hours a day
-- Exercising 3 days a week
-- Improving my CV with some education apart from university
+- Exercising 5 days a week. Ok i just walk
 
 <h3> 🔭 This Project</h3>
 
 - Index
 
-![intro.gif](https://github.com/Duk3nd3/Tech-Store/blob/master/images/gif_Readme/intro-min.gif)
+![Index](https://user-images.githubusercontent.com/87254745/145728496-ffce8d30-f4ea-48f8-bee6-662fc79fd6a7.gif)
 
-- Intro
+- Register
 
-![index_.gif](https://github.com/Duk3nd3/Tech-Store/blob/master/images/gif_Readme/index_-min.gif)
+![Register](https://user-images.githubusercontent.com/87254745/145728601-00d84d5d-faa0-4d20-91e0-9430502d209c.gif)
 
-- Shipping 
+- Introducing [Currency - Shipping - Stock] 
 
-![shipping.gif](https://github.com/Duk3nd3/Tech-Store/blob/master/images/gif_Readme/shipping-min.gif)
+![Introducing-min](https://user-images.githubusercontent.com/87254745/145729119-9d4c86fe-5f9a-4118-8e6d-93d220590bb8.gif)
 
-- Currency Exchange
+- Shopping Cart
 
-![currency.gif](https://github.com/Duk3nd3/Tech-Store/blob/master/images/gif_Readme/currency-min.gif)
+![Shopping_Cart_P1-min](https://user-images.githubusercontent.com/87254745/145729411-3a1c2bc8-65a1-4b54-9ec0-1f819059c03b.gif)
+
+![Shopping_Cart_P2-min](https://user-images.githubusercontent.com/87254745/145729496-4fa63658-c152-4682-a87b-56207f466e11.gif)
+
+- Sandbox Mercado Pago (API)
+
+![Mercado_Pago_Api-min](https://user-images.githubusercontent.com/87254745/145729658-c71434ab-8a0c-48bc-9cfc-03cf5a7bedc0.gif)
 
 <img src="https://imgur.com/rilHVxA.png"/>
