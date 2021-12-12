@@ -70,7 +70,7 @@ const registrarse = () => {
                 //*LIMPIAMOS EL CAMPO INCORRECTO PARA USUARIO
                 document.getElementById("floatingUser").value = "";
 
-                //*UBIACION DEL FOCO AL CAMPO USUARIO
+                //*UBICACION DEL CURSOR AL CAMPO USUARIO
                 document.getElementById("floatingUser").focus();
                 break;
 
