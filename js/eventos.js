@@ -19,7 +19,7 @@ const botonLogout = () => {
 
     window.location = "/index.html";
 
-}
+};
 
 //!JQUERY PARA DESLOGUEARTE (ELIMINAR CUENTA)
 
@@ -57,7 +57,7 @@ $('#botonDelete').click(function () {
                 title: '¡Proceso finalizado!',
                 text: 'Tu cuenta ha sido eliminada',
                 icon: 'success',
-                timer: 4000,
+                timer: 5000,
                 timerProgressBar: true,
                 allowEscapeKey: false,
                 showConfirmButton: false,
@@ -94,7 +94,7 @@ $('#botonDelete').click(function () {
             swalWithBootstrapButtons.fire(
                 'Cancelación exitosa',
                 'Nos alegra tenerte de vuelta :)',
-                'error'
+                'success'
             )
 
         }
@@ -360,7 +360,7 @@ const actualizarCarritoVGA = () => {
 
         div.innerHTML = `
 
-            <td><img src="${productosVga.img}" width=100></td>
+            <td><img src="${productosVga.img}" width=100px height=100px></td>
             <p>${productosVga.marca}</p>
             <p><strong>Precio:</strong> $${productosVga.precio}</p>
             <p><strong>Cantidad:</strong> ${productosVga.cantidad}</p>
@@ -463,7 +463,7 @@ const actualizarCarritoCORE = () => {
 
         div.innerHTML = `
 
-            <td><img src="${productosCore.img}" width=100></td>
+            <td><img src="${productosCore.img}" width=100px height=100px></td>
             <p>${productosCore.marca}</p>
             <p><strong>Precio:</strong> $${productosCore.precio}</p>
             <p><strong>Cantidad:</strong> ${productosCore.cantidad}</p>
@@ -566,7 +566,7 @@ const actualizarCarritoMOTHER = () => {
 
         div.innerHTML = `
 
-            <td><img src="${productosMother.img}" width=100></td>
+            <td><img src="${productosMother.img}" width=100px height=100px></td>
             <p>${productosMother.marca}</p>
             <p><strong>Precio:</strong> $${productosMother.precio}</p>
             <p><strong>Cantidad:</strong> ${productosMother.cantidad}</p>
@@ -669,7 +669,7 @@ const actualizarCarritoRAM = () => {
 
         div.innerHTML = `
 
-            <td><img src="${productosRam.img}" width=100></td>
+            <td><img src="${productosRam.img}" width=100px height=100px></td>
             <p>${productosRam.marca}</p>
             <p><strong>Precio:</strong> $${productosRam.precio}</p>
             <p><strong>Cantidad:</strong> ${productosRam.cantidad}</p>

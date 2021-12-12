@@ -9,6 +9,7 @@ const modalCarrito = document.getElementsByClassName('modal-carrito')[0]
 botonAbrir.addEventListener('click', () => {
 
     contenedorModal.classList.toggle('modal-active')
+    document.body.style.overflow = 'hidden'
 
 });
 
@@ -16,6 +17,7 @@ botonAbrir.addEventListener('click', () => {
 botonCerrar.addEventListener('click', () => {
 
     contenedorModal.classList.toggle('modal-active')
+    document.body.style.overflow = 'auto'
 
 });
 

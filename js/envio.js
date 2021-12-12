@@ -40,7 +40,7 @@ $('#botonCalculoEnvio').click(function () {
                 let totalPurchase;
 
                 //?ESTE SWITCH CONTIENE TODAS LAS PROVINCIAS DE ARGENTINA Y SUS RESPECTIVOS RECARGOS PARA EL ENVIO DEL PRODUCTO
-                switch (province.value) {
+                switch ((province.value).toLowerCase().trim()) {
 
                     case 'buenos aires':
                         
@@ -371,7 +371,7 @@ const shippingCost = (envio, totalPurchase, IVA, province, total) => {
 
             icon: 'success',
             title: '¡Muy bien!',
-            html: `Tu provincia es <strong>${province.value}</strong> y el precio final + IVA con envio gratuito es de $${total} pesos`,
+            html: `Tu provincia es <strong>${province.value}</strong> y el precio final + IVA con <strong>envio gratuito</strong> es de $${total} pesos`,
             text: 'Compra finalizada con éxito, ¡muchas gracias.',
             footer: '<strong>Proceso finalizado</strong>',
             showConfirmButton: false,
@@ -421,8 +421,8 @@ const purchaseAmount = () => {
             buttonsStyling: false,
 
             icon: 'question',
-            title: '¿Cuanto es el valor de la compra?',
-            inputPlaceholder: 'Ingrese el valor de la compra',
+            title: '¿Qué monto indica el ticket de compra?',
+            inputPlaceholder: '¡Ingrese el valor total!',
             input: 'number',
             confirmButtonText: 'Ingresar!',
             showCancelButton: false,

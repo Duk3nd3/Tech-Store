@@ -26,21 +26,21 @@ aboutMe :: struct {
   pronouns :: string["He"/"She"];
   languages :: string["Spanish"/"English"];
   hobbies :: string["Music", "Video Games"];
-  funFact :: string;
+  funFact :: string ["I´m Legend"];
 }
 
 main :: func(): void {
   ethan :: aboutMe = {
     pronouns: ["He", "Him"],
     languages: ["JS"],
-    hobbies: ["Coding", "Gaming", "Talking"],
-    funFact: "The first computer virus was created in 1983!"
+    hobbies: ["Coding", "Gaming", "Coding...again"],
+    funFact: "w8 what?!"
   };
 
   println "Pronouns: ${Dukende.pronouns}";
-  println "Languages I Know: ${Dukende.languages}";
-  println "My Hobbies: ${Dukende.hobbies}";
-  println "Fun Fact: ${Dukende.funFact}";
+  println "Languages I Know: ${javascript.languages}";
+  println "My Hobbies: ${video_games.hobbies}";
+  println "Fun Fact: ${nope_now.funFact}";
 }
 ```
 #### :muscle: Things I am challenging myself with:

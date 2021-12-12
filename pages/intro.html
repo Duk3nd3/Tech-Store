@@ -33,7 +33,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <button type="button" value="shopping" id="boton-carrito"
-                class="btn-cart btn-secondary fas fa-shopping-cart"><span id="contador-carrito"> 0</span></button>
+                class="btn-cart btn-secondary fas fa-shopping-cart"><span id="contador-carrito" class="zero-style"> 0</span></button>
                 <button type="button" value="exchange" id="boton-cambio"
                     class="btn-cambio btn-secondary" id="cambio-moneda" onclick="exchange()">MONEDA</span></button>
                 <button type="button" value="logout" id="botonLogout" class="btn-logOut btn-secondary" onclick="botonLogout()">SALIR</button>
@@ -104,7 +104,7 @@
 
     <!--MODAL CARRITO-->
     <div class="modal-contenedor">
-        <div class="modal-carrito">
+        <div class="modal-carrito vertical-menu">
             <h3>Carrito de compras</h3>
             <button id="carritoCerrar"></button>
             <div id="carrito-contenedor" class="input__elemento">
