@@ -103,7 +103,36 @@ const registrarse = () => {
                 document.getElementById("floatingPassword").focus();
                 break;
 
-                //*CASO 3 CORREO
+                //*CASO 3 PASSWORD
+            case (!pass.test(document.getElementById("floatingPasswordConfirm").value)):
+                Swal.fire({
+
+                    imageUrl: '/images/register/ohno.gif',
+                    imageWidth: 200,
+                    imageHeight: 100,
+                    icon: 'warning',
+                    title: 'Error',
+                    text: 'La contraseña debe tener entre 4 y 10 caracteres',
+                    footer: '<strong>Volvé a intentarlo</strong>',
+                    background: '#ffff',
+                    showConfirmButton: false,
+                    allowEscapeKey: false,
+                    allowOutsideClick: false,
+                    timerProgressBar: true,
+                    timer: 6000,
+                    width: '20%',
+                    backdrop: true,
+
+                });
+
+                //*LIMPIAMOS EL CAMPO INCORRECTO PARA PASSWORD
+                document.getElementById("floatingPasswordConfirm").value = "";
+
+                //*UBICACION DEL FOCO AL CAMPO PASSWORD
+                document.getElementById("floatingPasswordConfirm").focus();
+                break;
+
+                //*CASO 4 CORREO
             case (!correo.test(document.getElementById("floatingEmail").value)):
 
                 Swal.fire({
